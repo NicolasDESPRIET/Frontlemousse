@@ -2,7 +2,7 @@
 
 ## A project by Pamplemousse 
 
-![GitHub Logo](/assets/pamplemousse_logo.png)
+![Pamplemousse Logo](/assets/pamplemousseLogo.png)
 
 project PMN Front part Nicolas Despriet, Vincent Rambaud, Willaim Finzy
 
