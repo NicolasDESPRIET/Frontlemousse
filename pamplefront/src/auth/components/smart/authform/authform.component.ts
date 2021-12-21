@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { constantsAuthText, constantsSharedTexts } from '../../../../shared/shared-text';
+import { constantsAuthText, constantsSharedTexts, constantsAuthButtons } from '../../../../shared/shared-text';
 import { User } from 'src/models/user';
 
 
@@ -16,6 +16,7 @@ export class AuthformComponent implements OnInit {
   passwordLabel = constantsAuthText.PASSWORD_LABEL;
   usernamePlaceHolder = constantsAuthText.USERNAME_PLACEHOLDER;
   passwordPlaceHolder = constantsAuthText.PASSWORD_PLACEHOLDER;
+  connexionText = constantsAuthButtons.AUTH_CONNEXION_BUTTON_TEXT;
 
   submitted = false;
   model = new User(); 

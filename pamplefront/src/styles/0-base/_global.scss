@@ -3,14 +3,21 @@ GLOBAL STYLES
 =====================*/
 
 // COLORS
+//------------
 
 $window-color: #F2F2F2 ;
 $reddish-background-color: #C0504D; 
 
+
 // CONTENT
+//------------
 
 .content {
-    border: solid blue;
+    padding-top: 8vh;
+}
+
+.body-auth-page {
+    height: 70vh;
 }
 
 #hero {
