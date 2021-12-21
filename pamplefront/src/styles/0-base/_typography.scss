@@ -1,0 +1,11 @@
+/* ===================
+GLOBAL TYPOGRAPHY
+=====================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$quickcm-font: 'Roboto', sans-serif;
+
+p, h1, h2, h3, span {
+    font-family: $quickcm-font;
+}

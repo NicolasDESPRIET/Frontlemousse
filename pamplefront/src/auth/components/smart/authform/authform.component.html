@@ -1,1 +1,31 @@
-<p>authform works!</p>
+<h1>
+    {{title}}
+</h1>
+<h2>
+    {{subtitle}}
+</h2>
+<div class="form-container">
+    <p class="alert alert-danger">Espace stagiaire</p>
+    <form class="form-group">
+        <label for="username">{{usernameLabel}}</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend3">@</span>
+            </div>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="username" 
+                placeholder={{usernamePlaceHolder}} 
+                aria-describedby="inputGroupPrepend3" 
+                required
+                [(ngModel)]="model.username"
+                name = "username"
+                >
+            <div class="invalid-feedback">
+                Please choose a username.
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { constantsAuthText, constantsSharedTexts } from '../../../../shared/shared-text';
+import { User } from 'src/models/user';
+
 
 @Component({
   selector: 'app-authform',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthformComponent implements OnInit {
 
-  constructor() { }
+  title = constantsSharedTexts.BRAND_NAME;
+  subtitle = constantsSharedTexts.BRAND_SLOGAN;
+  usernameLabel = constantsAuthText.USERNAME_LABEL;
+  passwordLabel = constantsAuthText.PASSWORD_LABEL;
+  usernamePlaceHolder = constantsAuthText.USERNAME_PLACEHOLDER;
+  passwordPlaceHolder = constantsAuthText.PASSWORD_PLACEHOLDER;
 
-  ngOnInit(): void {
+  submitted = false;
+  model = new User(); 
+
+  constructor() { 
+    // For now it is empty 
   }
+
+  ngOnInit(): void {}
+
+  onSubmit(){this.submitted = true}
 
 }

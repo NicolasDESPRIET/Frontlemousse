@@ -1,0 +1,14 @@
+// Navbar style
+#quickcm-navbar {
+    background-color: $window-color;
+    height: 8vh;
+    padding: 0 5vw 0 5vw;
+
+    div.container-fluid {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
+
