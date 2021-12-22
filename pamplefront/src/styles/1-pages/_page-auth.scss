@@ -1,0 +1,65 @@
+
+// AUTH PAGE
+//-------------------
+
+// Body format, center row vertically
+.body-auth-page {
+    background-color: $reddish-background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // Center column content
+    .row {
+        .auth-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+
+// Remove hero when phone screen
+@media (max-width: 768px) {
+    #auth-content-left {
+        display: none;
+    }
+}
+
+// Input size uniformization
+.form-control#username,
+.form-control#password,
+.input-group-text,
+#connexionButton {
+    height: 40px;
+}
+
+// Reduce form size on left and right
+.form-container {
+    padding: 0 40px 0 40px;
+}
+
+// Center text and adapt workspace flag size
+#label-workspace {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+form {
+    // Space input fields
+    input {
+        margin-bottom: 1.3rem;
+    }
+    
+    // Format connexion button
+    #connexion-button{
+        text-align: center;
+        button {
+            width: 80%;
+            margin-top: 10px;
+        }
+    }
+}

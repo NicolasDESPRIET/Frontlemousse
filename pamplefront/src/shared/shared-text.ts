@@ -7,7 +7,7 @@ export enum constantsSharedButtons {
 }
 
 export enum constantsSharedTexts {
-    BRAND_NAME = 'QuickCM',
+    BRAND_NAME = 'QCMPlus',
     BRAND_SLOGAN = 'Ma plateforme d\'évaluation',
 }
 
@@ -33,5 +33,5 @@ export enum constantsAuthText {
 }
 
 export enum constantsAuthButtons {
-    AUTH_CONNEXION_BUTTON_TEXT = 'Connexion',
+    AUTH_CONNEXION_BUTTON_TEXT = 'Valider',
 }

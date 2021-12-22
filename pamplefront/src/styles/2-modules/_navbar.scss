@@ -3,7 +3,7 @@ NAVBAR STYLES
 =====================*/
 #quickcm-navbar {
     background-color: $window-color;
-    height: 8vh;
+    min-height: 8vh;
     padding: 0 5vw 0 5vw;
     position: fixed;
     top: 0;

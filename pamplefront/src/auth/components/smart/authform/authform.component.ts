@@ -17,6 +17,8 @@ export class AuthformComponent implements OnInit {
   usernamePlaceHolder = constantsAuthText.USERNAME_PLACEHOLDER;
   passwordPlaceHolder = constantsAuthText.PASSWORD_PLACEHOLDER;
   connexionText = constantsAuthButtons.AUTH_CONNEXION_BUTTON_TEXT;
+  stagiaireWorkSpace = constantsAuthText.INTERN_WORKSPACE_FLAG;
+  adminWorkSpace = constantsAuthText.ADMIN_WORKSPACE_FLAG;
 
   submitted = false;
   model = new User(); 

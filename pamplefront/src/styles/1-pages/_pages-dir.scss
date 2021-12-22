@@ -2,33 +2,6 @@
 PAGE STYLES
 =====================*/
 
-// AUTH PAGE
-//-------------------
 
-.body-auth-page {
-    background-color: $reddish-background-color;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.row {
-    .auth-col {
-        text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    #auth-content-left {
-        display: none;
-    }
-}
-
-
-
-.form-control#username,
-.form-control#password,
-.input-group-text,
-#connexionButton {
-    height: 40px;
-}
+// Authentication page
+@import "./page-auth";
