@@ -8,6 +8,7 @@ NAVBAR STYLES
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 10000;
 
     div.container-fluid {
         display: flex;
