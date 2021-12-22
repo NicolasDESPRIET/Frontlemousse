@@ -14,6 +14,11 @@ NAVBAR STYLES
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        .navbar-brand {
+            color: $white-letter-color;
+            font-weight: 600;
+        }
     }
 
 }
