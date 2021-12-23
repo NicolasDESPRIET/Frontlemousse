@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { SharedataService } from 'src/services/sharedata.service';
 import { constantsHomeButtons, constantsSharedTexts } from '../../../../shared/shared-text';
 
 
@@ -23,10 +24,11 @@ export class HomechoiceComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSelectWorkSpace(workSpace: string){
-    //this.workSpace = ($event.target as HTMLInputElement).value ;
-    this.selectedWorkspace.emit(workSpace)
-  }
+/*   onSelectWorkSpace($event: Event){
+    let workSpace = ($event.target as HTMLInputElement).value ;
+    //this.selectedWorkspace.emit(workSpace)
+    this._sharedataService.setOption("workspace", workSpace);
+  } */
   
 
 }

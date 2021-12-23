@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { constantsAuthText, constantsSharedTexts, constantsAuthButtons } from '../../../../shared/shared-text';
 import { User } from 'src/models/user';
 
@@ -9,6 +9,8 @@ import { User } from 'src/models/user';
   styleUrls: ['./authform.component.scss']
 })
 export class AuthformComponent implements OnInit {
+
+  @Input() workSpace: string = "";
 
   title = constantsSharedTexts.BRAND_NAME;
   subtitle = constantsSharedTexts.BRAND_SLOGAN;

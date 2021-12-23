@@ -8,8 +8,8 @@
     <div class="choice-container">
             <button
                 value="admin"
-                (click)="onSelectWorkSpace($event)"
-                
+                routerLink="/auth"
+                [queryParams]="{workspace: 'admin'}"
                 id="accessAdminButton" 
                 type="button" 
                 class="btn btn-primary">
@@ -17,8 +17,8 @@
             </button>
             <button 
                 value="intern"
-                (click)="onSelectWorkSpace($event)"
-                
+                routerLink="/auth"
+                [queryParams]="{workspace: 'intern'}"
                 id="accessInternButton" 
                 type="button" 
                 class="btn btn-primary">

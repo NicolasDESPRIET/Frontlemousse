@@ -8,10 +8,10 @@ export class AppComponent {
   
   title = 'pamplefront';
 
-  workSpace: string = "";
+  workSpace: string = "app comp";
 
-  onSelectedWorkspace(workspace: string){
-    this.workSpace = workspace;
+  onSelectedWorkspace(event: Event){
+    this.workSpace = (event.target as HTMLInputElement).value;
   }
 
 
