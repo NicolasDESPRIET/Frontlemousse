@@ -35,3 +35,14 @@ export enum constantsAuthText {
 export enum constantsAuthButtons {
     AUTH_CONNEXION_BUTTON_TEXT = 'Valider',
 }
+
+
+/*========================
+INTERN WORKSPACE PAGES
+==========================*/
+
+export enum constantsInternWorkspace {
+    PERSONALIZED_MSG = 'Bon retour parmi nous, ',
+    SEE_RESULTS = 'Mes résultats',
+    DO_QCM = 'Faire un questionnaire'
+}

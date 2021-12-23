@@ -1,0 +1,35 @@
+// INTERN PAGE
+//-------------------
+
+// Body format, center row vertically
+.body-intern-page {
+    background-color: $background-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    // Center column content
+    .row {
+        .intern-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+
+// Remove hero when phone screen
+@media (max-width: 768px) {
+    #intern-content-right {
+        display: none;
+    }
+}
+
+// Center text and adapt workspace flag size
+#label-intern-workspace {
+    text-align: center;
+    padding: 0.5rem;
+}
