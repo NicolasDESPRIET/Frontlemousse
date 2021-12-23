@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { constantsHomeButtons, constantsSharedTexts } from '../../../../shared/shared-text';
-import { User } from 'src/models/user';
 
 
 @Component({
@@ -15,15 +14,19 @@ export class HomechoiceComponent implements OnInit {
   accessAdminWorkSpaceText = constantsHomeButtons.ADMIN_WORKSPACE_BTN;
   accessInternWorkSpaceText = constantsHomeButtons.INTERN_WORKSPACE_BTN;
 
-  submitted = false;
-  model = new User(); 
-
+  @Output() selectedWorkspace = new EventEmitter<string>();
+  @Input('workSpace') workSpace: string = "";
+  
   constructor() { 
     // For now it is empty 
   }
 
   ngOnInit(): void {}
 
-  onSubmit(){this.submitted = true}
+  onSelectWorkSpace(workSpace: string){
+    //this.workSpace = ($event.target as HTMLInputElement).value ;
+    this.selectedWorkspace.emit(workSpace)
+  }
+  
 
 }

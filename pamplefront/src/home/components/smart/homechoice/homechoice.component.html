@@ -1,4 +1,4 @@
-<section class="section-auth-page">
+<section class="section-home-page">
     <h1>
         {{title}}
     </h1>
@@ -6,11 +6,24 @@
         {{subtitle}}
     </h2>
     <div class="choice-container">
-            <button id="connexionButton" type="submit" class="btn btn-primary">
-                {{accessAdminWorkSpaceText}}
+            <button
+                value="admin"
+                (click)="onSelectWorkSpace($event)"
+                
+                id="accessAdminButton" 
+                type="button" 
+                class="btn btn-primary">
+                    {{accessAdminWorkSpaceText}}
             </button>
-            <button id="connexionButton" type="submit" class="btn btn-primary">
-                {{accessInternWorkSpaceText}}
+            <button 
+                value="intern"
+                (click)="onSelectWorkSpace($event)"
+                
+                id="accessInternButton" 
+                type="button" 
+                class="btn btn-primary">
+                    {{accessInternWorkSpaceText}}
             </button>
+            {{workSpace}}
     </div>
 </section>

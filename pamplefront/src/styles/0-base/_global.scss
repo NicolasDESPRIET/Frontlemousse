@@ -6,7 +6,7 @@ GLOBAL STYLES
 //------------
 
 $window-color: #2F80ED ;
-$reddish-background-color: #FFFFFF; 
+$background-color: #FFFFFF; 
 $white-letter-color: #FFFFFF;
 
 // CONTENT
@@ -17,7 +17,7 @@ $white-letter-color: #FFFFFF;
     padding-bottom: 8vh;
 }
 
-.body-auth-page {
+.body-auth-page, .body-home-page {
     min-height: 70vh;
 }
 

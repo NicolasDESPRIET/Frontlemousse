@@ -1,6 +1,6 @@
 
 <app-navbar></app-navbar>
-<div class="content">
+<div class="content" (selectedWorkspace)="onSelectedWorkspace(workSpace)">
     <router-outlet></router-outlet>
 </div>
 <div class="footer">

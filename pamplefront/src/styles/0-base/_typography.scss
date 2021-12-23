@@ -10,7 +10,7 @@ p, h1, h2, h3, span {
     font-family: $quickcm-font;
 }
 
-.section-auth-page {
+.section-auth-page, .section-home-page {
     h1, h2, label {
         color: $window-color;
     }
