@@ -1,0 +1,403 @@
+/* ===================
+BASE STYLES
+=====================*/
+/* ===================
+GLOBAL STYLES
+=====================*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.content {
+  padding-top: 8vh;
+  padding-bottom: 8vh;
+}
+
+.body-auth-page, .body-home-page, .body-intern-page {
+  min-height: 70vh;
+}
+
+#hero, #herointern {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+/* ===================
+GLOBAL TYPOGRAPHY
+=====================*/
+p, h1, h2, h3, span {
+  font-family: "Roboto", sans-serif;
+}
+
+.section-auth-page h1, .section-auth-page h2, .section-auth-page label,
+.section-home-page h1,
+.section-home-page h2,
+.section-home-page label {
+  color: #2F80ED;
+}
+
+.section-auth-page label,
+.section-home-page label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.section-auth-page h1,
+.section-home-page h1 {
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.section-auth-page h2,
+.section-home-page h2 {
+  font-size: 3rem;
+}
+
+.section-intern-page h1, .section-intern-page h2, .section-intern-page label {
+  color: #2F80ED;
+}
+
+.section-intern-page label {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.section-intern-page h1 {
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+.section-intern-page h2 {
+  font-size: 2rem;
+}
+
+/* ===================
+PAGE STYLES
+=====================*/
+.body-home-page {
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-home-page .row .home-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  #home-content-left {
+    display: none;
+  }
+  #home-content-right h1, #home-content-right h2 {
+    text-align: center;
+  }
+}
+
+button {
+  height: 40px;
+  margin: .5rem 0 .5rem 0;
+}
+
+.choice-container {
+  padding: 0 40px 0 40px;
+  margin-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#label-workspace {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.body-auth-page {
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-auth-page .row .auth-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  #auth-content-left {
+    display: none;
+  }
+  #auth-content-right h1, #auth-content-right h2 {
+    text-align: center;
+  }
+}
+
+.form-control#username,
+.form-control#password,
+.input-group-text,
+#connexionButton {
+  height: 40px;
+}
+
+.form-container {
+  padding: 0 40px 0 40px;
+  margin-top: 4rem;
+}
+
+#label-workspace {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+form input {
+  margin-bottom: 1.3rem;
+}
+
+form #connexion-button {
+  text-align: center;
+}
+
+form #connexion-button button {
+  width: 80%;
+  margin-top: 10px;
+}
+
+.body-intern-page {
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.body-intern-page .row .intern-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  #intern-content-right {
+    display: none;
+  }
+}
+
+.section-intern-page > h1, .section-intern-page > h2 {
+  padding-left: 60px;
+}
+
+.seeqcm-choice-container {
+  padding: 0 40px 0 60px;
+  margin-top: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.seeqcm-choice-container > a {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#label-intern-workspace {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+#internSeeQcmsButton {
+  width: 50%;
+  margin: auto;
+}
+
+#arrowBottomQcm {
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+}
+
+#internSeeQcmsButton:hover > #arrowBottomQcm {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all ease .5s;
+  transition: all ease .5s;
+}
+
+/* ===================
+MODULES STYLES
+=====================*/
+/* ===================
+FOOTER STYLES
+=====================*/
+.footer {
+  background-color: #2F80ED;
+  min-height: 22vh;
+}
+
+/* ===================
+NAVBAR STYLES
+=====================*/
+#quickcm-navbar {
+  background-color: #2F80ED;
+  min-height: 8vh;
+  padding: 0 5vw 0 5vw;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}
+
+#quickcm-navbar div.container-fluid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#quickcm-navbar div.container-fluid .navbar-brand {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.section-internqcmpanel {
+  margin-top: 50px;
+  padding: 0 100px 0 100px;
+}
+
+.section-internqcmpanel #internQcmPanelSearchbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.section-internqcmpanel #internQcmPanelFilterAndSort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.section-internqcmpanel #internQcmPanelSort {
+  min-width: 250px;
+  width: 30%;
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.section-internqcmpanel #internQcmPanelSearchButton {
+  margin: 0;
+}
+
+.section-internqcmpanel #internQcmPanelFilterAndSort > #internQcmPanelFilter,
+.section-internqcmpanel #internQcmPanelFilterAndSort > #internQcmPanelSort,
+.section-internqcmpanel #internQcmPanelSearchbar > #internQcmPanelSearchInput,
+.section-internqcmpanel #internQcmPanelSearchbar > #internQcmPanelSearchButton {
+  max-height: 40px;
+}
+
+@media (max-width: 768px) {
+  .section-internqcmpanel #internQcmPanelFilterAndSort {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .section-internqcmpanel #internQcmPanelSort {
+    width: 100%;
+    margin: 0.5rem 0 0.5rem 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

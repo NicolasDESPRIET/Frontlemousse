@@ -27,6 +27,12 @@
     #auth-content-left {
         display: none;
     }
+
+    #auth-content-right {
+        h1,h2 {
+            text-align: center;
+        }
+    }
 }
 
 // Input size uniformization
