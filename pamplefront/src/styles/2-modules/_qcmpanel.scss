@@ -1,0 +1,45 @@
+.section-internqcmpanel {
+    margin-top: 50px;
+    padding: 0 100px 0 100px;
+
+    #internQcmPanelSearchbar {
+        display: flex;
+    }
+
+    #internQcmPanelFilterAndSort {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #internQcmPanelSort {
+        min-width: 250px;
+        width: 30%;
+        margin: 0.5rem 0 0.5rem 0;
+    }
+
+    #internQcmPanelSearchButton {
+        margin: 0;
+    }
+
+    #internQcmPanelFilterAndSort > #internQcmPanelFilter,
+    #internQcmPanelFilterAndSort > #internQcmPanelSort,
+    #internQcmPanelSearchbar > #internQcmPanelSearchInput,
+    #internQcmPanelSearchbar > #internQcmPanelSearchButton 
+    {
+        max-height: 40px;
+    }
+
+    // On mobile
+    @media (max-width: 768px) {
+    #internQcmPanelFilterAndSort {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    #internQcmPanelSort {
+        width: 100%;
+        margin: 0.5rem 0 0.5rem 0;
+    }
+}
+}

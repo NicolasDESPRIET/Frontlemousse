@@ -1,6 +1,10 @@
 // INTERN PAGE
 //-------------------
 
+// ------------------
+// GENERAL
+//-------------------
+
 // Body format, center row vertically
 .body-intern-page {
     background-color: $background-color;
@@ -19,8 +23,6 @@
     }
 }
 
-
-
 // Remove hero when phone screen
 @media (max-width: 768px) {
     #intern-content-right {
@@ -28,8 +30,49 @@
     }
 }
 
+// ------------------
+// CONTENT LEFT
+//-------------------
+
+// add padding to title
+.section-intern-page>h1,.section-intern-page>h2 {
+    padding-left: 60px;
+}
+
+// Format choice box 
+.seeqcm-choice-container {
+    padding: 0 40px 0 60px;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.seeqcm-choice-container > a {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 // Center text and adapt workspace flag size
 #label-intern-workspace {
     text-align: center;
     padding: 0.5rem;
+}
+
+// Button size
+#internSeeQcmsButton {
+    width: 50%;
+    margin: auto;
+}
+
+// Turn arrow
+#arrowBottomQcm {
+    transition: all ease .5s;
+}
+
+#internSeeQcmsButton:hover  > #arrowBottomQcm{
+    transform: rotate(90deg);
+    transition: all ease .5s;
 }

@@ -6,29 +6,26 @@
         {{subtitle}}{{name}} !
     </h2>
     
-    <div class="choice-container">
+    <div class="seeqcm-choice-container">
             <div
                 id="label-intern-workspace" 
                 class="alert alert-danger">
                 {{workSpace}}
             </div>
-            <button
-                value="admin"
-                routerLink="/auth"
-                [queryParams]="{workspace: 'admin'}"
-                id="accessAdminButton" 
-                type="button" 
-                class="btn btn-primary">
-                    {{seeResultsText}}
-            </button>
-            <button 
-                value="intern"
-                routerLink="/auth"
-                [queryParams]="{workspace: 'intern'}"
-                id="accessInternButton" 
-                type="button" 
-                class="btn btn-primary">
-                    {{doQcmText}}
-            </button>
+            <p id="internWorkspaceDescriptionText">
+                    {{descriptionText}}
+            </p>
+            <a href="/intern#internQcmPanelTitle">
+                <button 
+                    value="intern"
+                    id="internSeeQcmsButton" 
+                    type="button" 
+                    class="btn btn-primary"
+                    
+                >
+                {{seeQcmsText}}
+                <i id="arrowBottomQcm" class="fas fa-arrow-right"></i>        
+                </button>
+            </a>
     </div>
 </section>
