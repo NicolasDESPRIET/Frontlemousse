@@ -24,3 +24,9 @@ FA icons are used with blablabla
 
 
 
+## NOTES
+
+On charge les data une seule fois car:
+- peu de data à charger
+- peu d'utilisateurs 
+Donc meilleures perf + service : on peut chercher dynamiquement. 

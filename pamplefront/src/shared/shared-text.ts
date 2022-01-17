@@ -44,5 +44,7 @@ INTERN WORKSPACE PAGES
 export enum constantsInternWorkspace {
     PERSONALIZED_MSG = 'Bon retour parmi nous, ',
     SEE_RESULTS = 'Mes résultats',
-    DO_QCM = 'Faire un questionnaire'
+    DO_QCM = 'Faire un questionnaire',
+    SEE_QCMS_TEXT = "Voir mes QCMs",
+    DESCRIPTION_TEXT = "Lorem ipsum dolor sit amet. Ab quisquam necessitatibus est minima expedita cum expedita nemo in quibusdam assumenda eos atque animi sit facere atque ea error officia. Eos voluptates quia et aliquam nihil eos sunt voluptatum aut sint eius in aliquam iste sed corporis maxime! Est reprehenderit molestias in enim necessitatibus aut ipsam quae est eaque quam."
 }
