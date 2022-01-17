@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-qcmchoicepanel',
   templateUrl: './qcmchoicepanel.component.html',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QcmchoicepanelComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
 
 }

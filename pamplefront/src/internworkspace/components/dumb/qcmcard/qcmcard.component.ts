@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {data} from "../../../../assets/fakedata";
 
 @Component({
   selector: 'app-qcmcard',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qcmcard.component.scss']
 })
 export class QcmcardComponent implements OnInit {
+
+  cards = data.qcms;
+
+  filteredData = ""; 
 
   constructor() { }
 

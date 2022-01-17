@@ -1,1 +1,17 @@
-<p>qcmcard works!</p>
+<div 
+    id="internQcmCardsContainer"
+     
+    >
+    <div class="card internQcmCard" *ngFor="let card of cards">
+        <div class="card-body">
+          <h5 class="card-title">{{card.title}}</h5>
+          <p *ngIf="card.done" class="card-text">Note : {{card.mark}}</p>
+          <p *ngIf="card.done" class="card-text">Fait le : {{card.date}}</p>
+          <p *ngIf="card.done" class="card-text">Durée : {{card.duration}}</p>
+        </div>
+        <div class="card-body">
+          <a href="#" class="card-link">Voir mes résultats</a>
+          <a href="#" class="card-link">Repasser le questionnaire</a>
+        </div>
+      </div>
+</div>
