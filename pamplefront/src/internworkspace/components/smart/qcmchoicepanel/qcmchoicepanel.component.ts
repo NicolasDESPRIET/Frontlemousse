@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -8,11 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QcmchoicepanelComponent implements OnInit {
 
-  
+  searchtitle: FormControl;
+  filterby: string = "";
+  filterbyButtonStatus: any = {
+    "all" : true,
+    "done" : false,
+    "todo": false
+  }
 
-  constructor() { }
+  constructor() { 
+    this.searchtitle = new FormControl('');
+  }
 
   ngOnInit(): void {
+  }
+
+  onFilterby(choice: string){
+    Object.entries(this.filterbyButtonStatus).forEach(([key, val]) => {
+      //alert(key + " " + val)
+      if(val===true){this.filterbyButtonStatus[key]=false}
+    })
+    this.filterbyButtonStatus[choice] = !this.filterbyButtonStatus[choice];
+    this.filterby = choice;
+    
   }
 
 

@@ -39,6 +39,13 @@
     padding-left: 60px;
 }
 
+// Title padding on mobile
+@media (max-width: 768px) {
+    .section-intern-page>h1,.section-intern-page>h2 {
+        padding-left: 0px;
+    }
+}
+
 // Format choice box 
 .seeqcm-choice-container {
     padding: 0 40px 0 60px;
@@ -65,6 +72,14 @@
 #internSeeQcmsButton {
     width: 50%;
     margin: auto;
+}
+
+// Button size on mobile
+@media (max-width: 768px) {
+    #internSeeQcmsButton {
+        width: 100%;
+        margin: auto;
+    }
 }
 
 // Turn arrow
