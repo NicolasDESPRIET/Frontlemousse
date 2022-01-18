@@ -47,13 +47,19 @@
             </button>
         </div>
     
-        <select id="internQcmPanelSort" class="form-select" aria-label="Default select example">
-            <option selected>Trier par</option>
-            <option value="1">Note croissante</option>
-            <option value="2">Note décroissante</option>
-            <option value="3">Date de dernière réalisation</option>
-            <option value="3">Durée croissante</option>
-            <option value="3">Durée décroissante</option>
+        <select 
+            [formControl]="sortby"
+            id="internQcmPanelSort" 
+            class="form-select" 
+            aria-label="Default select example"
+            >
+            <option value="" selected>Trier par</option>
+            <option value="increasingMark">Note croissante</option>
+            <option value="decreasingMark">Note décroissante</option>
+            <option value="increasingLastExecutionDate">Date de dernière réalisation (croissant)</option>
+            <option value="decreasingLastExecutionDate">Date de dernière réalisation (décroissant)</option>
+            <option value="increasingDuration">Durée croissante</option>
+            <option value="decreasingDuration">Durée décroissante</option>
         </select>
     </div>
 
@@ -61,6 +67,7 @@
     <div id="internQcmPanelCardPane">
         <app-qcmcard
         [searchtitle]="searchtitle.value"
+        [sortby]="sortby.value"
         [filterby]="filterby"
         ></app-qcmcard>
     </div>

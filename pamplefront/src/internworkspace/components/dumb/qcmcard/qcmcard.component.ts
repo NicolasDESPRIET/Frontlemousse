@@ -10,7 +10,8 @@ export class QcmcardComponent implements OnInit {
 
   @Input() searchtitle: string = "";
   @Input() filterby: string = "";
-  
+  @Input() sortby: string = "";
+
   cards = data.qcms;
 
   filteredData = ""; 
@@ -18,6 +19,10 @@ export class QcmcardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  openPopupSeeAllResults(){
+    alert("hello");
   }
 
 }

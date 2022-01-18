@@ -11,15 +11,18 @@ import { Observable } from 'rxjs';
 export class QcmchoicepanelComponent implements OnInit {
 
   searchtitle: FormControl;
+  sortby: FormControl;
   filterby: string = "";
   filterbyButtonStatus: any = {
     "all" : true,
     "done" : false,
     "todo": false
   }
+  
 
   constructor() { 
     this.searchtitle = new FormControl('');
+    this.sortby = new FormControl('');
   }
 
   ngOnInit(): void {

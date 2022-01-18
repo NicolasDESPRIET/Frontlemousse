@@ -55,6 +55,13 @@
     justify-content: center;
 }
 
+// Choice box padding on mobile
+@media (max-width: 768px) {
+    .seeqcm-choice-container {
+        padding: 0px;
+    }
+}
+
 .seeqcm-choice-container > a {
     margin-top: 30px;
     display: flex;
