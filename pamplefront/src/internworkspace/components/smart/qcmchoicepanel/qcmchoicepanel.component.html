@@ -10,7 +10,9 @@
             class="form-control" 
             type="search" 
             placeholder="Search" 
-            aria-label="Search">
+            aria-label="Search"
+            [formControl]="searchtitle"
+            >
         <button 
             id="internQcmPanelSearchButton"
             class="btn btn-outline-primary" 
@@ -22,9 +24,27 @@
     <div id="internQcmPanelFilterAndSort">
 
         <div id="internQcmPanelFilter" class="btn-group" role="group" aria-label="Filters">
-            <button type="button" class="btn btn-primary">Tout</button>
-            <button type="button" class="btn btn-secondary">Fait</button>
-            <button type="button" class="btn btn-secondary">À faire</button>
+            <button
+                [ngClass]="filterbyButtonStatus.all ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('all')"
+                type="button" 
+                class="btn btn-primary">
+                Tout
+            </button>
+            <button 
+                [ngClass]="filterbyButtonStatus.done ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('done')"
+                type="button" 
+                class="btn">
+                Fait
+            </button>
+            <button 
+                [ngClass]="filterbyButtonStatus.todo ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('todo')"
+                type="button" 
+                class="btn">
+                À faire
+            </button>
         </div>
     
         <select id="internQcmPanelSort" class="form-select" aria-label="Default select example">
@@ -39,7 +59,10 @@
 
 
     <div id="internQcmPanelCardPane">
-        <app-qcmcard></app-qcmcard>
+        <app-qcmcard
+        [searchtitle]="searchtitle.value"
+        [filterby]="filterby"
+        ></app-qcmcard>
     </div>
 
 </section>

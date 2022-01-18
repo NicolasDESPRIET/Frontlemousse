@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {data} from "../../../../assets/fakedata";
 
 @Component({
@@ -8,6 +8,9 @@ import {data} from "../../../../assets/fakedata";
 })
 export class QcmcardComponent implements OnInit {
 
+  @Input() searchtitle: string = "";
+  @Input() filterby: string = "";
+  
   cards = data.qcms;
 
   filteredData = ""; 
