@@ -4,6 +4,7 @@ import { HeroComponent } from './hero/hero.component';
 import { HerointernComponent } from './herointern/herointern.component';
 import { FilterbypipePipe } from './pipes/filterbypipe.pipe';
 import { SearchtitlepipePipe } from './pipes/searchtitlepipe.pipe';
+import { SortbypipePipe } from './pipes/sortbypipe.pipe';
 
 
 
@@ -13,7 +14,8 @@ import { SearchtitlepipePipe } from './pipes/searchtitlepipe.pipe';
     HeroComponent,
     HerointernComponent,
     FilterbypipePipe,
-    SearchtitlepipePipe
+    SearchtitlepipePipe,
+    SortbypipePipe
   ],
   imports: [
     CommonModule
@@ -22,7 +24,8 @@ import { SearchtitlepipePipe } from './pipes/searchtitlepipe.pipe';
     HeroComponent,
     HerointernComponent,
     SearchtitlepipePipe,
-    FilterbypipePipe
+    FilterbypipePipe,
+    SortbypipePipe
   ]
 })
 export class SharedModule { }

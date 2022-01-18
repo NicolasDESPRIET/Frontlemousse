@@ -35,9 +35,9 @@ export const data: any = {
         {
             id:1,
             title: "Quelle est la différence entre une poule ?",
-            mark: 18,
-            date: "01/03/2022",
-            duration: 280000,
+            mark: 19,
+            date: "01/04/2022",
+            duration: 120000,
             done: true
         },
         {
