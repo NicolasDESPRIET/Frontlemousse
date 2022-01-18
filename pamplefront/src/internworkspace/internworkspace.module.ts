@@ -8,6 +8,7 @@ import { InternchoiceComponent } from './components/dumb/internchoice/internchoi
 import { QcmchoicepanelComponent } from './components/smart/qcmchoicepanel/qcmchoicepanel.component';
 import { QcmcardComponent } from './components/dumb/qcmcard/qcmcard.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/material/material.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     InternworkspaceRoutingModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class InternworkspaceModule { }

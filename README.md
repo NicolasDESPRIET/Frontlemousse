@@ -22,7 +22,9 @@ The project uses Bootstrap 5 library for both its large documentation and the fa
 
 FA icons are used with blablabla
 
+## Angular Material
 
+Angular Material is used for modals and if necessary, animations. 
 
 ## NOTES
 

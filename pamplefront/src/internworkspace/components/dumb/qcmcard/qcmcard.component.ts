@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef } from '@angular/core';
 import {data} from "../../../../assets/fakedata";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-qcmcard',
@@ -16,13 +17,13 @@ export class QcmcardComponent implements OnInit {
 
   filteredData = ""; 
 
-  constructor() { }
+  constructor(private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  openPopupSeeAllResults(){
-    alert("hello");
+  openPopupSeeAllResults(templateRef: TemplateRef<any>){
+    this.dialog.open(templateRef);
   }
 
 }

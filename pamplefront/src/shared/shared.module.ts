@@ -5,6 +5,7 @@ import { HerointernComponent } from './herointern/herointern.component';
 import { FilterbypipePipe } from './pipes/filterbypipe.pipe';
 import { SearchtitlepipePipe } from './pipes/searchtitlepipe.pipe';
 import { SortbypipePipe } from './pipes/sortbypipe.pipe';
+import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
 
 
 
@@ -15,7 +16,8 @@ import { SortbypipePipe } from './pipes/sortbypipe.pipe';
     HerointernComponent,
     FilterbypipePipe,
     SearchtitlepipePipe,
-    SortbypipePipe
+    SortbypipePipe,
+    InternqcmdurationpipePipe
   ],
   imports: [
     CommonModule

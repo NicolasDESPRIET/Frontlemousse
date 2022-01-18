@@ -6,14 +6,16 @@
       class="card internQcmCard" 
       *ngFor="let card of cards | searchtitlepipe:searchtitle | filterbypipe:filterby | sortbypipe:sortby" 
       >
+        <h5 id="internQcmCardTitle" class="card-header">{{card.title}}</h5>
         <div class="card-body">
-          <h5 class="card-title">{{card.title}}</h5>
-          <p *ngIf="card.done" class="card-text">Note : {{card.mark}}/20</p>
+          
+          <h6 *ngIf="card.done">Dernier passage</h6>
+          <p *ngIf="card.done" class="card-text"><i id="internQcmCardMarkIcon" class="fas fa-graduation-cap"></i>{{card.mark}}/20</p>
           <p *ngIf="card.done" class="card-text">Fait le : {{card.date}}</p>
-          <p *ngIf="card.done" class="card-text">Durée : {{card.duration}}</p>
+          <p *ngIf="card.done" class="card-text">En : {{card.duration}}</p>
         </div>
         <div class="card-body">
-          <a *ngIf="card.done" (click)="openPopupSeeAllResults()" class="card-link">Voir mes résultats</a>
+          <a id="internQcmSeeResultsLink" *ngIf="card.done" (click)="openPopupSeeAllResults(seeAllResults)" class="card-link">Voir mes résultats</a>
           <a *ngIf="card.done" href="#" class="card-link">Repasser le questionnaire</a>
           <a *ngIf="!card.done" href="#" class="card-link">Faire le questionnaire</a>
         </div>

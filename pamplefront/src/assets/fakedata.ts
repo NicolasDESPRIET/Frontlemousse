@@ -58,3 +58,15 @@ export const data: any = {
         },
     ]
 }
+
+export const resultsData: any = {
+    0 : [
+        
+    ],
+    1 : [
+
+    ],
+    2 : [
+
+    ],
+}
