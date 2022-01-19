@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, Inject, Input, OnInit, TemplateRef } from '@angular/core';
 import {data} from "../../../../assets/fakedata";
 import { MatDialog } from '@angular/material/dialog';
 
@@ -13,6 +13,8 @@ export class QcmcardComponent implements OnInit {
   @Input() filterby: string = "";
   @Input() sortby: string = "";
 
+  selectedCardForResults: any | undefined;
+
   cards = data.qcms;
 
   filteredData = ""; 
@@ -22,8 +24,9 @@ export class QcmcardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openPopupSeeAllResults(templateRef: TemplateRef<any>){
+  openPopupSeeAllResults(templateRef: TemplateRef<any>, card: any){
     this.dialog.open(templateRef);
+    this.selectedCardForResults = card;
   }
 
 }

@@ -6,21 +6,81 @@
       class="card internQcmCard" 
       *ngFor="let card of cards | searchtitlepipe:searchtitle | filterbypipe:filterby | sortbypipe:sortby" 
       >
-        <h5 id="internQcmCardTitle" class="card-header">{{card.title}}</h5>
+        <h5 class="card-header" id="internQcmCardTitle" >{{card.title}}</h5>
+        <h6 
+          class="card-header" 
+          id="internQcmCardLastTitle" 
+          *ngIf="card.done">
+          <i class="far fa-calendar-alt"></i>
+          Dernier passage le {{card.results.at(-1).date}}
+        </h6>
+        <h6 
+          class="card-header"
+          id="internQcmCardTodoTitle" 
+          *ngIf="!card.done">
+          <i class="fas fa-tasks"></i>
+          À faire
+        </h6>
+
+
         <div class="card-body">
           
-          <h6 *ngIf="card.done">Dernier passage</h6>
-          <p *ngIf="card.done" class="card-text"><i id="internQcmCardMarkIcon" class="fas fa-graduation-cap"></i>{{card.mark}}/20</p>
-          <p *ngIf="card.done" class="card-text">Fait le : {{card.date}}</p>
-          <p *ngIf="card.done" class="card-text">En : {{card.duration}}</p>
+
+          <p 
+            title="Ma dernière note à ce questionnaire"
+            *ngIf="card.done" 
+            class="card-text">
+            <i id="internQcmCardMarkIcon" class="fas fa-graduation-cap"></i>
+            {{card.results.at(-1).mark}}/20
+          </p>
+          <p 
+            title="Le temps que m'a pris le questionnaire"
+            *ngIf="card.done" 
+            class="card-text">
+            <i id="internQcmCardDurationIcon" class="fas fa-hourglass-half"></i>
+            {{card.results.at(-1).duration | internqcmdurationpipe}}
+          </p>
+
         </div>
-        <div class="card-body">
-          <a id="internQcmSeeResultsLink" *ngIf="card.done" (click)="openPopupSeeAllResults(seeAllResults)" class="card-link">Voir mes résultats</a>
-          <a *ngIf="card.done" href="#" class="card-link">Repasser le questionnaire</a>
-          <a *ngIf="!card.done" href="#" class="card-link">Faire le questionnaire</a>
+
+
+        <div id="internQcmCardFooter" class="card-footer">
+          <button class="internQcmCardButton" id="internQcmSeeResultsLink" *ngIf="card.done" (click)="openPopupSeeAllResults(seeAllResults, card)">Mes résultats</button>
+          <button class="internQcmCardButton" id="internQcmRepass" *ngIf="card.done" href="#">Repasser</button>
+          <button class="internQcmCardButton" id="internQcmPass" *ngIf="!card.done" href="#" >Faire le questionnaire</button>
         </div>
       </div>
 </div>
+<!-- RESULTS POPUP -->
 <ng-template #seeAllResults>
-  Hello World
+  <header>
+    {{selectedCardForResults.title}}
+  </header>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Temps passé</th>
+          <th scope="col">Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let result of selectedCardForResults.results">
+          <td>
+            {{result.date}}
+          </td>
+          <td>
+            {{result.duration | internqcmdurationpipe}}
+          </td>
+          <td>
+            {{result.mark}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <footer>
+
+  </footer>
 </ng-template>

@@ -3,70 +3,96 @@ export const data: any = {
         {
             id:0,
             title: "Quelle est la différence entre une girafe ?",
-            mark: 14,
-            date: "01/01/2022",
-            duration: 240000,
+            results: [
+                {
+                    mark: 14,
+                    date: "01/01/2022",
+                    duration: 782
+                },
+                {
+                    mark: 13,
+                    date: "21/12/2021",
+                    duration: 887
+                },
+                {
+                    mark: 18,
+                    date: "21/12/2021",
+                    duration: 887
+                },
+            ],
             done: true
         },
         {
             id:1,
             title: "Quelle est la différence entre une poule ?",
-            mark: 18,
-            date: "01/03/2022",
-            duration: 280000,
+            results: [
+                {
+                    mark: 18,
+                    date: "01/03/2022",
+                    duration: 1203,
+                }
+            ],
             done: true
         },
         {
-            id:1,
-            title: "Quelle est la différence entre une poule ?",
-            mark: null,
-            date: null,
-            duration: null,
+            id:2,
+            title: "Combien coûte une girafe ?",
+            results: [
+                {
+                    mark: null,
+                    date: null,
+                    duration: null,
+                }
+            ],
             done: false
         },
         {
-            id:0,
-            title: "Quelle est la différence entre une girafe ?",
-            mark: 14,
-            date: "01/01/2022",
-            duration: 240000,
+            id:3,
+            title: "JavaScript : async et promises",
+            results: [
+                {
+                    mark: 14,
+                    date: "01/01/2022",
+                    duration: 3617,
+                }
+            ],
             done: true
         },
         {
-            id:1,
-            title: "Quelle est la différence entre une poule ?",
-            mark: 19,
-            date: "01/04/2022",
-            duration: 120000,
+            id:4,
+            title: "Combien coûte une poule ?",
+            results: [
+                {
+                    mark: 19,
+                    date: "01/04/2022",
+                    duration: 4500,
+                }
+            ],
             done: true
         },
         {
-            id:1,
-            title: "Quelle est la différence entre une poule ?",
-            mark: null,
-            date: null,
-            duration: null,
+            id:5,
+            title: "Savoir se servir d'un clavier",
+            results: [
+                {
+                    mark: null,
+                    date: null,
+                    duration: null,
+                }
+            ],
             done: false
         },
         {
-            id:1,
-            title: "Quelle est la différance entre une poule ?",
-            mark: null,
-            date: null,
-            duration: null,
+            id:6,
+            title: "JavaScript : les bases",
+            results: [
+                {
+                    mark: null,
+                    date: null,
+                    duration: null,
+                }
+            ],
             done: false
         },
     ]
-}
-
-export const resultsData: any = {
-    0 : [
-        
-    ],
-    1 : [
-
-    ],
-    2 : [
-
-    ],
 }

@@ -27,7 +27,8 @@ import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
     HerointernComponent,
     SearchtitlepipePipe,
     FilterbypipePipe,
-    SortbypipePipe
+    SortbypipePipe,
+    InternqcmdurationpipePipe
   ]
 })
 export class SharedModule { }

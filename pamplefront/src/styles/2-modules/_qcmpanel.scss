@@ -47,18 +47,95 @@
             flex-wrap: wrap;
 
             margin-top: 50px;
+            // Zoom on card on hover
+            .internQcmCard:hover{
+                transform: scale(102%);
+            }
 
             .internQcmCard {
+                transition: all ease .3s;
+                border-radius: 20px 20px 20px 20px;
                 width: 350px;
                 min-width: 350px;
-                height: 300px;
+                height: 270px;
                 margin: 15px;
+
+                // Add space on icon's right
+                .fas, .far {margin-right: 15px;}
+
+                h6#internQcmCardLastTitle {
+                    margin: 0;
+                    background-color: $validation-green;
+                }
+                h6#internQcmCardTodoTitle {
+                    margin: 0;
+                    background-color: $todo-red;
+                }
+
+                .card-body {
+                    .card-text {
+                        display: inline-block;
+                        margin: 0 15px 0 15px;
+                        .fas {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 40px;
+                            width: 40px;
+                            border: solid 1px $window-color;
+                            color: $window-color;
+                            border-radius: 50%;
+                        }
+                    }
+                } 
 
                 #internQcmSeeResultsLink{cursor: pointer;}
                 #internQcmCardTitle {
+                    border-radius: 20px 20px 0px 0px;
                     background-color: $window-color;
                     color: $white-letter-color;
                     font-weight: 400;
+                }
+                #internQcmCardFooter{
+                    
+                    border-radius: 0px 0px 20px 20px;
+                    display: flex;
+                    justify-content: center;
+                    background-color: $white-letter-color;
+                    border: none;
+                    color: $white-letter-color;
+                    padding: 0 15px 15px 15px;
+                    
+                    // Button styling
+                    .internQcmCardButton {
+                        margin: 0 15px 0 15px;
+                        border-radius: 30px 30px 30px 30px;
+                        transition: all ease .3s;
+                        background-color: $window-color; 
+                        color: $white-letter-color;
+                        border: none;
+                        width: 80%; 
+                        height: 40px;
+                    }
+                    // Style repass button specifically
+                    #internQcmRepass{
+                        border: solid 1px $window-color;
+                        background-color: $white-letter-color;
+                        color: $general-purpose-black;
+                    }
+                    // Size My result and Repass buttons
+                    #internQcmRepass, #internQcmSeeResultsLink{
+                        width: 60%;
+                    }
+
+                    // Hover QCM card button action
+                    .internQcmCardButton:hover, .internQcmCardButton:hover>*{
+                        transition: all ease .3s;
+                        border: solid 1px $window-color;
+                        background-color: $white-letter-color;
+                        color: $general-purpose-black;
+                    }
+    
                 }
             }
         }
