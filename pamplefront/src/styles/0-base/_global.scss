@@ -1,0 +1,28 @@
+/* ===================
+GLOBAL STYLES
+=====================*/
+
+// COLORS
+//------------
+
+$window-color: #2F80ED ;
+$background-color: #FFFFFF; 
+$white-letter-color: #FFFFFF;
+
+// CONTENT
+//------------
+
+.content {
+    padding-top: 8vh;
+    padding-bottom: 8vh;
+}
+
+.body-auth-page, .body-home-page {
+    min-height: 70vh;
+}
+
+#hero {
+    width: fit-content;
+    height: fit-content;
+}
+

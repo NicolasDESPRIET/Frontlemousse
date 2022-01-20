@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { constantsSharedTexts, constantsSharedButtons } from 'src/shared/shared-text';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  titleNav = constantsSharedTexts.BRAND_NAME;
+  navBackHomeText = constantsSharedButtons.BACK_HOME_BUTTON;
 
+  constructor() {
+    // Empty
+  }
+  
   ngOnInit(): void {
   }
 

@@ -1,1 +1,53 @@
-<p>authform works!</p>
+<section class="section-auth-page">
+    <h1>
+        {{title}}
+    </h1>
+    <h2>
+        {{subtitle}}
+    </h2>
+    <div class="form-container">
+        <div id="label-workspace" class="alert alert-danger">{{workSpace}}</div>
+        <form 
+            #authForm="ngForm" 
+            class="form-group" 
+            (ngSubmit)="onSubmit()">
+            <label for="username">{{usernameLabel}}</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                </div>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="username" 
+                    placeholder={{usernamePlaceHolder}} 
+                    aria-describedby="inputGroupPrepend3" 
+                    required
+                    [(ngModel)]="model.username"
+                    name = "username"
+                >
+            </div>
+            <label for="username">{{passwordLabel}}</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                </div>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="password" 
+                    placeholder={{passwordPlaceHolder}} 
+                    aria-describedby="inputGroupPrepend3" 
+                    required
+                    [(ngModel)]="model.password"
+                    name = "password"
+                >
+            </div>
+            <div id="connexion-button">
+                <button id="connexionButton" type="submit" class="btn btn-primary">
+                    {{connexionText}}
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

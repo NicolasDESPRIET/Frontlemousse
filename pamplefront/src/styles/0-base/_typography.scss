@@ -1,0 +1,33 @@
+/* ===================
+GLOBAL TYPOGRAPHY
+=====================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+$quickcm-font: 'Roboto', sans-serif;
+
+p, h1, h2, h3, span {
+    font-family: $quickcm-font;
+}
+
+.section-auth-page, .section-home-page {
+    h1, h2, label {
+        color: $window-color;
+    }
+
+    label {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    h1 {
+        font-size: 5rem;
+        font-weight: 900;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+
+}
