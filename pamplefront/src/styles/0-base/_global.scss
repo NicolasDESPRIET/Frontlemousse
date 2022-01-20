@@ -17,11 +17,11 @@ $white-letter-color: #FFFFFF;
     padding-bottom: 8vh;
 }
 
-.body-auth-page, .body-home-page {
+.body-auth-page, .body-home-page, .body-intern-page {
     min-height: 70vh;
 }
 
-#hero {
+#hero, #herointern {
     width: fit-content;
     height: fit-content;
 }

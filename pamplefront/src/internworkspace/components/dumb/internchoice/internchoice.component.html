@@ -1,0 +1,34 @@
+<section class="section-intern-page">
+    <h1>
+        {{title}}
+    </h1>
+    <h2>
+        {{subtitle}}{{name}} !
+    </h2>
+    
+    <div class="choice-container">
+            <div
+                id="label-intern-workspace" 
+                class="alert alert-danger">
+                {{workSpace}}
+            </div>
+            <button
+                value="admin"
+                routerLink="/auth"
+                [queryParams]="{workspace: 'admin'}"
+                id="accessAdminButton" 
+                type="button" 
+                class="btn btn-primary">
+                    {{seeResultsText}}
+            </button>
+            <button 
+                value="intern"
+                routerLink="/auth"
+                [queryParams]="{workspace: 'intern'}"
+                id="accessInternButton" 
+                type="button" 
+                class="btn btn-primary">
+                    {{doQcmText}}
+            </button>
+    </div>
+</section>
