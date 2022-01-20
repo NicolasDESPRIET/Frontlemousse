@@ -7,7 +7,6 @@ import { AuthformComponent } from './components/smart/authform/authform.componen
 import { SharedModule } from 'src/shared/shared.module';
 
 
-
 @NgModule({
   declarations: [
     AuthpageComponent,
