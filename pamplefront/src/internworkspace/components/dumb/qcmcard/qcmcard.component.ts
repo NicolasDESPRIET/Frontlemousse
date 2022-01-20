@@ -14,6 +14,7 @@ export class QcmcardComponent implements OnInit {
   @Input() sortby: string = "";
 
   selectedCardForResults: any | undefined;
+  selectedCardForDo: any | undefined;
 
   cards = data.qcms;
 
@@ -25,8 +26,17 @@ export class QcmcardComponent implements OnInit {
   }
 
   openPopupSeeAllResults(templateRef: TemplateRef<any>, card: any){
-    this.dialog.open(templateRef);
+    this.dialog.open(templateRef, {
+      minWidth: '50vw'
+    });
     this.selectedCardForResults = card;
+  }
+
+  openPopupDoQcm(templateRef: TemplateRef<any>, card: any){
+    this.dialog.open(templateRef, {
+      minWidth: '50vw'
+    });
+    this.selectedCardForDo = card;
   }
 
 }

@@ -47,25 +47,31 @@
         <div id="internQcmCardFooter" class="card-footer">
           <button class="internQcmCardButton" id="internQcmSeeResultsLink" *ngIf="card.done" (click)="openPopupSeeAllResults(seeAllResults, card)">Mes résultats</button>
           <button class="internQcmCardButton" id="internQcmRepass" *ngIf="card.done" href="#">Repasser</button>
-          <button class="internQcmCardButton" id="internQcmPass" *ngIf="!card.done" href="#" >Faire le questionnaire</button>
+          <button class="internQcmCardButton" id="internQcmPass" *ngIf="!card.done" (click)="openPopupDoQcm(doQcmPopup, card)">Faire le questionnaire</button>
         </div>
       </div>
 </div>
 <!-- RESULTS POPUP -->
-<ng-template #seeAllResults>
-  <header>
-    {{selectedCardForResults.title}}
+<ng-template #seeAllResults id="internQcmCardResultsPopup">
+  
+  <header mat-dialog-title id="internQcmCardResultsHeader" >
+    
+    <div id="internQcmCardResultsLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+    <h6 id="internQcmCardResultsTitle">
+      {{selectedCardForResults.title}}
+    </h6>
   </header>
-  <div>
-    <table class="table">
-      <thead>
+  
+  <div mat-dialog-content id="internQcmCardResultsTableDiv" >
+    <table  class="table">
+      <thead id="internQcmCardResultsTableThead">
         <tr>
           <th scope="col">Date</th>
           <th scope="col">Temps passé</th>
           <th scope="col">Note</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="internQcmCardResultsTableBody">
         <tr *ngFor="let result of selectedCardForResults.results">
           <td>
             {{result.date}}
@@ -80,7 +86,25 @@
       </tbody>
     </table>
   </div>
-  <footer>
-
-  </footer>
+  <mat-dialog-actions id="internQcmCardResultsPopupFooter" >
+      <button id="internQcmCardResultsPopupCloseButton" aria-label="fermer" mat-button [mat-dialog-close]>Fermer</button>
+  </mat-dialog-actions>
+</ng-template>
+<!-- DO QCM POPUP -->
+<ng-template #doQcmPopup>
+  <header mat-dialog-title id="internQcmCardDoQcmsHeader" >
+    
+    <div id="internQcmCardDoQcmLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+    <h6 id="internQcmCardDoQcmTitle">
+      Faire le questionnaire ? 
+    </h6>
+  </header>
+  <div mat-dialog-content id="internQcmCardDoQcmContent">
+    <i class="fas fa-exclamation-triangle"></i>
+    <span>Voulez-vous passer le questionnaire : <strong>{{selectedCardForDo.title}}</strong> ?</span> 
+  </div>
+  <mat-dialog-actions id="internQcmCardDoQcmFooter" >
+    <button id="internQcmDoQcmReturnButton" aria-label="fermer" mat-button [mat-dialog-close]>Retour</button>
+    <button id="internQcmDoQcmYesButton" aria-label="fermer" mat-button [mat-dialog-close]>Oui</button>
+  </mat-dialog-actions>
 </ng-template>

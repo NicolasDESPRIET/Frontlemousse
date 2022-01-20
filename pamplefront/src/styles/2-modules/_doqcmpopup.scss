@@ -14,13 +14,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            #internQcmCardResultsLogo{
+            #internQcmCardDoQcmLogo{
                 display: flex;
                 flex-direction: row;
                 margin-top: 10px;
                 h5 {margin-top: 3px;}
             }
-            #internQcmCardResultsTitle {
+            #internQcmCardDoQcmTitle {
                 text-align: center;
                 margin-top: 10px;
             }
@@ -35,49 +35,46 @@
                 border-radius: 50%;
                 background-color: $window-color;
             }
-            
-            
- 
         }
         
         .mat-dialog-content {
-            padding: 0 24px 24px 24px !important; 
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            .fa-exclamation-triangle {
+                color: $window-color;
+                font-size:large;
+            }
+            padding: 24px !important; 
             margin: 0 10px 0 10px;
-            table {
-                margin-top: 0 !important;
-                border-collapse: separate;
-                border-spacing: 0;
-            }
-            #internQcmCardResultsTableThead {
-                height: 50px;
-                position: sticky;
-                z-index: 10;
-                background-color: $white-letter-color;
-                top: 0;
-                border-bottom: 5px solid $general-purpose-black;
-            }
-            tbody {
-                border-top: none;
-            }
         }
 
         .mat-dialog-actions{
             display: flex;
-            justify-content: center;
+            justify-content: space-evenly;
             margin-bottom: 10px;
-            #internQcmCardResultsPopupCloseButton{
+            #internQcmDoQcmReturnButton{
                 border: solid 1px $window-color;
                 background-color: $white-letter-color;
                 border-radius: 30px;
-                width: 70%;
+                width: 40%;
                 transition: all ease .3s;
             }
-            #internQcmCardResultsPopupCloseButton:hover{
+            #internQcmDoQcmYesButton{
                 border: solid 1px $window-color;
                 background-color: $window-color;
                 color: $white-letter-color;
                 border-radius: 30px;
-                width: 70%;
+                width: 40%;
             }
+            #internQcmDoQcmYesButton:hover{
+                border: solid 1px $window-color;
+                background-color: $white-letter-color;
+                color: $window-color;
+                border-radius: 30px;
+                transition: all ease .3s;
+            }
+
         }
     }
