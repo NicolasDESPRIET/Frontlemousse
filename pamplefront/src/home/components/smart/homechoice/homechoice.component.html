@@ -1,0 +1,29 @@
+<section class="section-home-page">
+    <h1>
+        {{title}}
+    </h1>
+    <h2>
+        {{subtitle}}
+    </h2>
+    <div class="choice-container">
+            <button
+                value="admin"
+                routerLink="/auth"
+                [queryParams]="{workspace: 'admin'}"
+                id="accessAdminButton" 
+                type="button" 
+                class="btn btn-primary">
+                    {{accessAdminWorkSpaceText}}
+            </button>
+            <button 
+                value="intern"
+                routerLink="/auth"
+                [queryParams]="{workspace: 'intern'}"
+                id="accessInternButton" 
+                type="button" 
+                class="btn btn-primary">
+                    {{accessInternWorkSpaceText}}
+            </button>
+            {{workSpace}}
+    </div>
+</section>

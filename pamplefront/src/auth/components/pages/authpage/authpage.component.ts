@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-authpage',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthpageComponent implements OnInit {
 
-  constructor() { }
+  workSpace: string = "";
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      params.workspace == "admin"
+      ? this.workSpace="Espace administrateur"
+      : this.workSpace="Espace stagiaire"
+    })
   }
 
 }

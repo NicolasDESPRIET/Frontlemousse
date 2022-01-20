@@ -1,3 +1,13 @@
-<p>authpage works!</p>
-<app-hero></app-hero>
-<app-authform></app-authform>
+<div class="container-fluid body-auth-page">
+    <div class="row">    
+        <div id="auth-content-left" class="auth-col col-md">
+            <app-hero></app-hero>
+        </div>
+        <div id="auth-content-right" class="auth-col col-md">
+            <app-authform [workSpace]="workSpace"></app-authform>
+        </div>
+    </div>
+</div>
+
+
+
