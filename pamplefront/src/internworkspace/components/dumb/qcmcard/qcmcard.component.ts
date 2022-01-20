@@ -2,6 +2,7 @@ import { Component, Inject, Input, OnInit, TemplateRef } from '@angular/core';
 import {data} from "../../../../assets/fakedata";
 import { MatDialog } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-qcmcard',
   templateUrl: './qcmcard.component.html',
@@ -13,6 +14,7 @@ export class QcmcardComponent implements OnInit {
   @Input() filterby: string = "";
   @Input() sortby: string = "";
 
+
   selectedCardForResults: any | undefined;
   selectedCardForDo: any | undefined;
 
@@ -20,7 +22,9 @@ export class QcmcardComponent implements OnInit {
 
   filteredData = ""; 
 
+
   constructor(private dialog: MatDialog) { }
+
 
   ngOnInit(): void {
   }
