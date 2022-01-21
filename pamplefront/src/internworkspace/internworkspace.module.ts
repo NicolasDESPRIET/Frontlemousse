@@ -9,7 +9,6 @@ import { QcmchoicepanelComponent } from './components/smart/qcmchoicepanel/qcmch
 import { QcmcardComponent } from './components/dumb/qcmcard/qcmcard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material/material.module';
-import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
