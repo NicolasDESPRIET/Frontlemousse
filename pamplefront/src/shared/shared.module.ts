@@ -10,6 +10,7 @@ import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     HeroComponent,

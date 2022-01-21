@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { constantsAuthText, constantsSharedTexts, constantsAuthButtons } from '../../../../shared/shared-text';
 import { User } from 'src/models/user';
 
-
 @Component({
   selector: 'app-authform',
   templateUrl: './authform.component.html',
