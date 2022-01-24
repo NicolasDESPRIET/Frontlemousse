@@ -1,0 +1,56 @@
+/**
+* DO QCM PAGE
+*/
+
+.body-doqcm-page {
+ height: 100vh;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
+ border: solid grey;
+}
+
+#doQcmPicturesContainer {
+    padding: 0;
+    border: solid black;
+    width: 100vw;
+}
+
+// Top left picture
+#colTopLeftPictureContainer{
+    border: solid blue;
+}
+
+#picdoqcm2 {
+    width: 400px;
+    height: auto;
+}
+@media (max-width: 768px) {
+    #picdoqcm2{
+        width:300px;
+        height: auto;
+    }
+}
+
+
+// Bottom right picture
+#colBottomRightPictureContainer {
+    border: solid red; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+#picdoqcm {
+    border: solid green;
+}
+
+#doqcmQuestionsContainer {
+
+    background-color: rgba($color: #727272, $alpha: .7);
+    width: 50vw;
+    height: 80vh;
+    position:absolute;
+    top: 15vh;
+    left: 25vw;
+}

@@ -45,9 +45,27 @@
 
 
         <div id="internQcmCardFooter" class="card-footer">
-          <button class="internQcmCardButton" id="internQcmSeeResultsLink" *ngIf="card.done" (click)="openPopupSeeAllResults(seeAllResults, card)">Mes résultats</button>
-          <button class="internQcmCardButton" id="internQcmRepass" *ngIf="card.done" href="#">Repasser</button>
-          <button class="internQcmCardButton" id="internQcmPass" *ngIf="!card.done" (click)="openPopupDoQcm(doQcmPopup, card)">Faire le questionnaire</button>
+          <button 
+            class="internQcmCardButton" 
+            id="internQcmSeeResultsLink" 
+            *ngIf="card.done" 
+            (click)="openPopupSeeAllResults(seeAllResults, card)">
+            Mes résultats
+          </button>
+          <button 
+            class="internQcmCardButton" 
+            id="internQcmRepass" 
+            *ngIf="card.done" 
+            (click)="openPopupDoQcm(doQcmPopup, card)">
+            Repasser
+          </button>
+          <button 
+            class="internQcmCardButton" 
+            id="internQcmPass" 
+            *ngIf="!card.done" 
+            (click)="openPopupDoQcm(doQcmPopup, card)">
+            Faire le questionnaire
+          </button>
         </div>
       </div>
 </div>
@@ -104,7 +122,20 @@
     <span>Voulez-vous passer le questionnaire : <strong>{{selectedCardForDo.title}}</strong> ?</span> 
   </div>
   <mat-dialog-actions id="internQcmCardDoQcmFooter" >
-    <button id="internQcmDoQcmReturnButton" aria-label="fermer" mat-button [mat-dialog-close]>Retour</button>
-    <button id="internQcmDoQcmYesButton" aria-label="fermer" mat-button [mat-dialog-close]>Oui</button>
+    <button 
+      id="internQcmDoQcmReturnButton" 
+      aria-label="fermer" 
+      mat-button 
+      [mat-dialog-close]>
+      Retour
+    </button>
+    <button 
+      id="internQcmDoQcmYesButton" 
+      aria-label="fermer" 
+      mat-button [mat-dialog-close]
+      [routerLink]="['qcm', selectedCardForDo.id]"
+      >
+      Oui
+    </button>
   </mat-dialog-actions>
 </ng-template>

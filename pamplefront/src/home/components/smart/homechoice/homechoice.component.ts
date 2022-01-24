@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SharedataService } from 'src/services/sharedata.service';
 import { constantsHomeButtons, constantsSharedTexts } from '../../../../shared/shared-text';
 
 

@@ -6,6 +6,8 @@ import { FilterbypipePipe } from './pipes/filterbypipe.pipe';
 import { SearchtitlepipePipe } from './pipes/searchtitlepipe.pipe';
 import { SortbypipePipe } from './pipes/sortbypipe.pipe';
 import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
+import { PicdoqcmComponent } from './picdoqcm/picdoqcm.component';
+import { Picdoqcm2Component } from './picdoqcm2/picdoqcm2.component';
 
 
 
@@ -17,7 +19,9 @@ import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
     FilterbypipePipe,
     SearchtitlepipePipe,
     SortbypipePipe,
-    InternqcmdurationpipePipe
+    InternqcmdurationpipePipe,
+    PicdoqcmComponent,
+    Picdoqcm2Component
   ],
   imports: [
     CommonModule
@@ -25,6 +29,8 @@ import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
   exports: [
     HeroComponent,
     HerointernComponent,
+    PicdoqcmComponent,
+    Picdoqcm2Component,
     SearchtitlepipePipe,
     FilterbypipePipe,
     SortbypipePipe,

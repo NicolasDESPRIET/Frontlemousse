@@ -10,6 +10,8 @@ import { QcmcardComponent } from './components/dumb/qcmcard/qcmcard.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material/material.module';
 import {MatIconModule} from '@angular/material/icon';
+import { DoqcmpageComponent } from './components/pages/doqcmpage/doqcmpage.component';
+import { DoqcmComponent } from './components/smart/doqcm/doqcm.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {MatIconModule} from '@angular/material/icon';
     InternworkspacepageComponent,
     InternchoiceComponent,
     QcmchoicepanelComponent,
-    QcmcardComponent
+    QcmcardComponent,
+    DoqcmpageComponent,
+    DoqcmComponent
   ],
   imports: [
     CommonModule,
