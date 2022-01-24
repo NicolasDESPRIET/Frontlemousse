@@ -1,6 +1,38 @@
 <section
-    id="doqcmQuestionsContainer"    
+    id="doqcmQuestionsContainer"
+    class="card"    
 >
-hello
+<header
+    id="docqcmQuestionContainerHeader"    
+    class="card-title"
+>
+{{qcmList[routeId].name}}
+</header>
+
+<div class="card-body" id="doqcmQuestionBox">
+    <h5>
+        {{qcmList[routeId].qcmQuestion[currentQuestion-1].enonce}}
+    </h5>
+    <p>
+        Question {{currentQuestion}} / {{qcmList[routeId].qcmQuestion.length}}
+    </p>
+    <div *ngFor="let answer of qcmList[routeId].qcmQuestion[currentQuestion-1].responses | keyvalue">
+        <input id="{{answer.key}}" name="{{answer.key}}" type="checkbox"><label for="{{answer.key}}">{{answer.key}}</label>
+    </div>
+    <button (click)="validateQuestion(currentQuestion)" class="btn btn-primary">
+        Valider
+    </button>
+    <i 
+        id="doQcmArrowBack" 
+        class="fas fa-chevron-circle-left"
+        (click)="onClickPreviousQuestion()"
+    ></i>
+    <i 
+        id="doQcmArrowNext" 
+        class="fas fa-chevron-circle-right"
+        (click)="onClickNextQuestion()"
+    ></i>
+</div>
+
 
 </section>

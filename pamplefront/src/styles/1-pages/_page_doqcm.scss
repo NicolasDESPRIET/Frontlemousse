@@ -3,24 +3,25 @@
 */
 
 .body-doqcm-page {
- height: 100vh;
+ height: 90vh;
  display: flex;
  flex-direction: row;
  justify-content: space-around;
  border: solid grey;
+ padding: 0;
 }
 
 #doQcmPicturesContainer {
     padding: 0;
     border: solid black;
-    width: 100vw;
+    width: 100%;
 }
 
 // Top left picture
+//-----------------------
 #colTopLeftPictureContainer{
     border: solid blue;
 }
-
 #picdoqcm2 {
     width: 400px;
     height: auto;
@@ -34,23 +35,52 @@
 
 
 // Bottom right picture
+//-----------------------
 #colBottomRightPictureContainer {
     border: solid red; 
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    width: 100%;
 }
 #picdoqcm {
     border: solid green;
+    width: 600px;
+    height: auto;
 }
 
 #doqcmQuestionsContainer {
-
-    background-color: rgba($color: #727272, $alpha: .7);
+    background-color: $general-purpose-grey;
     width: 50vw;
     height: 80vh;
     position:absolute;
     top: 15vh;
-    left: 25vw;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    #docqcmQuestionContainerHeader {
+        height: 15%;
+        background-color: $window-color;
+        
+    }
+    #doqcmQuestionBox {
+        #doQcmArrowBack,
+        #doQcmArrowNext {
+            font-size: 2rem;
+        }
+        #doQcmArrowBack:hover,
+        #doQcmArrowNext:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
+@media (max-width: 768px) {
+    #doqcmQuestionsContainer{
+        width: 70vw;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        
+
+    }
 }
