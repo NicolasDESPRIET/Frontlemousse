@@ -26,6 +26,11 @@ FA icons are used with blablabla
 
 Angular Material is used for modals and if necessary, animations. 
 
+## Data fetching
+
+Data fetching uses the Resolve API to fetch data before a component is loaded. See https://www.c-sharpcorner.com/article/load-all-data-before-loading-the-component-view-in-angular-6/ 
+
+
 ## NOTES
 
 On charge les data une seule fois car:
