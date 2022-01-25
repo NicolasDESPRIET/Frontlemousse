@@ -7,21 +7,16 @@
  display: flex;
  flex-direction: row;
  justify-content: space-around;
- border: solid grey;
  padding: 0;
 }
 
 #doQcmPicturesContainer {
     padding: 0;
-    border: solid black;
     width: 100%;
 }
 
 // Top left picture
 //-----------------------
-#colTopLeftPictureContainer{
-    border: solid blue;
-}
 #picdoqcm2 {
     width: 400px;
     height: auto;
@@ -37,7 +32,7 @@
 // Bottom right picture
 //-----------------------
 #colBottomRightPictureContainer {
-    border: solid red; 
+
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -45,13 +40,12 @@
     width: 100%;
 }
 #picdoqcm {
-    border: solid green;
+
     width: 600px;
     height: auto;
 }
 
 #doqcmQuestionsContainer {
-    background-color: $general-purpose-grey;
     width: 50vw;
     height: 80vh;
     position:absolute;
@@ -61,26 +55,118 @@
     #docqcmQuestionContainerHeader {
         height: 15%;
         background-color: $window-color;
-        
+        color: $white-letter-color;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    #doqcmQuestionBox {
-        #doQcmArrowBack,
-        #doQcmArrowNext {
-            font-size: 2rem;
+  
+    #doqcmQuestionNameBox{
+        #doqcmQuestionMarkAndNameBox{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            #doqcmQuestionQuestionMark{
+                border: solid 3px $window-color;
+                color: $window-color;
+                border-radius: 50%;
+                font-weight: bold;
+                height: 2rem;
+                width: 2rem;
+                text-align: center;
+                transform: rotate(25deg);
+            }
+            #doqcmQuestionName{
+                margin-left: 20px;
+                font-size: 1.5rem;
+            }
         }
-        #doQcmArrowBack:hover,
-        #doQcmArrowNext:hover {
-            color: white;
-            cursor: pointer;
+        #doqcmQuestionNumber {
+            
+        }
+    }
+
+    mat-progress-bar .mat-progress-bar-fill::after {
+        background-color: $window-color;
+    }
+
+    #doqcmQuestionBox{
+        ul {
+            li:hover {
+                background-color: $general-purpose-grey;
+            }
+            li {
+                transition: ease-in-out .1s;
+                label {
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    #questionBoxAnswerText {
+                        user-select: none;
+                    }
+                    input[type=checkbox]{
+                        display: none;
+                    }
+                    #questionBoxInputCircle{
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                    }
+                    #questionBoxInputCircle{
+                        background-color: $white-letter-color;
+                        height: 45px;
+                        width: 45px;
+                        
+                        border-radius: 50%;
+                        box-shadow: 0px 0px 0px 3px rgba(41, 43, 44, .3);
+                    }
+                    #questionBoxInputCircle::after{
+                        content: "";
+
+                    }
+                    input[type=checkbox]:checked ~ #questionBoxInputCircle{
+                        background-color: $validation-green;
+                    }
+                    input[type=checkbox]:checked ~ #questionBoxInputCircle::after{
+                        
+                        content: "L";
+                        color: $white-letter-color;
+                        transform: rotate(45deg) scaleX(-1) translateY(18%) translateX(5%);
+
+                    }
+                }
+            }
+        }
+    }
+
+    #doqcmQuestionBoxFooter {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 80%;
         }
     }
 }
+
+
+
 @media (max-width: 768px) {
     #doqcmQuestionsContainer{
         width: 70vw;
         left: 50%;
         transform: translate(-50%, 0%);
         
+        #doqcmQuestionNameBox{
+            #doqcmQuestionMarkAndNameBox{
+                #doqcmQuestionName{
+                    margin-left: 20px;
+                    font-size: 1.05rem;
+                }
+            }
+        }
 
     }
 }

@@ -4,35 +4,77 @@
 >
 <header
     id="docqcmQuestionContainerHeader"    
-    class="card-title"
+    class="card-header"
 >
-{{qcmList[routeId].name}}
+    <h5>{{qcmList[routeId-1].name}}</h5>
 </header>
 
-<div class="card-body" id="doqcmQuestionBox">
-    <h5>
-        {{qcmList[routeId].qcmQuestion[currentQuestion-1].enonce}}
-    </h5>
-    <p>
-        Question {{currentQuestion}} / {{qcmList[routeId].qcmQuestion.length}}
-    </p>
-    <div *ngFor="let answer of qcmList[routeId].qcmQuestion[currentQuestion-1].responses | keyvalue">
-        <input id="{{answer.key}}" name="{{answer.key}}" type="checkbox"><label for="{{answer.key}}">{{answer.key}}</label>
+
+<div class="card-header" id="doqcmQuestionNameBox">
+    <div id="doqcmQuestionMarkAndNameBox">
+        <span id="doqcmQuestionQuestionMark">?</span>
+        <span id="doqcmQuestionName">
+            {{questionList[currentQuestion-1].enonce}}
+        </span>
     </div>
-    <button (click)="validateQuestion(currentQuestion)" class="btn btn-primary">
-        Valider
-    </button>
-    <i 
-        id="doQcmArrowBack" 
-        class="fas fa-chevron-circle-left"
-        (click)="onClickPreviousQuestion()"
-    ></i>
-    <i 
-        id="doQcmArrowNext" 
-        class="fas fa-chevron-circle-right"
-        (click)="onClickNextQuestion()"
-    ></i>
+
+    <p id="doqcmQuestionNumber" class="text-muted">
+        Question {{currentQuestion}} / {{qcmList[routeId-1].qcmQuestion.length}}
+    </p>
+</div>
+<mat-progress-bar mode="determinate" value="{{100*currentQuestion/generalQuestionNumber}}">
+</mat-progress-bar>
+
+
+<div class="card-body" id="doqcmQuestionBox">
+    <ul class="list-group list-group-flush" *ngFor="let answer of qcmList[routeId-1].qcmQuestion[currentQuestion-1].responses | keyvalue: shuffleArray">
+        <li class=" list-group-item">
+            <label for="{{answer.key}}">
+                <input class="questionBoxInput" #answer id="{{answer.key}}" name="{{answer.key}}" type="checkbox">
+                <span id="questionBoxAnswerText">{{answer.key}}</span>
+                <span id="questionBoxInputCircle"></span>
+            </label>
+        </li>
+    </ul>
 </div>
 
 
+<div id="doqcmQuestionBoxFooter" class="card-footer">
+    <button (click)="validateQuestion(currentQuestion, warnBlankPopup)" class="btn btn-primary">
+        Valider
+    </button>
+</div>
 </section>
+<!--POPUP WARN BLANK ANSWER-->
+<ng-template #warnBlankPopup>
+    <header mat-dialog-title id="warnBlankPopupHeader" >
+      
+        <div id="warnBlankPopupLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+        <h6 id="warnBlankPopupTitle">
+            Passer à la question suivante ? 
+        </h6>
+    </header>
+    <div mat-dialog-content id="warnBlankPopupContent" class="flex-column">
+        <i class="fas fa-exclamation-triangle"></i><br>
+        <p>
+          Une réponse vide ne rapporte pas de points. Vous ne pourrez pas revenir en arrière. Continuer ? 
+        </p> 
+    </div>
+    <mat-dialog-actions id="warnBlankPopupFooter" >
+      <button 
+        id="warnBlankPopupReturnButton" 
+        aria-label="fermer" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="warnBlankPopupYesButton" 
+        aria-label="fermer" 
+        mat-button [mat-dialog-close]
+        (click)="onClickNextQuestion()"
+        >
+        Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>
