@@ -18,6 +18,10 @@ NAVBAR STYLES
         .navbar-brand {
             color: $white-letter-color;
             font-weight: 600;
+            transition: ease-in-out all .3s;
+        }
+        .navbar-brand:hover {
+            transform: scale(115%);
         }
     }
 

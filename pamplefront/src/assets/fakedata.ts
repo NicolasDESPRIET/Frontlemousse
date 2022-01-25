@@ -227,7 +227,7 @@ export const doQcmData: any = [
                 }
             },
             {
-                "id": 1,
+                "id": 4,
                 "enonce": "Êtes vous débile ?",
                 "responses": {
                     "Très certainement": 1,
@@ -256,7 +256,11 @@ export const doQcmData: any = [
             "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
-                "Une vache": 0
+                "Une vache": 0,
+                "Un cheval" : 1,
+                "Une tortue" : 0,
+                "JE NE SAIS PAS" : 1,
+                "Laissez moi tranquille" : 0
             }
         },
         {

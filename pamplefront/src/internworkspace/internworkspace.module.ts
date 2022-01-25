@@ -12,6 +12,7 @@ import { MaterialModule } from 'src/material/material.module';
 import {MatIconModule} from '@angular/material/icon';
 import { DoqcmpageComponent } from './components/pages/doqcmpage/doqcmpage.component';
 import { DoqcmComponent } from './components/smart/doqcm/doqcm.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { DoqcmComponent } from './components/smart/doqcm/doqcm.component';
     SharedModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule
   ]
 })
 export class InternworkspaceModule { }
