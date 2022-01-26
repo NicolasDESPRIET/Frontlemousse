@@ -7,7 +7,10 @@ export const data: any = {
                 {
                     mark: 14,
                     date: "01/01/2022",
-                    duration: 782
+                    duration: 782,
+                    blank: [1,2,3],//[id],
+                    suceeded: [], // id
+                    failed: []
                 },
                 {
                     mark: 13,
@@ -204,7 +207,7 @@ export const data: any = {
 
 export const doQcmData: any = [
     {
-        "id": 1,
+        "id": 123,
         "name": "Quelle est la différence entre une girafe",
         "description": "un qcm de test modifié",
         "author": "jean michel modifié",

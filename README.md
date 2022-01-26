@@ -37,3 +37,8 @@ On charge les data une seule fois car:
 - peu de data à charger
 - peu d'utilisateurs 
 Donc meilleures perf + service : on peut chercher dynamiquement. 
+
+## Ideas
+
+- Use societe field to gather users around it and propose targetted QCMs
+- Create a promotion field to separate users in small groups (create a table promotion)

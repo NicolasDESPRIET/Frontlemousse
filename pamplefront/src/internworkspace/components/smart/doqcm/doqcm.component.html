@@ -6,28 +6,36 @@
     id="docqcmQuestionContainerHeader"    
     class="card-header"
 >
-    <h5>{{qcmList[routeId-1].name}}</h5>
+    <h5>{{qcmData.name}}</h5>
 </header>
 
 
 <div class="card-header" id="doqcmQuestionNameBox">
-    <div id="doqcmQuestionMarkAndNameBox">
+    <div *ngIf="!isQcmFinished" id="doqcmQuestionMarkAndNameBox">
         <span id="doqcmQuestionQuestionMark">?</span>
         <span id="doqcmQuestionName">
             {{questionList[currentQuestion-1].enonce}}
         </span>
     </div>
 
-    <p id="doqcmQuestionNumber" class="text-muted">
-        Question {{currentQuestion}} / {{qcmList[routeId-1].qcmQuestion.length}}
+    <p *ngIf="!isQcmFinished" id="doqcmQuestionNumber" class="text-muted">
+        Question {{currentQuestion}} / {{numberOfQuestions}}
     </p>
+
+    <div *ngIf="isQcmFinished" id="doQcmResultsTitleBox">
+        <span id="doqcmResultsTitle">
+            Résultats
+        </span>
+    </div>
+
 </div>
-<mat-progress-bar mode="determinate" value="{{100*currentQuestion/generalQuestionNumber}}">
+
+<mat-progress-bar *ngIf="!isQcmFinished" mode="determinate" value="{{100*(progressBarAdvancement)/numberOfQuestions}}">
 </mat-progress-bar>
 
 
-<div class="card-body" id="doqcmQuestionBox">
-    <ul class="list-group list-group-flush" *ngFor="let answer of qcmList[routeId-1].qcmQuestion[currentQuestion-1].responses | keyvalue: shuffleArray">
+<div *ngIf="!isQcmFinished" class="card-body" id="doqcmQuestionBox">
+    <ul class="list-group list-group-flush" *ngFor="let answer of questionList[currentQuestion-1].responses | keyvalue: shuffleArray">
         <li class=" list-group-item">
             <label for="{{answer.key}}">
                 <input class="questionBoxInput" #answer id="{{answer.key}}" name="{{answer.key}}" type="checkbox">
@@ -39,9 +47,40 @@
 </div>
 
 
+<div *ngIf="isQcmFinished" class="card-body" id="doqcmResultsBox">
+    <table class="table table-hover">
+        <caption>Résultats pour ce QCM.</caption>
+        <thead>
+            <tr>
+                <th scope="col">Réponses</th>
+                <th scope="col">Quantité</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Bonnes réponses</th>
+                <td>{{resultsObject.right}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Mauvaises réponses</th>
+                <td>{{resultsObject.wrong}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Réponses vides</th>
+                <td>{{resultsObject.blank}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="doqcmMark">{{resultsObject.mark}}/20</p>
+</div>
+
+
 <div id="doqcmQuestionBoxFooter" class="card-footer">
-    <button (click)="validateQuestion(currentQuestion, warnBlankPopup)" class="btn btn-primary">
+    <button *ngIf="!isQcmFinished" (click)="validateQuestion(currentQuestion, warnBlankPopup)" class="btn btn-primary">
         Valider
+    </button>
+    <button *ngIf="isQcmFinished" routerLink="/intern" class="btn btn-primary">
+        Retour
     </button>
 </div>
 </section>
