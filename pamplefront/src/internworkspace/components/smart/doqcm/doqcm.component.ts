@@ -2,7 +2,7 @@ import { Component, ElementRef, Input, OnInit, QueryList, TemplateRef, ViewChild
 import { MatDialog } from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { KeyValue } from '@angular/common';
-import { doQcmData } from "../../../../assets/fakedata";
+import { doQcmData } from "../../../../../assets/fakedata";
 
 @Component({
   selector: 'app-doqcm',
