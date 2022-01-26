@@ -9,7 +9,7 @@ APP_NAME: "qcmplus"
 phases:
   install:
     runtime-versions:
-      nodejs: 12.14
+      nodejs: 14
     commands:
         - cd pamplefront
         - echo Installing source NPM dependencies...
