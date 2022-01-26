@@ -20,10 +20,11 @@ phases:
     commands:
     # Builds Angular application. You can also build using custom environment here like mock or staging
     - echo Build started on `date`
-    - npm run build
+    - ng build --base-href
 
 artifacts:
     files:
         - 'pamplefront/dist/pamplefront/*'
+        - 'pamplefront/dist/pamplefront/assets/*'
     #base-directory: 'dist/*'
     discard-paths: yes
