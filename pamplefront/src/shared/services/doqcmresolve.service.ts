@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Iqcm } from 'src/models/qcm.interface';
-import { doQcmData } from 'src/assets/fakedata';
+import { doQcmData } from '../../../assets/fakedata';
 
 /**
  * This class is used to get QCM data before the navigation resolve. For testing purpose

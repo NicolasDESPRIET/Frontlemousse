@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit, TemplateRef } from '@angular/core';
-import {data} from "../../../../assets/fakedata";
+import {data} from "../../../../../assets/fakedata";
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({

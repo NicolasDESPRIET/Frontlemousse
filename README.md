@@ -42,3 +42,6 @@ Donc meilleures perf + service : on peut chercher dynamiquement.
 
 - Use societe field to gather users around it and propose targetted QCMs
 - Create a promotion field to separate users in small groups (create a table promotion)
+
+# For images with AWS
+https://stackoverflow.com/questions/57741052/include-assets-when-building-angular-library
