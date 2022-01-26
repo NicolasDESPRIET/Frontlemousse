@@ -43,7 +43,7 @@
         .mat-dialog-content {
             padding: 0 24px 24px 24px !important; 
             margin: 0 10px 0 10px;
-            table {
+            #internQcmCardResultTableTable {
                 margin-top: 0 !important;
                 border-collapse: separate;
                 border-spacing: 0;
@@ -56,7 +56,7 @@
                 top: 0;
                 border-bottom: 5px solid $general-purpose-black;
             }
-            tbody {
+            #internQcmCardResultsTableBody {
                 border-top: none;
             }
         }

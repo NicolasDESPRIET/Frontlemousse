@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, OnInit, QueryList, TemplateRef, ViewChild
 import { MatDialog } from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { KeyValue } from '@angular/common';
+import { doQcmData } from "../../../../assets/fakedata";
 
 @Component({
   selector: 'app-doqcm',
@@ -10,21 +11,36 @@ import { KeyValue } from '@angular/common';
 })
 export class DoqcmComponent implements OnInit {
 
-  @Input() qcmList: Object | any;
+  /**
+   * Variables
+   */
   @Input() routeId: number | any;
   @ViewChildren('answer') answerInputs: QueryList<ElementRef> | any;
 
+  // Used to fetch and store the qcm data corresponding to route
+  qcmData: any;
+  // Stores a table with all the questions
   questionList: any;
+  // Counter used to know which question is being processed
   currentQuestion: number = 1;
   // Used to calculate the mark only. Will be removed on next version and replaced by scoreObject
   scoreArray: number[] = [];
   // Used to store question's results : {id : -1 | 0 | 1 }
   scoreObject: Object | any = {};
-  // This variable is just used for the progress bar for now but
-  // It will be useful to remove the questionNumber from the methods and
-  // use this one instead
-  generalQuestionNumber: number = 0;
+  // Number of questions used for both progress bar and the "question x/4" in the UI
+  numberOfQuestions: number = 0;
+  // Used to calculate progress bar independantly of current question number
+  progressBarAdvancement: number = 0;
+  // Used to know whether to display results or not
+  isQcmFinished: Boolean = false;
+  // Results 
+  resultsObject: Object | any = {};
 
+
+
+  /**
+   * Functions
+   */
   shuffleArray = (a: KeyValue<string, number>, b: KeyValue<string, number>): number => 
   {
     let randomNumber = Math.floor(Math.random()*10);
@@ -37,58 +53,86 @@ export class DoqcmComponent implements OnInit {
     }
   }
   
+
+  /**
+   * Class Methods
+   */
   constructor(private dialog: MatDialog, private progressBar: MatProgressBarModule) { }
 
   ngOnInit(): void {
-
-    this.questionList = this.qcmList[this.routeId-1].qcmQuestion.sort(this.shuffleArray);
-    // initialize the general question number variable used for the progress bar
-    this.generalQuestionNumber =  this.qcmList[this.routeId-1].qcmQuestion.length
+    // Select the right qcm 
+    this.qcmData = doQcmData.find((element:any) => element.id = this.routeId);
+    // Init the question list with a shuffle 
+    this.questionList = this.qcmData.qcmQuestion.sort(this.shuffleArray);
+    console.log("RESPONSES");
+    console.log(this.questionList[this.currentQuestion-1].responses);
+    // initialize the number of questions variable used for the progress bar
+    this.numberOfQuestions =  this.questionList.length;
     // Initialize the score array with as many '0' as there are questions to answer 
-    let questionNumber = this.qcmList[this.routeId-1].qcmQuestion.length
-    console.log(questionNumber);
-    for(let i = 0 ; i < questionNumber ; i++){
+    for(let i = 0 ; i < this.numberOfQuestions ; i++){
       this.scoreArray.push(0);
     }
     console.log(this.scoreArray);
+    console.log("RESULTS OBJECT ON INIT");
+    console.log(this.resultsObject);
   }
 
   // This method is called when the use validates the last question
   calculateFinalMark(){
-    console.log(this.scoreArray);
+    // In this method, we calculate the results and store them 
+    // in an object which will be sent to the back-end.
+
+    // First we update the progress bar for the UI
+    this.progressBarAdvancement++;
 
     // Calculate mark
     let mark = this.scoreArray.reduce((prev, current) => prev + current);
     if(mark < 0){mark = 0};
-
-    // Store info about questions
-
-
     // Convert to "/20" mark
-    let questionNumber = this.qcmList[this.routeId].qcmQuestion.length;
-    mark = Math.round(mark/questionNumber*20*10)/10;
+    mark = Math.round(mark/this.numberOfQuestions*20*10)/10;
+    this.resultsObject["mark"] = mark;
 
-    console.log("NOTE");
-    console.log(mark);
+    // Calculate the number of blank answers
+    console.log("RESULTS OBJECT");
+    console.log(this.resultsObject);
+    let blankAnswersNumber = Object
+      .entries(this.scoreObject)
+      .filter(([key, value]) => value === 0)
+      .length;
+    this.resultsObject["blank"] = blankAnswersNumber;
 
-    // Print results for debugging purposes
-    Object.entries(this.scoreObject).forEach(([key, value]) => {
-      for(let i = 0 ; i < questionNumber ; i++){
-        //if(this.questionList[i].id = key)
-      }
-    })
+
+    // Calculate the number of right answers
+    let rightAnswersNumber = Object
+      .entries(this.scoreObject)
+      .filter(([key, value]) => value === 1)
+      .length;
+    this.resultsObject["right"] = rightAnswersNumber;
+
+    // Calculate the number of wrong answers
+    let wrongAnswersNumber = Object
+      .entries(this.scoreObject)
+      .filter(([key, value]) => value === -1)
+      .length;
+    this.resultsObject["wrong"] = wrongAnswersNumber;
+
+    
+    console.log(this.resultsObject);
+    this.isQcmFinished=true;
   }
 
   // Called by the "Yes" button of the "Validate" popup 
   // Called by the calculateResult() method
   // Used to check whether there is a next question or not
   goToNextQuestion(){
-    let questionNumber = this.qcmList[this.routeId-1].qcmQuestion.length;
+    console.log("RESULTS OBJECT BEFORE NEXT QUESTION");
+    console.log(this.resultsObject);
     console.log(this.scoreArray);
     // When there is another question to answer
-    if(this.currentQuestion < questionNumber)
+    if(this.currentQuestion < this.numberOfQuestions)
     {
       this.currentQuestion++;
+      this.progressBarAdvancement++;
     }
     // When the user has answered all the questions
     else
@@ -99,6 +143,7 @@ export class DoqcmComponent implements OnInit {
 
   // Method called from within validateQuestion() when an answer has been submitted
   calculateResult(answersObject: any, realAnswers: any, questionNumber: number){
+
       // Evaluate the answers and updates the score array consequently  
      // Compares the real answers to the user's answers. 
      if (Object.entries(answersObject).some(
@@ -109,42 +154,32 @@ export class DoqcmComponent implements OnInit {
     {
       // The score array is updated with the "malus" result when the user has failed the question
       this.scoreArray[this.currentQuestion-1]=-1;
+      // The score object is updated with the "malus" result when the user has failed the question
       this.scoreObject[this.questionList[this.currentQuestion-1].id] = -1;
-      // Go to next question
+      // Go to next question after results calculation
       this.goToNextQuestion();
     }
     else
     {
-      // The user has succeeded
-      this.scoreArray[this.currentQuestion-1]=1;
+      // The user has succeeded so the score array is updated with the "bonus" result
+      this.scoreArray[this.currentQuestion-1] = 1;
+      // The user has succeeded so the score object is updated with the "bonus" result
       this.scoreObject[this.questionList[this.currentQuestion-1].id] = 1;
       // Go to next question
       this.goToNextQuestion();
     }
 
-    
-    console.log("Results :")
-    console.log("Your answers")
-    console.log(answersObject);
-    console.log("Real answers");
-    console.log(realAnswers);
-    console.log(this.scoreArray);
-    console.log("SCORE OBJECT");
-    console.log(this.scoreObject);
   }
 
   // Method called when the user click on validate button
   validateQuestion(currentQuestion: any, templateRef: TemplateRef<any>){
 
-    // Useful variables
-    // Answers
-    let realAnswers = this.qcmList[this.routeId-1].qcmQuestion[currentQuestion-1].responses;
+    // Answers (solution)
+    let realAnswers = this.questionList[currentQuestion-1].responses;
     // User's answer
     let answersObject: Object | any = {};
     // Variable to check whether nothing has been answered or not
     let isBlank: Boolean = true;
-    // number of questions
-    let questionNumber = this.qcmList[this.routeId-1].qcmQuestion.length;
 
     // Populate user's answers object
     this.answerInputs.map(
@@ -157,16 +192,16 @@ export class DoqcmComponent implements OnInit {
       }
     );
 
-    // If nothing has been answered warn the user. A popup opens
-    // and if the user chooses to move to the next question, the  
+    // Check if an answer has been submitted
     Object.values(answersObject).forEach(value => {if (value!==0){isBlank=false}});
-    console.log(isBlank);
+
+    // If no answer has been submitted opens the warning popup "you are about to submit a blank answer"
     if(isBlank){
       this.dialog.open(templateRef, {
         minWidth: '50vw'
       });
     }else{
-      this.calculateResult(answersObject, realAnswers, questionNumber);
+      this.calculateResult(answersObject, realAnswers, this.numberOfQuestions);
     }    
   }
 
