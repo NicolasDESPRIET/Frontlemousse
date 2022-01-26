@@ -25,6 +25,5 @@ phases:
 artifacts:
     files:
         - 'pamplefront/dist/pamplefront/*'
-        - 'pamplefront/dist/pamplefront/assets/*'
     #base-directory: 'dist/*'
     discard-paths: yes
