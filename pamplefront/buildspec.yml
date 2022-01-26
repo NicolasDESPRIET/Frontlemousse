@@ -1,0 +1,28 @@
+version: 0.2
+
+env:
+    variables:
+        S3_BUCKET: "s3://pmn-front-deployment-bucket"
+APP_NAME: "qcmplus"
+
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+        - echo Installing source NPM dependencies...
+        - npm install
+        - npm install -g @angular/cli
+
+  build:
+    commands:
+    # Builds Angular application. You can also build using custom environment here like mock or staging
+    - echo Build started on `date`
+    - npm run build
+
+artifacts:
+    files:
+        - '**/*'
+    base-directory: 'dist*'
+    discard-paths: yes
