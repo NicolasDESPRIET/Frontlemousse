@@ -52,11 +52,15 @@
         <caption>Résultats pour ce QCM.</caption>
         <thead>
             <tr>
-                <th scope="col">Réponses</th>
+                <th scope="col">Intitulé</th>
                 <th scope="col">Quantité</th>
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <th scope="row">Durée</th>
+                <td>{{resultsObject.duration | internqcmdurationpipe}}</td>
+            </tr>
             <tr>
                 <th scope="row">Bonnes réponses</th>
                 <td>{{resultsObject.right}}</td>

@@ -22,18 +22,25 @@ export class InternqcmdurationpipePipe implements PipeTransform {
     
 
     if (hours > 0) {
-      returnedTime = returnedTime + hours + "h";
+      returnedTime = returnedTime + hours + " h ";
     } 
 
     if (minutes > 0) {
-      returnedTime = returnedTime + minutes + "min";
+      if(minutes < 10){
+        returnedTime = returnedTime + "0" + minutes + " min ";
+      }else
+      {
+        returnedTime = returnedTime + minutes + " min ";
+      }
+
+      
     }
 
     if (seconds > 0) {
       if (seconds < 10){
-        returnedTime = returnedTime + "0" + seconds + "s";
+        returnedTime = returnedTime + "0" + seconds + " s ";
       }else{
-        returnedTime = returnedTime + seconds + "s";
+        returnedTime = returnedTime + seconds + " s ";
       }
     }
     

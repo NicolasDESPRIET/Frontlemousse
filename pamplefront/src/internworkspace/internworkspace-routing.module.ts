@@ -1,23 +1,35 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { QuitQcmBeforeFinishGuard } from 'src/shared/guards/quit-qcm-before-finish.guard';
 import { DoqcmresolveService } from 'src/shared/services/doqcmresolve.service';
 import { DoqcmpageComponent } from './components/pages/doqcmpage/doqcmpage.component';
 import { InternworkspacepageComponent } from './components/pages/internworkspacepage/internworkspacepage.component';
+import { DoqcmComponent } from './components/smart/doqcm/doqcm.component';
 
 const routes: Routes = [
   {
     path: '',
     component: InternworkspacepageComponent
   },
-  // This path use a resolver to fetch data before loading the component.
+
   {
-    path: 'qcm/:id',
+    path: 'qcm',
     component: DoqcmpageComponent,
-    resolve: {qcmList : DoqcmresolveService}
+    
+    children: [
+      {
+        // This path use a resolver to fetch data before loading the component.
+        path: 'play/:id',
+        component: DoqcmComponent,
+        resolve: {qcmList : DoqcmresolveService},
+        canDeactivate: [QuitQcmBeforeFinishGuard]
+      }
+    ]
   }
 ];
 
 @NgModule({
+  providers:[QuitQcmBeforeFinishGuard],
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })

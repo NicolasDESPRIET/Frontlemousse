@@ -1,8 +1,10 @@
-import { Component, ElementRef, Input, OnInit, QueryList, TemplateRef, ViewChildren } from '@angular/core';
+import {EventEmitter, Component, ElementRef, Input, OnInit, Output, QueryList, TemplateRef, ViewChildren, HostListener } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { KeyValue } from '@angular/common';
-import { doQcmData } from "../../../../../assets/fakedata";
+import { ActivatedRoute } from '@angular/router';
+import { ICanComponentDeactivate } from 'src/shared/guards/quit-qcm-before-finish.guard';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-doqcm',
@@ -14,9 +16,10 @@ export class DoqcmComponent implements OnInit {
   /**
    * Variables
    */
-  @Input() routeId: number | any;
   @ViewChildren('answer') answerInputs: QueryList<ElementRef> | any;
-
+  
+  // Route id
+  routeId: number | any;
   // Used to fetch and store the qcm data corresponding to route
   qcmData: any;
   // Stores a table with all the questions
@@ -35,6 +38,11 @@ export class DoqcmComponent implements OnInit {
   isQcmFinished: Boolean = false;
   // Results 
   resultsObject: Object | any = {};
+  // Time
+  startTimestamp:  number = 0;
+  endTimestamp: number = 0;
+  // Subscriber to get id param from url
+  private subscriber: any;
 
 
 
@@ -57,11 +65,15 @@ export class DoqcmComponent implements OnInit {
   /**
    * Class Methods
    */
-  constructor(private dialog: MatDialog, private progressBar: MatProgressBarModule) { }
+  constructor(private route: ActivatedRoute, private dialog: MatDialog, private progressBar: MatProgressBarModule) { }
 
   ngOnInit(): void {
     // Select the right qcm 
-    this.qcmData = doQcmData.find((element:any) => element.id = this.routeId);
+    console.log(this.route.snapshot.data);
+    this.subscriber = this.route.params.subscribe(params => {
+      this.routeId = +params['id'];
+    })
+    this.qcmData = this.route.snapshot.data.qcmList.find((element:any) => element.id == this.routeId);
     // Init the question list with a shuffle 
     this.questionList = this.qcmData.qcmQuestion.sort(this.shuffleArray);
     console.log("RESPONSES");
@@ -72,9 +84,14 @@ export class DoqcmComponent implements OnInit {
     for(let i = 0 ; i < this.numberOfQuestions ; i++){
       this.scoreArray.push(0);
     }
+    this.startTimestamp = Date.now();
     console.log(this.scoreArray);
     console.log("RESULTS OBJECT ON INIT");
     console.log(this.resultsObject);
+  }
+
+  ngOnDestroy(){
+    this.subscriber.unsubscribe();
   }
 
   // This method is called when the use validates the last question
@@ -116,9 +133,15 @@ export class DoqcmComponent implements OnInit {
       .length;
     this.resultsObject["wrong"] = wrongAnswersNumber;
 
+    // Calculate duration
+    this.endTimestamp = Date.now();
+    this.resultsObject["duration"] = Math.trunc(this.endTimestamp/1000) - Math.trunc(this.startTimestamp/1000);
     
-    console.log(this.resultsObject);
+
+    // Send info to parent component when test is finished
     this.isQcmFinished=true;
+    console.log(this.resultsObject);
+    
   }
 
   // Called by the "Yes" button of the "Validate" popup 
@@ -209,6 +232,18 @@ export class DoqcmComponent implements OnInit {
   onClickNextQuestion(){
     this.scoreObject[this.questionList[this.currentQuestion-1].id] = 0;
     this.goToNextQuestion();
+  }
+
+
+  // Prevent user from quitting the QCM
+  canDeactivate(): boolean {
+    if(this.isQcmFinished){
+      return true;
+    }
+    else
+    {
+      return confirm("Quitter ? Tout votre parcours sera perdu.");
+    }
   }
 
 }

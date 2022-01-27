@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { DoqcmpageComponent } from './components/pages/doqcmpage/doqcmpage.component';
 import { DoqcmComponent } from './components/smart/doqcm/doqcm.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { QuitQcmBeforeFinishGuard } from 'src/shared/guards/quit-qcm-before-finish.guard';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MaterialModule,
     MatIconModule,
     MatProgressBarModule
-  ]
+  ],
+  providers: [QuitQcmBeforeFinishGuard]
 })
 export class InternworkspaceModule { }
