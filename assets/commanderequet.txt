@@ -1,0 +1,166 @@
+-------Type-------
+// this.typeService.getAllTypes().subscribe( result => {
+    //   console.log("getAll", result);
+    // });
+    // this.typeService.getOneTypeById(1).subscribe( result => {
+    //   console.log("getOne", result);
+    // });
+    // const type: TypeDto = {
+    //   name: 'toto'
+    // }
+    // this.typeService.createType(type).subscribe( result => {
+    //   console.log("create", result);
+    // });
+    // this.typeService.updateType(type, 3).subscribe( result => {
+    //   console.log("update", result);
+    // });
+    // this.typeService.deleteType(4).subscribe( result => {
+    //   console.log("delete", result);
+    // });
+
+-------User-------
+// this.userService.getAllUser().subscribe(result => {
+    //   console.log("get all ", result);
+    // })
+    // this.userService.getAllUserByType(1).subscribe(result => {
+    //   console.log("get all by type ", result);
+    // })
+    // this.userService.getOneUserBByName("admin1").subscribe(result => {
+    //   console.log("get by name ", result);
+    // })
+    // this.userService.getOneUserById(1).subscribe(result => {
+    //   console.log("get by id ", result);
+    // })
+    // const user: UserFromClientDto = {
+    //   name: 'totoupdateed',
+    //   password: 'toto',
+    //   typeId: 2,
+    //   societe: ''
+    // }
+    // this.userService.createUser(user).subscribe(result => {
+    //   console.log("create user ", result);
+    // })
+    // this.userService.updateUser(user, 3).subscribe(result => {
+    //   console.log("get all ", result);
+    // })
+    // this.userService.deleteUser(3).subscribe(result => {
+    //   console.log("get all ", result);
+    // })
+
+-------qcm-------
+// this.qcmService.getAllQcms().subscribe(result => {
+    //   console.log("get all", result);
+    // })
+    // this.qcmService.getAllQcmsNoR().subscribe(result => {
+    //   console.log("get all no r", result);
+    // })
+    // this.qcmService.getOneById(1212).subscribe(result => {
+    //   console.log("get one by id", result);
+    // })
+    // this.qcmService.getOneByIdnoR(1212).subscribe(result => {
+    //   console.log("get one by id no r", result);
+    // })
+    // this.qcmService.getOneByName("JAVA").subscribe(result => {
+    //   console.log("get one by name", result);
+    // })
+    // const qcm:QcmFromClientDto = {
+    //   name: 'qcm from front updated',
+    //   description: 'un qcm depuis le front update',
+    //   author: 'le front'
+    // }
+    // this.qcmService.createQcm(qcm).subscribe(result => {
+    //     console.log("get create", result);
+    //   })
+    // this.qcmService.updateQcm(qcm, 1213).subscribe(result => {
+    //   console.log("get create", result);
+    // })
+    // this.qcmService.deleteQcm(1213).subscribe(result => {
+    //   console.log("get delete", result);
+    // })
+    // this.qcmService.removeQuestion(1214,1).subscribe( result =>{
+    //   console.log("remove question", result);
+    // })
+
+-------question-------
+    // this.questionService.getAllQuestions().subscribe(result => {
+    //   console.log("get all", result)
+    // })
+    // this.questionService.getQuestionsbyId(1).subscribe(result => {
+    //   console.log("get one", result)
+    // })
+    // this.questionService.getQuestionsbyIdNor(1).subscribe(result => {
+    //   console.log("get one no r", result)
+    // })
+    // const map:Map<string, number> = new Map<string, number>([
+    //   ["oui", 1],
+    //   ["non", 0]
+    // ]);
+    // const question: QuestionFromClientDto = {
+    //   id: 3,
+    //   ennonce: 'oui ou non corrigé222',
+    //   responses: {
+    //     "oui": 1,
+    //     "non": 0
+    //   }
+    // };
+    // this.questionService.updateQuestion(1212, question).subscribe(result => {
+      //     console.log("create no r", result)
+      //   })
+    // this.questionService.updateQuestion(3, question).subscribe(result => {
+    //     console.log("update no r", result)
+    //   })
+    // this.questionService.deleteQuestion(4).subscribe(r => {
+    //   console.log('delete')
+    // });
+
+------date parcour update-------
+import { DatePipe } from '@angular/common';
+
+  constructor(public datepipe: DatePipe) { 
+    // For now it is empty 
+  }
+
+  ngOnInit(): void {
+    const date = new Date("2022-01-24T00:00:00.000Z");
+    console.log(date)
+    let latest_date =this.datepipe.transform(date, 'yyyy-MM-dd');
+    console.log(latest_date)
+  }
+
+add in provider in app.module
+
+-----parcour-----
+// this.parcourSErvice.getAllParcours().subscribe(result => {
+    //   console.log("get all", result);
+    // })
+    // this.parcourSErvice.getAllParcoursByUser(1).subscribe(result => {
+    //   console.log("get all by user", result);
+    // })
+    // this.parcourSErvice.getAllParcoursByDate('2022-01-24').subscribe(result => {
+    //   console.log("get all date", result);
+    // })
+    // this.parcourSErvice.getAllParcoursByQcm(1212).subscribe(result => {
+    //   console.log("get all by qcm", result);
+    // })
+    // this.parcourSErvice.getOneById(3).subscribe(result => {
+    //   console.log("get one by id", result);
+    // })
+
+    // const parcour: ParcourFromClientDto = {
+    //   time: 9876554,
+    //   note: '02/20',
+    //   nbSucces: 1,
+    //   nbFailed: 1,
+    //   nbBlank: [1],
+    //   qcmId: 1212,
+    //   stagiaireId: 2
+    // }
+    // this.parcourSErvice.createParcour(parcour).subscribe(result => {
+    //   console.log('create', result)
+    // })
+    // this.parcourSErvice.updateParcour(parcour,3).subscribe(result => {
+    //   console.log('update', result)
+    // })
+    // this.parcourSErvice.deleteParcour(6).subscribe(result => {
+    //   console.log('delete', result)
+    // })
