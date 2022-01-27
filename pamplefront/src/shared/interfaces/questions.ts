@@ -7,10 +7,10 @@
  * @interface Questions
  * @brief question object complet
  */
-export interface Questions {
+export interface Question {
   id: number
   ennonce: string
-  responses: Map<string, number>
+  responses: Object
 }
 
 /**
@@ -22,3 +22,18 @@ export interface QuestionNoResponseDto {
   ennonce: string
   responsesList: string[]
 }
+
+/**
+ * @interface QuestionFromClientDto
+ * @brief entri data for question, reponse must be like : {
+        "text" : 1,
+        "text2" : 0
+    }
+    @brief 2 at 5 response.
+ */
+export interface QuestionFromClientDto {
+  id?: number;
+  ennonce: string
+  responses: object
+}
+
