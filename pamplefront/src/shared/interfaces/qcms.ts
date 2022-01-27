@@ -3,18 +3,18 @@
  * @brief define all qcms objects used from and for app.
  */
 
-import { QuestionNoResponseDto, Questions } from './questions'
+import { QuestionNoResponseDto, Question } from './questions'
 
 /**
  * @interface Qcms
  * @brief basique Qcm object.
  */
-export interface Qcms {
+export interface Qcm {
   id: number
   name: string
   description: string
   author: string
-  qcmQuestion: Questions[]
+  qcmQuestion: Question[]
 }
 
 /**

@@ -9,7 +9,7 @@ import { Type } from "./types";
  * @interface Users
  * @brief user entity
  */
-export interface Users {
+export interface User {
     id: number;
     name: string;
     password: string;
@@ -24,6 +24,6 @@ export interface Users {
 export interface UserFromClientDto {
     name: string;
     password: string;
-    type: number;
+    typeId: number;
     societe: string;
 }

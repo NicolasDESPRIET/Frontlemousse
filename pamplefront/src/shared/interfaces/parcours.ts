@@ -3,24 +3,24 @@
  * @brief define all parcours objects used from and for app.
  */
 
-import { QcmParcourDto, Qcms } from "./qcms";
-import { QuestionNoResponseDto, Questions } from "./questions";
-import { Users } from "./users";
+import { QcmParcourDto, Qcm } from "./qcms";
+import { QuestionNoResponseDto, Question } from "./questions";
+import { User } from "./users";
 
 /**
  * @interface Parcours
  * @brief basique parcour object
  */
-export interface Parcours {
+export interface Parcour {
     id: number;
     time: number;
     date: string;
     note: string;
     nbSucces: number;
     nbFailed: number;
-    nbBlank: Questions[];
-    qcm: Qcms;
-    stagiaire: Users;
+    nbBlank: Question[];
+    qcm: Qcm;
+    stagiaire: User;
 }
 
 /**
@@ -48,5 +48,5 @@ export interface ParcourToClientDto {
     nbFailed: number;
     nbBlank: QuestionNoResponseDto[];
     qcm: QcmParcourDto;
-    stagiaire: Users;
+    stagiaire: User;
 }
