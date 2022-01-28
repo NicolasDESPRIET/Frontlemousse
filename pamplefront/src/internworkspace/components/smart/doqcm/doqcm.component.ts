@@ -1,4 +1,4 @@
-import {EventEmitter, Component, ElementRef, Input, OnInit, Output, QueryList, TemplateRef, ViewChildren, HostListener } from '@angular/core';
+import {EventEmitter, Component, ElementRef, Input, OnInit, Output, QueryList, TemplateRef, ViewChildren, HostListener, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { KeyValue } from '@angular/common';
@@ -17,7 +17,7 @@ export class DoqcmComponent implements OnInit {
    * Variables
    */
   @ViewChildren('answer') answerInputs: QueryList<ElementRef> | any;
-  
+  @ViewChild('quitQcmPopup') quitQcmPopup: TemplateRef<any> | any;
   // Route id
   routeId: number | any;
   // Used to fetch and store the qcm data corresponding to route
@@ -35,7 +35,7 @@ export class DoqcmComponent implements OnInit {
   // Used to calculate progress bar independantly of current question number
   progressBarAdvancement: number = 0;
   // Used to know whether to display results or not
-  isQcmFinished: Boolean = false;
+  isQcmFinished: boolean = false;
   // Results 
   resultsObject: Object | any = {};
   // Time
@@ -43,6 +43,8 @@ export class DoqcmComponent implements OnInit {
   endTimestamp: number = 0;
   // Subscriber to get id param from url
   private subscriber: any;
+  // used to know if user wants to leave when quitting QCM dialog is open
+  isUserQuitting: boolean = false;
 
 
 
@@ -234,15 +236,25 @@ export class DoqcmComponent implements OnInit {
     this.goToNextQuestion();
   }
 
+  onClickQuitQcm(){
+    this.isUserQuitting = true;
+  }
 
   // Prevent user from quitting the QCM
-  canDeactivate(): boolean {
+  async canDeactivate(): Promise<boolean> {
     if(this.isQcmFinished){
-      return true;
+      return Promise.resolve(true);
     }
     else
     {
-      return confirm("Quitter ? Tout votre parcours sera perdu.");
+      const dialogRef = this.dialog.open(this.quitQcmPopup, {
+        minWidth: '50vw'
+      });
+      return dialogRef.afterClosed()
+      .toPromise()
+      .then(() => {
+        return this.isUserQuitting ? Promise.resolve(true) : Promise.resolve(false);
+      }) 
     }
   }
 
