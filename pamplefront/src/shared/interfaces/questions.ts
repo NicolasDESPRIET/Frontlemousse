@@ -19,7 +19,7 @@ export interface Question {
  */
 export interface QuestionNoResponseDto {
   id: number
-  ennonce: string
+  enonce: string
   responsesList: string[]
 }
 
@@ -33,7 +33,7 @@ export interface QuestionNoResponseDto {
  */
 export interface QuestionFromClientDto {
   id?: number;
-  ennonce: string
+  enonce: string
   responses: object
 }
 
