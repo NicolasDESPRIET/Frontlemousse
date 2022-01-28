@@ -121,3 +121,37 @@
       </button>
     </mat-dialog-actions>
   </ng-template>
+
+  <!--POPUP WARN QUIT ANSWER-->
+<ng-template #quitQcmPopup>
+    <header mat-dialog-title id="warnBlankPopupHeader" >
+      
+        <div id="warnBlankPopupLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+        <h6 id="warnBlankPopupTitle">
+            Quitter ? 
+        </h6>
+    </header>
+    <div mat-dialog-content id="warnBlankPopupContent" class="flex-column">
+        <i class="fas fa-exclamation-triangle"></i><br>
+        <p>
+          Vos réponses ne seront pas sauvegardées. Continuer ? 
+        </p> 
+    </div>
+    <mat-dialog-actions id="warnBlankPopupFooter" >
+      <button 
+        id="warnBlankPopupReturnButton" 
+        aria-label="fermer" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="warnBlankPopupYesButton" 
+        aria-label="fermer" 
+        mat-button [mat-dialog-close]
+        (click)="onClickQuitQcm()"
+        >
+        Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>
