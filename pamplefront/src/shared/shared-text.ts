@@ -48,3 +48,17 @@ export enum constantsInternWorkspace {
     SEE_QCMS_TEXT = "Voir mes QCMs",
     DESCRIPTION_TEXT = "Lorem ipsum dolor sit amet. Ab quisquam necessitatibus est minima expedita cum expedita nemo in quibusdam assumenda eos atque animi sit facere atque ea error officia. Eos voluptates quia et aliquam nihil eos sunt voluptatum aut sint eius in aliquam iste sed corporis maxime! Est reprehenderit molestias in enim necessitatibus aut ipsam quae est eaque quam."
 }
+
+/** There is still work to do here , it is not complete. */
+
+/*========================
+ADMIN WORKSPACE PAGES
+==========================*/
+
+export enum constantsAdminWorkspace {
+    PERSONALIZED_MSG = 'Bon retour parmi nous, ',
+    MANAGE_USER = 'Gérer les stagiaires',
+    MANAGE_QCM = 'Gérer les questionnaires',
+    SEE_QCMS_TEXT = "Voir mes QCMs",
+    DESCRIPTION_TEXT = "Lorem ipsum dolor sit amet. Ab quisquam necessitatibus est minima expedita cum expedita nemo in quibusdam assumenda eos atque animi sit facere atque ea error officia. Eos voluptates quia et aliquam nihil eos sunt voluptatum aut sint eius in aliquam iste sed corporis maxime! Est reprehenderit molestias in enim necessitatibus aut ipsam quae est eaque quam."
+}

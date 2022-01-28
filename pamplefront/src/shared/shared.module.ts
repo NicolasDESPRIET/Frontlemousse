@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from './hero/hero.component';
-import { HerointernComponent } from './herointern/herointern.component';
+import { HeroComponent } from './images-components/hero/hero.component';
+import { HerointernComponent } from './images-components/herointern/herointern.component';
 import { FilterbypipePipe } from './pipes/filterbypipe.pipe';
 import { SearchtitlepipePipe } from './pipes/searchtitlepipe.pipe';
 import { SortbypipePipe } from './pipes/sortbypipe.pipe';
 import { InternqcmdurationpipePipe } from './pipes/internqcmdurationpipe.pipe';
-import { PicdoqcmComponent } from './picdoqcm/picdoqcm.component';
-import { Picdoqcm2Component } from './picdoqcm2/picdoqcm2.component';
+import { PicdoqcmComponent } from './images-components/picdoqcm/picdoqcm.component';
+import { Picdoqcm2Component } from './images-components/picdoqcm2/picdoqcm2.component';
+import { HeroadminComponent } from './images-components/heroadmin/heroadmin.component';
 
 
 
@@ -21,7 +22,8 @@ import { Picdoqcm2Component } from './picdoqcm2/picdoqcm2.component';
     SortbypipePipe,
     InternqcmdurationpipePipe,
     PicdoqcmComponent,
-    Picdoqcm2Component
+    Picdoqcm2Component,
+    HeroadminComponent
   ],
   imports: [
     CommonModule
@@ -34,7 +36,8 @@ import { Picdoqcm2Component } from './picdoqcm2/picdoqcm2.component';
     SearchtitlepipePipe,
     FilterbypipePipe,
     SortbypipePipe,
-    InternqcmdurationpipePipe
+    InternqcmdurationpipePipe,
+    HeroadminComponent
   ]
 })
 export class SharedModule { }

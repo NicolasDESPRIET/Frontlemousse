@@ -1,31 +1,31 @@
-.section-internqcmpanel {
+.section-adminqcmpanel {
     margin-top: 50px;
     padding: 0 100px 0 100px;
 
-    #internQcmPanelSearchbar {
+    #adminQcmPanelSearchbar {
         display: flex;
     }
 
-    #internQcmPanelFilterAndSort {
+    #adminQcmPanelFilterAndSort {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    #internQcmPanelSort {
+    #adminQcmPanelSort {
         min-width: 250px;
         width: 30%;
         margin: 0.5rem 0 0.5rem 0;
     }
 
-    #internQcmPanelSearchButton {
+    #adminQcmPanelSearchButton {
         margin: 0;
     }
 
-    #internQcmPanelFilterAndSort > #internQcmPanelFilter,
-    #internQcmPanelFilterAndSort > #internQcmPanelSort,
-    #internQcmPanelSearchbar > #internQcmPanelSearchInput,
-    #internQcmPanelSearchbar > #internQcmPanelSearchButton 
+    #adminQcmPanelFilterAndSort > #adminQcmPanelFilter,
+    #adminQcmPanelFilterAndSort > #adminQcmPanelSort,
+    #adminQcmPanelSearchbar > #adminQcmPanelSearchInput,
+    #adminQcmPanelSearchbar > #adminQcmPanelSearchButton 
     {
         max-height: 40px;
     }
@@ -34,11 +34,11 @@
     // CARDS
     // ---------
 
-    #internQcmPanelCardPane {
+    #adminQcmPanelCardPane {
 
         
 
-        #internQcmCardsContainer {
+        #adminQcmCardsContainer {
             
             padding: 0 50px 0 50px;
             display: flex;
@@ -48,11 +48,11 @@
 
             margin-top: 50px;
             // Zoom on card on hover
-            .internQcmCard:hover{
+            .adminQcmCard:hover{
                 transform: scale(102%);
             }
 
-            .internQcmCard {
+            .adminQcmCard {
                 transition: all ease .3s;
                 border-radius: 20px 20px 20px 20px;
                 width: 350px;
@@ -63,11 +63,11 @@
                 // Add space on icon's right
                 .fas, .far {margin-right: 15px;}
 
-                h6#internQcmCardLastTitle {
+                h6#adminQcmCardLastTitle {
                     margin: 0;
                     background-color: $validation-green;
                 }
-                h6#internQcmCardTodoTitle {
+                h6#adminQcmCardTodoTitle {
                     margin: 0;
                     background-color: $todo-red;
                 }
@@ -76,6 +76,7 @@
                     .card-text {
                         display: inline-block;
                         margin: 0 15px 0 15px;
+                        
                         .fas {
                             display: flex;
                             justify-content: center;
@@ -90,15 +91,15 @@
                     }
                 } 
 
-                #internQcmSeeResultsLink{cursor: pointer;}
-                #internQcmCardTitle {
+                #adminQcmSeeResultsLink{cursor: pointer;}
+                #adminQcmCardTitle {
                     border-radius: 20px 20px 0px 0px;
                     background-color: $window-color;
                     color: $white-letter-color;
                     font-weight: 400;
                     min-height: 65px;
                 }
-                #internQcmCardFooter{
+                #adminQcmCardFooter{
                     
                     border-radius: 0px 0px 20px 20px;
                     display: flex;
@@ -109,7 +110,7 @@
                     padding: 0 15px 15px 15px;
                     
                     // Button styling
-                    .internQcmCardButton {
+                    .adminQcmCardButton {
                         margin: 0 15px 0 15px;
                         border-radius: 30px 30px 30px 30px;
                         transition: all ease .3s;
@@ -120,18 +121,18 @@
                         height: 40px;
                     }
                     // Style repass button specifically
-                    #internQcmRepass{
+                    #adminQcmRepass{
                         border: solid 1px $window-color;
                         background-color: $white-letter-color;
                         color: $general-purpose-black;
                     }
                     // Size My result and Repass buttons
-                    #internQcmRepass, #internQcmSeeResultsLink{
+                    #adminQcmRepass, #adminQcmSeeResultsLink{
                         width: 60%;
                     }
 
                     // Hover QCM card button action
-                    .internQcmCardButton:hover, .internQcmCardButton:hover>*{
+                    .adminQcmCardButton:hover, .adminQcmCardButton:hover>p{
                         transition: all ease .3s;
                         border: solid 1px $window-color;
                         background-color: $white-letter-color;
@@ -147,21 +148,21 @@
 
 // On mobile
 @media (max-width: 768px) {
-    .section-internqcmpanel {
+    .section-adminqcmpanel {
             padding: 0px;
-        #internQcmPanelFilterAndSort {
+        #adminQcmPanelFilterAndSort {
                 padding: 0px;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
         }
-         #internQcmPanelSort {
+         #adminQcmPanelSort {
                 width: 100%;
                 margin: 0.5rem 0 0.5rem 0;
         }
-        #internQcmPanelCardPane {
+        #adminQcmPanelCardPane {
             padding: 0px;
-            #internQcmCardsContainer {
+            #adminQcmCardsContainer {
                 padding: 0px;
                 display: flex;
                 flex-direction: row;
@@ -169,7 +170,7 @@
                 flex-wrap: wrap;
                 margin-top: 50px;
                     
-                .internQcmCard {
+                .adminQcmCard {
                     width: 100%;
                     height: 300px;                    
                     margin: 15px 0 15px 0;

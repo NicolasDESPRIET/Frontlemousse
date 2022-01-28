@@ -1,0 +1,36 @@
+<div class="container-fluid body-intern-page">
+    <div class="row">
+        <div id="intern-content-left" class="intern-col col-md">
+            <app-adminchoice></app-adminchoice>
+        </div>    
+        <div id="intern-content-right" class="intern-col col-md">
+            <app-heroadmin></app-heroadmin>
+        </div>
+    </div>
+    <nav id="admin-navigation-pan">
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item" >
+                <a 
+                    (click)="navManagement(0)" 
+                    routerLink="manage/interns" 
+                    class="nav-link"
+                    [ngClass]="navStatus == 0 ? 'active' : ''"
+                    >
+                    {{manageInternsText}}
+                </a>
+            </li>
+            <li class="nav-item" >
+                <a 
+                    (click)="navManagement(1)" 
+                    routerLink="manage/qcms" 
+                    class="nav-link"
+                    [ngClass]="navStatus == 1 ? 'active' : ''"
+                    >{{manageQcmText}}
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="row" id="admin-work-panel">
+        <router-outlet></router-outlet>
+    </div>
+</div>

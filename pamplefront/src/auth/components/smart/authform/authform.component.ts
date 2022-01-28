@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { constantsAuthText, constantsSharedTexts, constantsAuthButtons } from '../../../../shared/shared-text';
 import { User } from 'src/models/user';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -25,11 +26,15 @@ export class AuthformComponent implements OnInit {
   submitted = false;
   model = new User(); 
 
-  constructor() { 
+  constructor(private route: ActivatedRoute) { 
     // For now it is empty 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      this.workSpace = params.workspace;
+    })
+  }
 
   onSubmit(){this.submitted = true}
 

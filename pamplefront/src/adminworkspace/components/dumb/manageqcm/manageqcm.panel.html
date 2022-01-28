@@ -1,0 +1,145 @@
+<section id="adminQcmPanelTitle" class="section-adminqcmpanel">
+    <h2 >
+        Rechercher un questionnaire
+    </h2>
+
+    <form id="adminQcmPanelSearchbar">
+        <input 
+            id="adminQcmPanelSearchInput" 
+            class="form-control" 
+            type="search" 
+            placeholder="Search" 
+            aria-label="Search"
+            [formControl]="searchtitle"
+            >
+    </form>
+
+    <div id="adminQcmPanelFilterAndSort">
+
+        <div id="adminQcmPanelFilter" class="btn-group" role="group" aria-label="Filters">
+            <button
+                [ngClass]="filterbyButtonStatus.all ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('all')"
+                type="button" 
+                class="btn btn-primary">
+                Tout
+            </button>
+            <button 
+                [ngClass]="filterbyButtonStatus.done ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('done')"
+                type="button" 
+                class="btn">
+                Fait
+            </button>
+            <button 
+                [ngClass]="filterbyButtonStatus.todo ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('todo')"
+                type="button" 
+                class="btn">
+                À faire
+            </button>
+        </div>
+    
+        <select 
+            [formControl]="sortby"
+            id="adminQcmPanelSort" 
+            class="form-select" 
+            aria-label="Default select example"
+            >
+            <option value="" selected>Trier par</option>
+            <option value="increasingAuthor">Auteur (croissant)</option>
+            <option value="decreasingAuthor">Auteur (décroissante)</option>
+            <option value="increasingNumberOfQuestion">Nombre de questions (croissant)</option>
+            <option value="decreasingNumberOfQuestion">Nombre de questions (décroissant)</option>
+            <option value="increasingTitle">Titre croissante</option>
+            <option value="decreasingTitle">Titre décroissante</option>
+        </select>
+    </div>
+<div id="adminQcmPanelCardPane">
+    <div id="adminQcmCardsContainer">
+        <div 
+          class="card adminQcmCard" 
+          *ngFor="let card of cards | searchtitlepipe:searchtitle.value.toString() | filterbypipe:filterby | sortbypipe:sortby.value" 
+          >
+            <h5 class="card-header" id="adminQcmCardTitle" >{{card.name}}</h5>
+            <div *ngIf="card.description.length > 40" class="card-header">
+                {{(card.description | slice:0:40)+"..."}}
+            </div>
+            <div *ngIf="card.description.length < 41" class="card-header">
+                {{card.description}}
+            </div>
+            <div class="card-body">
+              <p 
+                title="Nombre de questions" 
+                class="card-text card-paragraph">
+                <i id="adminQcmCardMarkIcon" class="fas fa-question"></i>
+                {{card.qcmQuestion.length}} questions
+              </p>
+              <p 
+                *ngIf="card.author.length > 20"
+                title="{{card.author}}" 
+                class="card-text card-paragraph">
+                <i id="adminQcmCardMarkIcon" class="fas fa-user"></i>
+                {{card.author | slice:0:20}}
+              </p>
+              <p 
+                *ngIf="card.author.length < 21"
+                title="Auteur" 
+                class="card-text card-paragraph">
+                <i id="adminQcmCardMarkIcon" class="fas fa-user"></i>
+                {{card.author}}
+              </p>
+            </div>
+    
+            <div id="adminQcmCardFooter" class="card-footer">
+              <button 
+                class="adminQcmCardButton" 
+                id="adminQcmRepass" 
+                >
+                <i class="fas fa-edit"></i>
+                Modifier 
+                
+              </button>
+              <button 
+                class="adminQcmCardButton" 
+                id="adminQcmPass" 
+                (click)="openPopupDeleteQcm(deleteQcmPopup, card)"
+                >
+                <i class="fas fa-trash-alt"></i>
+                Supprimer
+              </button>
+            </div>
+          </div>
+    </div>
+</div>
+</section>
+<!-- DELETE QCM POPUP -->
+<ng-template #deleteQcmPopup>
+    <header mat-dialog-title id="adminQcmCardDoQcmsHeader" >
+      
+      <div id="adminQcmCardDoQcmLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+      <h6 id="adminQcmCardDoQcmTitle">
+        Supprimer le questionnaire ? 
+      </h6>
+    </header>
+    <div mat-dialog-content id="adminQcmCardDoQcmContent">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Voulez-vous supprimer le questionnaire : <strong>{{selectedCardForDelete.name}}</strong> ?</span> 
+    </div>
+    <mat-dialog-actions id="adminQcmCardDoQcmFooter" >
+      <button 
+        id="adminQcmDoQcmReturnButton" 
+        aria-label="fermer" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="adminQcmDoQcmYesButton" 
+        aria-label="fermer" 
+        mat-button [mat-dialog-close]
+        >
+        Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>

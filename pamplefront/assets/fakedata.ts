@@ -1,3 +1,6 @@
+import { Qcm } from "src/shared/interfaces/qcms"
+import { User } from "src/shared/interfaces/users"
+
 export const data: any = {
     qcms : [
         {
@@ -205,16 +208,16 @@ export const data: any = {
     ]
 }
 
-export const doQcmData: any = [
+export const doQcmData: Qcm[] = [
     {
         "id": 1,
         "name": "Quelle est la différence entre une girafe",
-        "description": "un qcm de test modifié",
-        "author": "jean michel modifié",
+        "description": "un qcm de test modifié je parle et j'écris je lis shakespeare je joue mozart chut corneille pas si fort",
+        "author": "Djoni OLIDAY",
         "qcmQuestion": [
             {
                 "id": 3,
-                "enonce": "Qu'est-ce qu'une girafe ?",
+                "ennonce": "Qu'est-ce qu'une girafe ?",
                 "responses": {
                     "Un animal": 1,
                     "Une vache": 0
@@ -222,7 +225,7 @@ export const doQcmData: any = [
             },
             {
                 "id": 2,
-                "enonce": "Qu'est-ce qu'une différence ?",
+                "ennonce": "Qu'est-ce qu'une différence ?",
                 "responses": {
                     "Oui": 1,
                     "C'est pax faux": 0,
@@ -231,7 +234,7 @@ export const doQcmData: any = [
             },
             {
                 "id": 4,
-                "enonce": "Êtes vous débile ?",
+                "ennonce": "Êtes vous débile ?",
                 "responses": {
                     "Très certainement": 1,
                     "Bien entendu": 0
@@ -239,7 +242,7 @@ export const doQcmData: any = [
             },
             {
                 "id": 1,
-                "enonce": "Que pensez-vous de Mireille Mathieu",
+                "ennonce": "Que pensez-vous de Mireille Mathieu",
                 "responses": {
                     "Elle est géniale": 1,
                     "C'est ma mère": 0,
@@ -253,10 +256,10 @@ export const doQcmData: any = [
         "id": 2,
         "name": "Quelle est la différence entre une poule en Patagonie",
         "description": "un qcm de test 2",
-        "author": "jean michel 2",
+        "author": "Verov NABAKO",
         "qcmQuestion": [{
             "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "ennonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0,
@@ -268,7 +271,7 @@ export const doQcmData: any = [
         },
         {
             "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "ennonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -276,7 +279,7 @@ export const doQcmData: any = [
         },
         {
             "id": 1,
-            "enonce": "Êtes vous débile ?",
+            "ennonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -287,10 +290,10 @@ export const doQcmData: any = [
         "id": 3,
         "name": "Géopolitique du pingouin",
         "description": "un qcm de test 2",
-        "author": "jean michel 2",
+        "author": "Jorge NERBANOS",
         "qcmQuestion": [{
             "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "ennonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -298,7 +301,7 @@ export const doQcmData: any = [
         },
         {
             "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "ennonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -306,7 +309,7 @@ export const doQcmData: any = [
         },
         {
             "id": 1,
-            "enonce": "Êtes vous débile ?",
+            "ennonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -317,10 +320,10 @@ export const doQcmData: any = [
         "id": 4,
         "name": "JavaScript : async et promises",
         "description": "un qcm de test 2",
-        "author": "jean michel 2",
+        "author": "Théo FIL",
         "qcmQuestion": [{
             "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "ennonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -328,7 +331,7 @@ export const doQcmData: any = [
         },
         {
             "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "ennonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -336,7 +339,7 @@ export const doQcmData: any = [
         },
         {
             "id": 1,
-            "enonce": "Êtes vous débile ?",
+            "ennonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -347,10 +350,10 @@ export const doQcmData: any = [
         "id": 5,
         "name": "Syncrétisme de la courge butternut",
         "description": "un qcm de test 2",
-        "author": "jean michel 2",
+        "author": "Jacques LONDRES",
         "qcmQuestion": [{
             "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "ennonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -358,7 +361,7 @@ export const doQcmData: any = [
         },
         {
             "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "ennonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -366,7 +369,7 @@ export const doQcmData: any = [
         },
         {
             "id": 1,
-            "enonce": "Êtes vous débile ?",
+            "ennonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -377,10 +380,10 @@ export const doQcmData: any = [
         "id": 6,
         "name": "Savoir se servir d'un clavier",
         "description": "un qcm de test 2",
-        "author": "jean michel 2",
+        "author": "Alex ANDROBARICAULT-JELAIDANLOS",
         "qcmQuestion": [{
             "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "ennonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -388,7 +391,7 @@ export const doQcmData: any = [
         },
         {
             "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "ennonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -396,7 +399,7 @@ export const doQcmData: any = [
         },
         {
             "id": 1,
-            "enonce": "Êtes vous débile ?",
+            "ennonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -410,7 +413,7 @@ export const doQcmData: any = [
         "author": "jean michel 2",
         "qcmQuestion": [{
             "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "ennonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -418,7 +421,7 @@ export const doQcmData: any = [
         },
         {
             "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "ennonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -426,11 +429,54 @@ export const doQcmData: any = [
         },
         {
             "id": 1,
-            "enonce": "Êtes vous débile ?",
+            "ennonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
             }
         }]
     }
+]
+
+export const userList: User[] = [
+    {
+        id: 1,
+        name: "Michel DEPECHE",
+        password: "passwordlol",
+        type: {
+            id: 1,
+            name: "intern"
+        },
+        societe: "Capgemini"
+    },
+    {
+        id: 2,
+        name: "Manon TUDECONNES",
+        password: "passwordlolilol",
+        type: {
+            id: 1,
+            name: "intern"
+        },
+        societe: "Sogeti"
+    },
+    {
+        id: 3,
+        name: "Cyril HARENG",
+        password: "trololo",
+        type: {
+            id: 1,
+            name: "intern"
+        },
+        societe: "Carrouf lol"
+    },
+    {
+        id: 4,
+        name: "Chloé PATENT",
+        password: "helloworld",
+        type: {
+            id: 1,
+            name: "intern"
+        },
+        societe: "Thales"
+    },
 ]

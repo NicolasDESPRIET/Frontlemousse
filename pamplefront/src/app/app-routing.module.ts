@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from 'src/home/components/pages/homepage/homepage.component';
-import { QuitQcmBeforeFinishGuard } from 'src/shared/guards/quit-qcm-before-finish.guard';
 
 const routes: Routes = [
   {
@@ -11,20 +10,25 @@ const routes: Routes = [
   // Those routes use lazy loading for improved performance. 
   { 
     path: 'auth', 
-    loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule) 
+    loadChildren: () => import('../auth/auth.module')
+    .then(m => m.AuthModule) 
   },
   {
     path: 'intern',
-    loadChildren: () => import('../internworkspace/internworkspace.module').then(m => m.InternworkspaceModule),
-
-  
+    loadChildren: () => import('../internworkspace/internworkspace.module')
+    .then(m => m.InternworkspaceModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('../adminworkspace/adminworkspace.module')
+    .then(m => m.AdminworkspaceModule)
   }
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'enabled'})
+    RouterModule.forRoot(routes, { anchorScrolling: 'enabled', scrollPositionRestoration: 'disabled'})
   ],
   exports: [RouterModule]
 })

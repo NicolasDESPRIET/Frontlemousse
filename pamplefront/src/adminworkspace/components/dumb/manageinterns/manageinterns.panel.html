@@ -1,0 +1,130 @@
+<section id="adminInternPanelTitle" class="section-adminInternpanel">
+    <h2 >
+        Rechercher un stagiaire
+    </h2>
+
+    <form id="adminInternPanelSearchbar">
+        <input 
+            id="adminInternPanelSearchInput" 
+            class="form-control" 
+            type="search" 
+            placeholder="Search" 
+            aria-label="Search"
+            [formControl]="searchtitle"
+            >
+    </form>
+
+    <div id="adminInternPanelFilterAndSort">
+
+        <div id="adminInternPanelFilter" class="btn-group" role="group" aria-label="Filters">
+            <button
+                [ngClass]="filterbyButtonStatus.all ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('all')"
+                type="button" 
+                class="btn btn-primary">
+                Tout
+            </button>
+            <button 
+                [ngClass]="filterbyButtonStatus.done ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('done')"
+                type="button" 
+                class="btn">
+                Fait
+            </button>
+            <button 
+                [ngClass]="filterbyButtonStatus.todo ? 'btn-primary' : 'btn-secondary'"
+                (click)="onFilterby('todo')"
+                type="button" 
+                class="btn">
+                À faire
+            </button>
+        </div>
+    
+        <select 
+            [formControl]="sortby"
+            id="adminInternPanelSort" 
+            class="form-select" 
+            aria-label="Default select example"
+            >
+            <option value="" selected>Trier par</option>
+            <option value="increasingAuthor">Auteur (croissant)</option>
+            <option value="decreasingAuthor">Auteur (décroissante)</option>
+            <option value="increasingNumberOfQuestion">Nombre de questions (croissant)</option>
+            <option value="decreasingNumberOfQuestion">Nombre de questions (décroissant)</option>
+            <option value="increasingTitle">Titre croissante</option>
+            <option value="decreasingTitle">Titre décroissante</option>
+        </select>
+    </div>
+<div id="adminInternPanelCardPane">
+    <div id="adminInternCardsContainer">
+        <div 
+          class="card adminInternCard" 
+          *ngFor="let intern of internList | searchtitlepipe:searchtitle.value.toString() | filterbypipe:filterby | sortbypipe:sortby.value" 
+          >
+            <div class="card-header" id="adminInternCardTitle" >
+                <div id="internPic">
+                    {{(intern.name.match(regexName)[0][0])+(intern.name.match(regexFamilyname)[0][1])}}
+                </div>
+                <h5>{{intern.name}}</h5>
+            </div>
+            <div *ngIf="intern.societe.length > 40" class="card-header">
+                <i class="fas fa-building"></i>
+                {{(intern.societe | slice:0:40)+"..."}}
+            </div>
+            <div *ngIf="intern.societe.length < 41" class="card-header">
+                <i class="fas fa-building"></i>
+                {{intern.societe}}
+            </div>
+    
+            <div id="adminInternCardFooter" class="card-footer">
+              <button 
+                class="adminInternCardButton" 
+                id="adminInternRepass" 
+                >
+                <i class="fas fa-edit"></i>
+                Modifier 
+                
+              </button>
+              <button 
+                class="adminInternCardButton" 
+                id="adminInternPass" 
+                (click)="openPopupDeleteIntern(deleteInternPopup, intern)"
+                >
+                <i class="fas fa-trash-alt"></i>
+                Supprimer
+              </button>
+            </div>
+          </div>
+    </div>
+</div>
+</section>
+<!-- DELETE Intern POPUP -->
+<ng-template #deleteInternPopup>
+    <header mat-dialog-title id="adminInternCardDoInternsHeader" >
+      
+      <div id="adminInternCardDoInternLogo"><i class="fas fa-question"></i><h5>InternPlus</h5></div>
+      <h6 id="adminInternCardDoInternTitle">
+        Supprimer le questionnaire ? 
+      </h6>
+    </header>
+    <div mat-dialog-content id="adminInternCardDoInternContent">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Voulez-vous supprimer le questionnaire : <strong>{{selectedCardForDelete.name}}</strong> ?</span> 
+    </div>
+    <mat-dialog-actions id="adminInternCardDoInternFooter" >
+      <button 
+        id="adminInternDoInternReturnButton" 
+        aria-label="fermer" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="adminInternDoInternYesButton" 
+        aria-label="fermer" 
+        mat-button [mat-dialog-close]
+        >
+        Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>

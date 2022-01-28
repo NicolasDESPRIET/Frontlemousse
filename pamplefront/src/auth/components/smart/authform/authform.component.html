@@ -6,7 +6,8 @@
         {{subtitle}}
     </h2>
     <div class="form-container">
-        <div id="label-workspace" class="alert alert-danger">{{workSpace}}</div>
+        <div *ngIf="workSpace=='intern'" id="label-workspace" class="alert alert-danger">{{stagiaireWorkSpace}}</div>
+        <div *ngIf="workSpace=='admin'" id="label-workspace" class="alert alert-danger">{{adminWorkSpace}}</div>
         <form 
             #authForm="ngForm" 
             class="form-group" 
@@ -44,7 +45,10 @@
                 >
             </div>
             <div id="connexion-button">
-                <button id="connexionButton" type="submit" class="btn btn-primary" routerLink="/intern">
+                <button *ngIf="workSpace=='intern'" id="connexionButton" type="submit" class="btn btn-primary" routerLink="/intern">
+                    {{connexionText}}
+                </button>
+                <button *ngIf="workSpace=='admin'" id="connexionButton" type="submit" class="btn btn-primary" routerLink="/admin/manage/interns">
                     {{connexionText}}
                 </button>
             </div>

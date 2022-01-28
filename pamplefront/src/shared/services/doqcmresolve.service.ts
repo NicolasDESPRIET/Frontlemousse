@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Iqcm } from 'src/models/qcm.interface';
 import { doQcmData } from '../../../assets/fakedata';
+import { Qcm } from '../interfaces/qcms';
 
 /**
  * This class is used to get QCM data before the navigation resolve. For testing purpose
@@ -14,12 +15,12 @@ import { doQcmData } from '../../../assets/fakedata';
 @Injectable({
   providedIn: 'root'
 })
-export class DoqcmresolveService implements Resolve<Iqcm[]> {
+export class DoqcmresolveService implements Resolve<Qcm[]> {
 
 
   constructor() { }
 
-  resolve(route: ActivatedRouteSnapshot): Observable<Iqcm[]>{
+  resolve(route: ActivatedRouteSnapshot): Qcm[]{
     return doQcmData;
   }
 }
