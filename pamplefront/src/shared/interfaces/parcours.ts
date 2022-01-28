@@ -11,7 +11,7 @@ import { User } from "./users";
  * @interface Parcours
  * @brief basique parcour object
  */
-export interface Parcour {
+export interface Parcours {
     id: number;
     time: number;
     date: string;
@@ -24,10 +24,10 @@ export interface Parcour {
 }
 
 /**
- * @interface ParcourFromClientDto
- * @brief parcour interface for create and update parcours
+ * @interface ParcoursFromClientDto
+ * @brief parcours interface for create and update parcours
  */
-export interface ParcourFromClientDto {
+export interface ParcoursFromClientDto {
     time: number;
     note: string;
     nbSucces: number;
@@ -38,10 +38,10 @@ export interface ParcourFromClientDto {
 }
 
 /**
- * @interface ParcourToClientDto
- * @brief parcour interface from server.
+ * @interface ParcoursToClientDto
+ * @brief parcours interface from server.
  */
-export interface ParcourToClientDto {
+export interface ParcoursToClientDto {
     time: number;
     note: string;
     nbSucces: number;
