@@ -30,7 +30,11 @@
 
 </div>
 
-<mat-progress-bar *ngIf="!isQcmFinished" mode="determinate" value="{{100*(progressBarAdvancement)/numberOfQuestions}}">
+<mat-progress-bar 
+    *ngIf="!isQcmFinished" 
+    mode="determinate" 
+    value="{{100*(progressBarAdvancement)/numberOfQuestions}}"
+    >
 </mat-progress-bar>
 
 

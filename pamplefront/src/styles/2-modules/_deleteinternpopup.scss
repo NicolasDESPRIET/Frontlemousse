@@ -1,0 +1,80 @@
+// Contains DOInternPOPUP and WARNBLANK POPUP
+
+.mat-dialog-container {
+    overflow: hidden !important;
+    padding: 0 !important;
+
+    #adminInternDelInternsHeader {
+        background-color: $window-color;
+        color: $white-letter-color;
+        margin: 0;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        #adminInternDelInternLogo{
+            display: flex !important;
+            flex-direction: row;
+            margin-top: 10px;
+            h5 {margin-top: 3px;}
+        }
+        #adminInternDelInternTitle {
+            text-align: center;
+            margin-top: 10px;
+        }
+            .fa-question {
+                margin-right: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 30px !important;
+                width: 30px !important;
+                border: solid $white-letter-color 1px;
+                border-radius: 50%;
+                background-color: $window-color;
+            }
+        }
+        
+        .mat-dialog-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            .fa-exclamation-triangle {
+                color: $window-color;
+                font-size:large;
+                margin-bottom: 10px;
+            }
+            padding: 24px !important; 
+            margin: 0 10px 0 10px;
+        }
+
+        .mat-dialog-actions{
+            display: flex;
+            justify-content: space-evenly;
+            margin-bottom: 10px;
+            #adminInternDelReturnButton {
+                border: solid 1px $window-color;
+                background-color: $white-letter-color;
+                border-radius: 30px;
+                width: 40%;
+                transition: all ease .3s;
+            }
+            #adminInternDelYesButton {
+                border: solid 1px $window-color;
+                background-color: $window-color;
+                color: $white-letter-color;
+                border-radius: 30px;
+                width: 40%;
+            }
+            #adminInternDelYesButton:hover, #adminInternDelYesButton:hover{
+                border: solid 1px $window-color;
+                background-color: $white-letter-color;
+                color: $window-color;
+                border-radius: 30px;
+                transition: all ease .3s;
+            }
+
+        }
+    }
