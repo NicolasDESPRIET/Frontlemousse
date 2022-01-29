@@ -51,13 +51,24 @@
             .adminInternCard:hover{
                 transform: scale(102%);
             }
-
+            #addInternCard{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $general-purpose-grey;
+                cursor: pointer;
+                .fa-plus {
+                    font-size: 3rem;
+                    color: $general-purpose-black;
+                }
+            }
             .adminInternCard {
                 transition: all ease .3s;
                 border-radius: 20px 20px 20px 20px;
                 width: 350px;
                 min-width: 350px;
                 margin: 15px;
+                height: 180px;
                 #adminInternCardTitle{
                     display: flex;
                     flex-direction: row;

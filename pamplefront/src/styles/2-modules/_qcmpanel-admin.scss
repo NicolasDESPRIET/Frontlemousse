@@ -51,7 +51,17 @@
             .adminQcmCard:hover{
                 transform: scale(102%);
             }
-
+            #addQcmCard{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $general-purpose-grey;
+                cursor: pointer;
+                .fa-plus {
+                    font-size: 3rem;
+                    color: $general-purpose-black;
+                }
+            }
             .adminQcmCard {
                 transition: all ease .3s;
                 border-radius: 20px 20px 20px 20px;

@@ -57,6 +57,9 @@
     </div>
 <div id="adminQcmPanelCardPane">
     <div id="adminQcmCardsContainer">
+      <div class="card adminQcmCard" title="Créer un QCM" id="addQcmCard" aria-label="Créer un QCM">
+        <i class="fas fa-plus"></i>
+      </div>
         <div 
           class="card adminQcmCard" 
           *ngFor="let card of cards | searchtitlepipe:searchtitle.value.toString() | filterbypipe:filterby | sortbypipe:sortby.value" 

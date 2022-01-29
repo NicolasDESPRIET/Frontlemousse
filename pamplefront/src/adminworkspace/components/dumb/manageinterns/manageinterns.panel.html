@@ -57,6 +57,9 @@
     </div>
 <div id="adminInternPanelCardPane">
     <div id="adminInternCardsContainer">
+        <div class="card adminInternCard" title="Créer un stagiaire" id="addInternCard" aria-label="Créer un stagiaire">
+          <i class="fas fa-plus"></i>
+        </div>
         <div 
           class="card adminInternCard" 
           *ngFor="let intern of internList | searchtitlepipe:searchtitle.value.toString() | filterbypipe:filterby | sortbypipe:sortby.value" 
