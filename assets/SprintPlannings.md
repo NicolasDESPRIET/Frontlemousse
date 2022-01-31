@@ -61,4 +61,5 @@
 |  Front:service request| 3 |Sprint Backlog
 |  Front:Authentication| 3 |Sprint Backlog
 | Front: Fetch data in resolvers | 5 | Sprint Backlog
-|  **Total**| 15 |/
+| Front: Admin Workspace Screens | 6 | Sprint Backlog
+|  **Total**| 21 |/
