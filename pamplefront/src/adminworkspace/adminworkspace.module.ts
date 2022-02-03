@@ -9,6 +9,8 @@ import { ManageqcmPanel } from './components/dumb/manageqcm/manageqcm.panel';
 import { ManageinternsPanel } from './components/dumb/manageinterns/manageinterns.panel';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material/material.module';
+import { CreateqcmPage } from './components/pages/createqcm/createqcm.page';
+import { QcmformSmart } from './components/smart/qcmform/qcmform.smart';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { MaterialModule } from 'src/material/material.module';
     AdminchoiceComponent,
     ManageqcmPanel,
     ManageinternsPanel,
+    CreateqcmPage,
+    QcmformSmart,
   ],
   imports: [
     CommonModule,

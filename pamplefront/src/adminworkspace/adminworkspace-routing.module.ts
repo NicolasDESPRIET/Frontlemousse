@@ -5,6 +5,7 @@ import { InternlistResolver } from 'src/shared/services/internlist.resolver';
 import { ManageinternsPanel } from './components/dumb/manageinterns/manageinterns.panel';
 import { ManageqcmPanel } from './components/dumb/manageqcm/manageqcm.panel';
 import { AdminworkspacePage } from './components/pages/adminworkspace/adminworkspace.page';
+import { CreateqcmPage } from './components/pages/createqcm/createqcm.page';
 
 const routes: Routes = [
   {
@@ -22,6 +23,14 @@ const routes: Routes = [
       resolve: {userList: InternlistResolver}
     }
   ]
+  },
+  {
+    path: 'manage/qcms/new',
+    component: CreateqcmPage,
+  },
+  {
+    path: 'manage/qcms/edit/:id',
+    component: CreateqcmPage
   }
 ];
 
