@@ -25,6 +25,9 @@ export class InternchoiceComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  encode(url: string){
+    return encodeURI(url);
+  }
 
 
 }
