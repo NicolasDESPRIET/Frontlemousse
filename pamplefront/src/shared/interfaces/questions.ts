@@ -9,8 +9,16 @@
  */
 export interface Question {
   id: number
-  ennonce: string
+  enonce: string
   responses: Object
+}
+
+/**
+ * @interface QcmResponse
+ * @brief interface used to create new questions objects
+ */
+export interface QcmResponse {
+  [enonce: string]: number
 }
 
 /**

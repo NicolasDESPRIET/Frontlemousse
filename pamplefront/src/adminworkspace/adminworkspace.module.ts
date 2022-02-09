@@ -7,7 +7,7 @@ import { AdminchoiceComponent } from './components/smart/adminchoice/adminchoice
 import { SharedModule } from 'src/shared/shared.module';
 import { ManageqcmPanel } from './components/dumb/manageqcm/manageqcm.panel';
 import { ManageinternsPanel } from './components/dumb/manageinterns/manageinterns.panel';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material/material.module';
 import { CreateqcmPage } from './components/pages/createqcm/createqcm.page';
 import { QcmformSmart } from './components/smart/qcmform/qcmform.smart';
@@ -27,7 +27,8 @@ import { QcmformSmart } from './components/smart/qcmform/qcmform.smart';
     AdminworkspaceRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class AdminworkspaceModule { }

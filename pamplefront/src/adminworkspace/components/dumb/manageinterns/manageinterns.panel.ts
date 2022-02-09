@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/shared/interfaces/users';
@@ -24,7 +24,28 @@ export class ManageinternsPanel implements OnInit {
   regexName: RegExp = /[A-Za-z]+/i;
   regexFamilyname: RegExp = /\s[A-Za-z]+/i
 
-  constructor(private route: ActivatedRoute, private dialog: MatDialog) { 
+  // Variable for new intern popup
+  isInternNew: boolean = true;
+
+  // Intern Popup form
+  manageInternForm = this.formBuilder.group({
+    name: "",
+    familyName: "",
+    societe: "",
+    password: ""
+  });
+
+  /**
+   * export interface User {
+    id: number;
+    name: string;
+    password: string;
+    type: Type;
+    societe: string;
+}
+   */
+
+  constructor(private route: ActivatedRoute, private dialog: MatDialog, private formBuilder: FormBuilder) { 
     this.searchtitle = new FormControl('');
     this.sortby = new FormControl('');
   }
@@ -50,5 +71,31 @@ export class ManageinternsPanel implements OnInit {
       minWidth: '50vw'
     });
     this.selectedCardForDelete = card;
+  }
+
+  onInternCreation(templateRef: TemplateRef<any>){
+    this.isInternNew = true;
+    this.manageInternForm.setValue({
+      name: "",
+      familyName: "",
+      societe: "",
+      password: ""
+    })
+    this.dialog.open(templateRef, {
+      minWidth: '50vw'
+    });
+  }
+
+  onInternModification(intern: User, templateRef: TemplateRef<any>){
+    this.isInternNew = false;
+    this.manageInternForm.setValue({
+      name: intern.name.match(this.regexName),
+      familyName: intern.name.match(this.regexFamilyname),
+      societe: intern.societe,
+      password: intern.password
+    })
+    this.dialog.open(templateRef, {
+      minWidth: '50vw'
+    });
   }
 }

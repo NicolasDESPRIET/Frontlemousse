@@ -13,6 +13,11 @@ $general-purpose-black: #292b2c;
 $validation-green: #5cb85c ;
 $todo-red: #b87474;
 
+// SIZES
+// -----------------
+
+$min-height-pages: 80vh;
+
 // CONTENT
 //------------
 
@@ -21,8 +26,8 @@ $todo-red: #b87474;
     padding-bottom: 8vh;
 }
 
-.body-auth-page, .body-home-page, .body-intern-page {
-    min-height: 70vh;
+.body-auth-page, .body-home-page, .body-intern-page, .section-create-qcmpage {
+    min-height: $min-height-pages;
 }
 
 #hero, #herointern {

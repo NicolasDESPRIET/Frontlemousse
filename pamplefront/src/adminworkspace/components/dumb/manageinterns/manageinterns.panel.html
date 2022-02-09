@@ -57,7 +57,7 @@
     </div>
 <div id="adminInternPanelCardPane">
     <div id="adminInternCardsContainer">
-        <div class="card adminInternCard" title="Créer un stagiaire" id="addInternCard" aria-label="Créer un stagiaire">
+        <div (click)="onInternCreation(createOrAddInternPopup)" class="card adminInternCard" title="Créer un stagiaire" id="addInternCard" aria-label="Créer un stagiaire">
           <i class="fas fa-plus"></i>
         </div>
         <div 
@@ -84,6 +84,7 @@
                 class="adminInternCardButton" 
                 id="adminInternRepass" 
                 aria-label="Modifier"
+                (click)="onInternModification(intern, createOrAddInternPopup)"
                 >
                 <i class="fas fa-edit"></i>
                 Modifier 
@@ -103,6 +104,33 @@
     </div>
 </div>
 </section>
+<!-- CREATE or UPDATE Intern POPUP -->
+<ng-template #createOrAddInternPopup>
+  <header mat-dialog-title id="adminInternDelInternsHeader" >
+    <div id="adminInternDelInternLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+    <h6 *ngIf="isInternNew==true" id="adminInternDelInternTitle">Ajouter un stagiaire</h6>
+    <h6 *ngIf="isInternNew==false" id="adminInternDelInternTitle">Modifier un stagiaire</h6>
+  </header>
+  <div mat-dialog-content>
+    <form [formGroup]="manageInternForm" class="manage-intern-form">
+      <label for="family-name">Nom
+        <input formControlName="familyName" type="text" name="family-name" id="family-name" aria-label="Saisissez un nom de famille" placeholder="Saisissez un nom de famille" title="Saisissez un nom de famille">
+      </label>
+      <label for="name">Prénom
+        <input formControlName="name" type="text" name="name" id="name" aria-label="Saisissez un prénom" title="Saisissez un prénom" placeholder="Saisissez un prénom">
+      </label>
+      <label for="password">Mot de passe
+        <input formControlName="password" type="text" name="password" id="password" aria-label="Saisissez un mot de passe" title="Saisissez un mot de passe" placeholder="Saisissez un mot de passe">
+      </label>
+      <label for="societe">Entreprise
+        <input formControlName="societe" type="text" name="societe" id="societe" aria-label="Saisissez un nom d'entreprise" title="Saisissez un nom d'entreprise" placeholder="Saisissez un nom d'entreprise">
+      </label>
+      <mat-dialog-actions>
+        <button>Valider</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</ng-template>
 <!-- DELETE Intern POPUP -->
 <ng-template #deleteInternPopup>
     <header mat-dialog-title id="adminInternDelInternsHeader" >

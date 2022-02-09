@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DoqcmresolveService } from 'src/shared/services/doqcmresolve.service';
 import { InternlistResolver } from 'src/shared/services/internlist.resolver';
+import { QcmeditResolver } from 'src/shared/services/qcmedit.resolver';
 import { ManageinternsPanel } from './components/dumb/manageinterns/manageinterns.panel';
 import { ManageqcmPanel } from './components/dumb/manageqcm/manageqcm.panel';
 import { AdminworkspacePage } from './components/pages/adminworkspace/adminworkspace.page';
@@ -30,7 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'manage/qcms/edit/:id',
-    component: CreateqcmPage
+    component: CreateqcmPage,
+    resolve: {qcmEditData: QcmeditResolver}
   }
 ];
 

@@ -217,7 +217,7 @@ export const doQcmData: Qcm[] = [
         "qcmQuestion": [
             {
                 "id": 3,
-                "ennonce": "Qu'est-ce qu'une girafe ?",
+                "enonce": "Qu'est-ce qu'une girafe ?",
                 "responses": {
                     "Un animal": 1,
                     "Une vache": 0
@@ -225,7 +225,7 @@ export const doQcmData: Qcm[] = [
             },
             {
                 "id": 2,
-                "ennonce": "Qu'est-ce qu'une différence ?",
+                "enonce": "Qu'est-ce qu'une différence ?",
                 "responses": {
                     "Oui": 1,
                     "C'est pax faux": 0,
@@ -234,7 +234,7 @@ export const doQcmData: Qcm[] = [
             },
             {
                 "id": 4,
-                "ennonce": "Êtes vous débile ?",
+                "enonce": "Êtes vous débile ?",
                 "responses": {
                     "Très certainement": 1,
                     "Bien entendu": 0
@@ -242,7 +242,7 @@ export const doQcmData: Qcm[] = [
             },
             {
                 "id": 1,
-                "ennonce": "Que pensez-vous de Mireille Mathieu",
+                "enonce": "Que pensez-vous de Mireille Mathieu",
                 "responses": {
                     "Elle est géniale": 1,
                     "C'est ma mère": 0,
@@ -259,7 +259,7 @@ export const doQcmData: Qcm[] = [
         "author": "Verov NABAKO",
         "qcmQuestion": [{
             "id": 3,
-            "ennonce": "Qu'est-ce qu'une girafe ?",
+            "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0,
@@ -271,7 +271,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 2,
-            "ennonce": "Qu'est-ce qu'une différence ?",
+            "enonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -279,7 +279,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 1,
-            "ennonce": "Êtes vous débile ?",
+            "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -293,7 +293,7 @@ export const doQcmData: Qcm[] = [
         "author": "Jorge NERBANOS",
         "qcmQuestion": [{
             "id": 3,
-            "ennonce": "Qu'est-ce qu'une girafe ?",
+            "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -301,7 +301,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 2,
-            "ennonce": "Qu'est-ce qu'une différence ?",
+            "enonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -309,7 +309,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 1,
-            "ennonce": "Êtes vous débile ?",
+            "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -323,7 +323,7 @@ export const doQcmData: Qcm[] = [
         "author": "Théo FIL",
         "qcmQuestion": [{
             "id": 3,
-            "ennonce": "Qu'est-ce qu'une girafe ?",
+            "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -331,7 +331,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 2,
-            "ennonce": "Qu'est-ce qu'une différence ?",
+            "enonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -339,7 +339,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 1,
-            "ennonce": "Êtes vous débile ?",
+            "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -353,7 +353,7 @@ export const doQcmData: Qcm[] = [
         "author": "Jacques LONDRES",
         "qcmQuestion": [{
             "id": 3,
-            "ennonce": "Qu'est-ce qu'une girafe ?",
+            "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -361,7 +361,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 2,
-            "ennonce": "Qu'est-ce qu'une différence ?",
+            "enonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -369,7 +369,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 1,
-            "ennonce": "Êtes vous débile ?",
+            "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -383,7 +383,7 @@ export const doQcmData: Qcm[] = [
         "author": "Alex ANDROBARICAULT-JELAIDANLOS",
         "qcmQuestion": [{
             "id": 3,
-            "ennonce": "Qu'est-ce qu'une girafe ?",
+            "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -391,7 +391,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 2,
-            "ennonce": "Qu'est-ce qu'une différence ?",
+            "enonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -399,7 +399,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 1,
-            "ennonce": "Êtes vous débile ?",
+            "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0
@@ -413,7 +413,7 @@ export const doQcmData: Qcm[] = [
         "author": "jean michel 2",
         "qcmQuestion": [{
             "id": 3,
-            "ennonce": "Qu'est-ce qu'une girafe ?",
+            "enonce": "Qu'est-ce qu'une girafe ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
@@ -421,7 +421,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 2,
-            "ennonce": "Qu'est-ce qu'une différence ?",
+            "enonce": "Qu'est-ce qu'une différence ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
@@ -429,7 +429,7 @@ export const doQcmData: Qcm[] = [
         },
         {
             "id": 1,
-            "ennonce": "Êtes vous débile ?",
+            "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
                 "Bien entendu": 0

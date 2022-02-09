@@ -207,3 +207,13 @@
     }
         
 }
+
+// Form in the popup used to manage an intern data
+.manage-intern-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    label {
+        width: 80%;
+    }
+}

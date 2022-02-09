@@ -1,0 +1,205 @@
+.section-create-qcmpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    margin-top: 20px;
+    h1 { font-size: 4rem;}
+    #edit-qcm-container {
+        margin-top: 20px;
+        width: 60vw;
+    }
+
+    .card-header {
+        background-color: $window-color;
+        color: $white-letter-color;
+        #spanQcmTitle {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            h2 {
+                color: $white-letter-color;
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+            em {
+                font-size: 1.5rem;
+                cursor: pointer;
+                
+            }
+            em:hover {
+                transform: scale(110%);
+            }
+            input {
+                width: 100%;
+                height: 50px;
+                font-size: 2rem;
+                margin-bottom: 0;
+            }
+            button {
+                height: 50px;
+            }
+            button:hover {
+                color: $white-letter-color;
+                background-color: $window-color;
+                border: solid 1px $white-letter-color;
+            }
+        }
+    }
+    .card-body {
+        .questions-container {
+            .question {
+                border: solid 3px $window-color;
+                border-radius: 25px;
+                padding: 25px;
+                margin-bottom: 25px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .question-container {
+
+                    .question-enonce-container{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        em {
+                            color: $window-color;
+                            font-size: 1.3rem;
+                            margin-bottom: 1.3rem;
+                        }
+                        .question-enonce-input {
+                            width: 95%;
+                        }
+                    }
+                    .responses-container {
+                            border-radius: 15px;
+                            border: solid $general-purpose-black 1px;
+                            padding: 15px;
+                        legend { float: none; width: fit-content;padding: 0 10px 0 10px;}
+                        .single-response-container {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            align-items: center;
+                            .reponse-input {
+                                width: 80%;
+                            }
+                            .reponse-value-input{
+                                
+                            }
+                            .delete-response-button {
+                                color: $window-color;
+                                cursor: pointer;
+                                margin-bottom: 1.3rem;
+                                font-size: 1.2rem;
+                            }
+                            .delete-response-button:hover {
+                                transform: scale(110%);
+                            }
+                        }
+                        .div-button-add-response {
+                            
+                            display: flex;
+                            justify-content: center;
+                            
+                            .button-add-response {
+                                color: $window-color;
+                                cursor: pointer;
+                                border: none;
+                                background-color: $white-letter-color;
+                                margin: 0;
+                                height: fit-content;
+                                em {
+                                    font-size: 1.2rem;
+                                }
+                            }
+                            .button-add-response:hover {
+                                transform: scale(110%);
+                            }
+                        }
+                    }
+                    
+                }
+                .button-delete-question{
+                    border: solid 1px $window-color;
+                    background-color: $window-color;
+                    color: $white-letter-color;
+                    border-radius: 30px;
+                    width: fit-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 25px;
+                    padding: 0 20px 0 20px;
+                }
+                .button-delete-question:hover{
+                    border: solid 1px $window-color;
+                    background-color: $white-letter-color;
+                    color: $window-color;
+                    transition: all ease .3s;
+                }
+            }
+            .div-button-add-question {
+                display: flex;
+                justify-content: center;
+                .button-add-question {
+                    border: solid 1px $window-color;
+                    border-radius: 30px;
+                    width: fit-content;
+                    padding: 0 20px 0 20px;
+                    font-size: 1.3rem;
+                    cursor: pointer;
+                    color: $white-letter-color;
+                    background-color: $window-color;
+                }
+                .button-add-question:hover {
+                    color: $window-color;
+                    background-color: $white-letter-color;
+                    font-size: 1.3rem;
+                    cursor: pointer;
+                    transition: all ease .3s;
+                }
+            }
+            
+        }
+    }
+    .card-footer {
+        display: flex;
+        justify-content: center;
+        button {
+            width: 20vw;
+        }
+    }
+
+}
+
+@media (max-width: 768px) {
+    .section-create-qcmpage {
+        h1 { font-size: 3rem;}
+        #edit-qcm-container {
+            width: 90vw;
+        }
+        .card-header {
+            #spanQcmTitle {
+                h2 {
+                    font-size: 1.3rem;
+                }
+                em {
+                    font-size: 1.3rem;
+                    cursor: pointer;
+                }
+                input {
+                    width: 100%;
+                    height: 40px;
+                    font-size: 1.3rem;
+                }
+                button {
+                    height: 40px;
+                }
+            }
+        }
+    }
+}
