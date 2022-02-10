@@ -24,7 +24,98 @@ NAVBAR STYLES
         .navbar-brand:hover {
             transform: scale(115%);
         }
+
+        .a-initials-dropdown-btn {
+            background-color: $white-letter-color;
+            color: $window-color;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            border: solid $window-color 3px; 
+            text-align: center;
+            font-weight: 700;
+            transition: ease-in-out all .3s;
+        }
+        .a-initials-dropdown-btn:hover {
+            transform: scale(115%);
+        }
+        .dropdown-menu {
+            left: -100px;
+            top: 8vh;
+            border: solid $window-color 3px;
+            a {
+                cursor: pointer;
+            }
+        }
     }
 
 }
+
+#decoPopupQcmsHeader {
+    #decoPopupQcmLogo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+#decoPopupContent {
+
+}
+#decoPopupFooter {
+    #decoPopupReturnButton{
+        border: solid 1px $window-color;
+        background-color: $white-letter-color;
+        border-radius: 30px;
+        width: 40%;
+        transition: all ease .3s;
+    }
+    #decoPopupYesButton {
+        border: solid 1px $window-color;
+        background-color: $window-color;
+        color: $white-letter-color;
+        border-radius: 30px;
+        width: 40%;
+    }
+    #decoPopupYesButton:hover {
+        border: solid 1px $window-color;
+        background-color: $white-letter-color;
+        color: $window-color;
+        border-radius: 30px;
+        transition: all ease .3s;
+    }
+
+}
+
+/*
+
+<ng-template #decoPopup>
+    <header mat-dialog-title id="decoPopupQcmsHeader" >
+      <div id="decoPopupQcmLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
+      <h6 id="decoPopupTitle">
+        Voulez-vous vous déconnecter ? 
+      </h6>
+    </header>
+    <div mat-dialog-content id="decoPopupContent">
+      <em class="fas fa-exclamation-triangle"></em>
+      <span>Voulez-vous vraiment vous déconnecter ?</span> 
+    </div>
+    <mat-dialog-actions id="decoPopupFooter" >
+      <button 
+        id="decoPopupReturnButton" 
+        aria-label="Retour" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="decoPopupYesButton" 
+        aria-label="Oui" 
+        mat-button [mat-dialog-close]
+        >
+        Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>
+*/
 
