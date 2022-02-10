@@ -4,18 +4,38 @@
 
     #adminInternPanelSearchbar {
         display: flex;
+        input {
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 40px;
+            border: solid $window-color 1px;
+            padding: 5px;
+        }
+        input:focus{
+            border: solid $general-purpose-black 2px;
+            box-shadow: none;
+        }
     }
 
     #adminInternPanelFilterAndSort {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
     }
 
     #adminInternPanelSort {
         min-width: 250px;
         width: 30%;
         margin: 0.5rem 0 0.5rem 0;
+        margin-top: 10px;
+        border-radius: 5px;
+        height: 40px;
+        border: solid $window-color 1px;
+        padding: 5px;
+    }
+    #adminInternPanelSort:focus {
+        border: solid $general-purpose-black 2px;
+        box-shadow: none;
     }
 
     #adminInternPanelSearchButton {
@@ -209,11 +229,37 @@
 }
 
 // Form in the popup used to manage an intern data
-.manage-intern-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    label {
+.div-manage-intern-form {
+    .manage-intern-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         width: 80%;
+        label {
+            display: flex;
+            flex-direction: column;
+            .span-manage-intern-form-field {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-bottom: 0;
+                .form-field-icon {
+                    color: $window-color;
+                    margin-right: 10px;
+                }
+   
+            }
+            input {
+                margin-top: 10px;
+                border-radius: 5px;
+                height: 40px;
+                border: solid $window-color 1px;
+                padding: 5px;
+            }
+            input:focus{
+                border: solid $general-purpose-black 2px;
+            }
+        }
     }
 }
+

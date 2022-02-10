@@ -1,7 +1,10 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, Type } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { TypeModel } from 'src/models/type.model';
+import { UserModel } from 'src/models/user.model';
+import { UsersService } from 'src/shared/http/users.service';
 import { User } from 'src/shared/interfaces/users';
 
 @Component({
@@ -45,7 +48,13 @@ export class ManageinternsPanel implements OnInit {
 }
    */
 
-  constructor(private route: ActivatedRoute, private dialog: MatDialog, private formBuilder: FormBuilder) { 
+  constructor(
+    private route: ActivatedRoute, 
+    private dialog: MatDialog, 
+    private formBuilder: FormBuilder,
+    private userAPIService: UsersService
+    ) 
+    { 
     this.searchtitle = new FormControl('');
     this.sortby = new FormControl('');
   }
@@ -97,5 +106,28 @@ export class ManageinternsPanel implements OnInit {
     this.dialog.open(templateRef, {
       minWidth: '50vw'
     });
+  }
+
+  onSubmitInternForm(){
+    alert(this.manageInternForm.controls.name.value 
+      + "\n"
+      + this.manageInternForm.controls.familyName.value 
+      + "\n"
+      + this.manageInternForm.controls.password.value 
+      + "\n"
+      + this.manageInternForm.controls.societe.value 
+      + "\n");
+    let username = this.manageInternForm.controls.name.value + " " + this.manageInternForm.controls.familyName.value;
+    let type = new TypeModel(0, "intern");
+    let dataUser = new UserModel(
+      0,
+      type,
+      username,
+      this.manageInternForm.controls.password.value,
+      this.manageInternForm.controls.societe.value 
+    );
+    console.log(dataUser);
+    //const allUsers = await this.userAPIService.getAllUser().subscribe((res) => {})
+    this.dialog.closeAll();
   }
 }

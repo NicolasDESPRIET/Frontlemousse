@@ -4,18 +4,38 @@
 
     #adminQcmPanelSearchbar {
         display: flex;
+        input {
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 40px;
+            border: solid $window-color 1px;
+            padding: 5px;
+        }
+        input:focus{
+            border: solid $general-purpose-black 2px;
+            box-shadow: none;
+        }
     }
 
     #adminQcmPanelFilterAndSort {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-end;
     }
 
     #adminQcmPanelSort {
         min-width: 250px;
         width: 30%;
         margin: 0.5rem 0 0.5rem 0;
+        margin-top: 10px;
+        border-radius: 5px;
+        height: 40px;
+        border: solid $window-color 1px;
+        padding: 5px;
+    }
+    #adminQcmPanelSort:focus{
+        border: solid $general-purpose-black 2px;
+        box-shadow: none;
     }
 
     #adminQcmPanelSearchButton {

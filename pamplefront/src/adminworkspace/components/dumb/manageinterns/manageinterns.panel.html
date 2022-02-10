@@ -8,51 +8,29 @@
             id="adminInternPanelSearchInput" 
             class="form-control" 
             type="search" 
-            placeholder="Search" 
-            aria-label="Search"
+            placeholder="Rechercher un stagiaire par nom et prénom" 
+            aria-label="Rechercher un stagiaire par nom et prénom"
+            title="Rechercher un stagiaire par nom et prénom"
             [formControl]="searchtitle"
             >
     </form>
 
     <div id="adminInternPanelFilterAndSort">
-
-        <div id="adminInternPanelFilter" class="btn-group" role="group" aria-label="Filters">
-            <button
-                [ngClass]="filterbyButtonStatus.all ? 'btn-primary' : 'btn-secondary'"
-                (click)="onFilterby('all')"
-                type="button" 
-                class="btn btn-primary">
-                Tout
-            </button>
-            <button 
-                [ngClass]="filterbyButtonStatus.done ? 'btn-primary' : 'btn-secondary'"
-                (click)="onFilterby('done')"
-                type="button" 
-                class="btn">
-                Fait
-            </button>
-            <button 
-                [ngClass]="filterbyButtonStatus.todo ? 'btn-primary' : 'btn-secondary'"
-                (click)="onFilterby('todo')"
-                type="button" 
-                class="btn">
-                À faire
-            </button>
-        </div>
     
         <select 
             [formControl]="sortby"
             id="adminInternPanelSort" 
             class="form-select" 
-            aria-label="Default select example"
+            aria-label="Trier par"
+            title="Trier par"
             >
             <option value="" selected>Trier par</option>
-            <option value="increasingAuthor">Auteur (croissant)</option>
-            <option value="decreasingAuthor">Auteur (décroissante)</option>
-            <option value="increasingNumberOfQuestion">Nombre de questions (croissant)</option>
-            <option value="decreasingNumberOfQuestion">Nombre de questions (décroissant)</option>
-            <option value="increasingTitle">Titre croissante</option>
-            <option value="decreasingTitle">Titre décroissante</option>
+            <option value="increasingName">Prénom (croissant)</option>
+            <option value="decreasingName">Prénom (décroissant)</option>
+            <option value="increasingFamilyName">Nom (croissant)</option>
+            <option value="decreasingFamilyName">Nom (décroissant)</option>
+            <option value="increasingCompany">Entreprise (croissant)</option>
+            <option value="decreasingCompany">Entreprise (décroissant)</option>
         </select>
     </div>
 <div id="adminInternPanelCardPane">
@@ -111,22 +89,38 @@
     <h6 *ngIf="isInternNew==true" id="adminInternDelInternTitle">Ajouter un stagiaire</h6>
     <h6 *ngIf="isInternNew==false" id="adminInternDelInternTitle">Modifier un stagiaire</h6>
   </header>
-  <div mat-dialog-content>
-    <form [formGroup]="manageInternForm" class="manage-intern-form">
-      <label for="family-name">Nom
-        <input formControlName="familyName" type="text" name="family-name" id="family-name" aria-label="Saisissez un nom de famille" placeholder="Saisissez un nom de famille" title="Saisissez un nom de famille">
+  <div class="div-manage-intern-form" mat-dialog-content>
+    <form [formGroup]="manageInternForm" class="manage-intern-form" (ngSubmit)="onSubmitInternForm()">
+      <label for="family-name">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fa fa-user"></em>
+          <span class="span-field-label">Nom</span>
+        </span>
+        <input onkeyup="this.value = this.value.toUpperCase();" formControlName="familyName" type="text" name="family-name" id="family-name" aria-label="Saisissez un nom de famille" placeholder="Saisissez un nom de famille" title="Saisissez un nom de famille">
       </label>
-      <label for="name">Prénom
+      <label for="name">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fa fa-user"></em>
+          <span class="span-field-label">Prénom</span>
+        </span>
         <input formControlName="name" type="text" name="name" id="name" aria-label="Saisissez un prénom" title="Saisissez un prénom" placeholder="Saisissez un prénom">
       </label>
-      <label for="password">Mot de passe
+      <label for="password">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fa fa-lock"></em>
+          <span class="span-field-label">Mot de passe</span>
+        </span>
         <input formControlName="password" type="text" name="password" id="password" aria-label="Saisissez un mot de passe" title="Saisissez un mot de passe" placeholder="Saisissez un mot de passe">
       </label>
-      <label for="societe">Entreprise
+      <label for="societe">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fas fa-building"></em>
+          <span class="span-field-label">Entreprise</span>
+        </span>
         <input formControlName="societe" type="text" name="societe" id="societe" aria-label="Saisissez un nom d'entreprise" title="Saisissez un nom d'entreprise" placeholder="Saisissez un nom d'entreprise">
       </label>
       <mat-dialog-actions>
-        <button>Valider</button>
+        <button aria-label="Valider" title="Valider" class="btn btn-primary" type="submit">Valider</button>
       </mat-dialog-actions>
     </form>
   </div>
