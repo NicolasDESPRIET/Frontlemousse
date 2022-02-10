@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { constantsAuthText, constantsSharedTexts, constantsAuthButtons } from '../../../../shared/shared-text';
-import { User } from 'src/models/user';
+import { UserModel } from 'src/models/user.model';
 import { ActivatedRoute } from '@angular/router';
 
 
@@ -24,7 +24,8 @@ export class AuthformComponent implements OnInit {
   adminWorkSpace = constantsAuthText.ADMIN_WORKSPACE_FLAG;
 
   submitted = false;
-  model = new User(); 
+  // When working on auth it will be needed to use a FormGroup instead of ngModel
+  //model = new UserModel(id: undefined, name: "", societe: "", ); 
 
   constructor(private route: ActivatedRoute) { 
     // For now it is empty 
