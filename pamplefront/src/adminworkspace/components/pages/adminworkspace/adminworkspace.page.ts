@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { constantsAdminWorkspace } from 'src/shared/shared-text';
 
 @Component({
@@ -15,9 +16,15 @@ export class AdminworkspacePage implements OnInit {
   // Nav management
   navStatus = 0;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    console.log(this.router.url);
+    if(this.router.url === "/admin/manage/qcms"){
+      this.navStatus = 1;
+    }else{
+      this.navStatus = 0;
+    }
   }
 
   navManagement(index: number): void{
