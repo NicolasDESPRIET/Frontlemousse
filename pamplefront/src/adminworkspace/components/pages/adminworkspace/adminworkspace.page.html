@@ -28,6 +28,15 @@
                     >{{manageQcmText}}
                 </a>
             </li>
+            <li class="nav-item" >
+                <a 
+                    (click)="navManagement(2)" 
+                    routerLink="manage/questions" 
+                    class="nav-link"
+                    [ngClass]="navStatus == 2 ? 'active' : ''"
+                    >{{manageQuestionsText}}
+                </a>
+            </li>
         </ul>
     </nav>
     <div class="row" id="admin-work-panel">

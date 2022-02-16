@@ -1,0 +1,158 @@
+<section id="adminInternPanelTitle" class="section-adminQuestionpanel">
+    <h2 >
+        Rechercher un stagiaire
+    </h2>
+
+    <form id="adminQuestionPanelSearchbar">
+        <input 
+            id="adminInternPanelSearchInput" 
+            class="form-control" 
+            type="search" 
+            placeholder="Rechercher une question par énoncé" 
+            aria-label="Rechercher une question par énoncé"
+            title="Rechercher une question par énoncé"
+            [formControl]="searchtitle"
+            >
+    </form>
+
+    <div id="adminQuestionPanelFilterAndSort">
+    
+        <select 
+            [formControl]="sortby" 
+            id="adminInternPanelSort" 
+            class="form-select" 
+            aria-label="Trier par"
+            title="Trier par"
+            >
+            <option value="" selected>Trier par</option>
+            <option value="increasingName">Prénom (croissant)</option>
+            <option value="decreasingName">Prénom (décroissant)</option>
+            <option value="increasingFamilyName">Nom (croissant)</option>
+            <option value="decreasingFamilyName">Nom (décroissant)</option>
+            <option value="increasingCompany">Entreprise (croissant)</option>
+            <option value="decreasingCompany">Entreprise (décroissant)</option>
+        </select>
+    </div>
+<div id="adminQuestionPanelCardPane">
+    <div id="adminQuestionCardsContainer">
+        <div 
+            (click)="onQuestionCreation(createOrAddQuestionPopup)" 
+            class="card adminQuestionCard" 
+            title="Créer une question" 
+            id="addQuestionCard" 
+            aria-label="Créer un stagiaire">
+          <em class="fas fa-plus"></em>
+        </div>
+        <div 
+          class="card adminQuestionCard" 
+          *ngFor="let question of questionList | searchtitlepipe:searchtitle.value.toString() | filterbypipe:filterby | sortbypipe:sortby.value" 
+          >
+            <div class="card-header" id="adminQuestionCardTitle" >
+                <h5>{{question.enonce}}</h5>
+            </div>
+
+            <div class="card-body">
+                <div *ngFor="let answer of question.responses | keyvalue">
+                    <label for="answer-id-{{answer.key}}">{{answer.key}}</label>
+                    <input disabled [checked]="answer.value==1" type="checkbox" id="answer-id-{{answer.key}}">
+                </div>
+            </div>
+    
+            <div id="adminQuestionCardFooter" class="card-footer">
+              <button 
+                class="adminQuestionCardButton" 
+                id="adminQuestionModif" 
+                aria-label="Modifier"
+                (click)="onQuestionModification(question, createOrAddQuestionPopup)"
+                >
+                <em class="fas fa-edit"></em>
+                Modifier 
+                
+              </button>
+              <button 
+                class="adminQuestionCardButton" 
+                aria-label="Supprimer"
+                id="adminQuestionDelete" 
+                (click)="openPopupDeleteQuestion(question, deleteQuestionPopup)"
+                >
+                <em class="fas fa-trash-alt"></em>
+                Supprimer
+              </button>
+            </div>
+          </div>
+    </div>
+</div>
+</section>
+<!-- CREATE or UPDATE Intern POPUP -->
+<ng-template #createOrAddQuestionPopup>
+  <header mat-dialog-title id="adminInternDelInternsHeader" >
+    <div id="adminInternDelInternLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
+    <h6 *ngIf="isQuestionNew==true" id="adminInternDelInternTitle">Ajouter un stagiaire</h6>
+    <h6 *ngIf="isQuestionNew==false" id="adminInternDelInternTitle">Modifier un stagiaire</h6>
+  </header>
+  <div class="div-manage-intern-form" mat-dialog-content>
+    <form [formGroup]="manageQuestionsForm" class="manage-intern-form" (ngSubmit)="onSubmitQuestionForm()">
+      <label for="family-name">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fa fa-user"></em>
+          <span class="span-field-label">Nom</span>
+        </span>
+        <input onkeyup="this.value = this.value.toUpperCase();" formControlName="familyName" type="text" name="family-name" id="family-name" aria-label="Saisissez un nom de famille" placeholder="Saisissez un nom de famille" title="Saisissez un nom de famille">
+      </label>
+      <label for="name">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fa fa-user"></em>
+          <span class="span-field-label">Prénom</span>
+        </span>
+        <input formControlName="name" type="text" name="name" id="name" aria-label="Saisissez un prénom" title="Saisissez un prénom" placeholder="Saisissez un prénom">
+      </label>
+      <label for="password">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fa fa-lock"></em>
+          <span class="span-field-label">Mot de passe</span>
+        </span>
+        <input formControlName="password" type="text" name="password" id="password" aria-label="Saisissez un mot de passe" title="Saisissez un mot de passe" placeholder="Saisissez un mot de passe">
+      </label>
+      <label for="societe">
+        <span class="span-manage-intern-form-field">
+          <em class="form-field-icon fas fa-building"></em>
+          <span class="span-field-label">Entreprise</span>
+        </span>
+        <input formControlName="societe" type="text" name="societe" id="societe" aria-label="Saisissez un nom d'entreprise" title="Saisissez un nom d'entreprise" placeholder="Saisissez un nom d'entreprise">
+      </label>
+      <mat-dialog-actions>
+        <button aria-label="Valider" title="Valider" class="btn btn-primary" type="submit">Valider</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</ng-template>
+<!-- DELETE Intern POPUP -->
+<ng-template #deleteQuestionPopup>
+    <header mat-dialog-title id="adminInternDelInternsHeader" >
+      
+      <div id="adminInternDelInternLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
+      <h6 id="adminInternDelInternTitle">
+        Supprimer le stagiaire ? 
+      </h6>
+    </header>
+    <div mat-dialog-content id="adminInternDelInternContent">
+      <em class="fas fa-exclamation-triangle"></em>
+      <span>Voulez-vous supprimer le stagiaire : <strong>{{selectedCardForDelete.name}}</strong> ?</span> 
+    </div>
+    <mat-dialog-actions id="adminInternDelInternFooter" >
+      <button 
+        id="adminInternDelReturnButton" 
+        aria-label="fermer" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="adminInternDelYesButton" 
+        aria-label="fermer" 
+        mat-button [mat-dialog-close]
+        >
+        Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>

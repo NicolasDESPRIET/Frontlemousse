@@ -11,6 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/material/material.module';
 import { CreateqcmPage } from './components/pages/createqcm/createqcm.page';
 import { QcmformSmart } from './components/smart/qcmform/qcmform.smart';
+import { ManagequestionsPanel } from './components/dumb/managequestions/managequestions.panel';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { QcmformSmart } from './components/smart/qcmform/qcmform.smart';
     ManageinternsPanel,
     CreateqcmPage,
     QcmformSmart,
+    ManagequestionsPanel,
   ],
   imports: [
     CommonModule,

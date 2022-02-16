@@ -12,6 +12,7 @@ export class AdminworkspacePage implements OnInit {
   // Text constants
   manageInternsText = constantsAdminWorkspace.MANAGE_USER;
   manageQcmText = constantsAdminWorkspace.MANAGE_QCM;
+  manageQuestionsText = constantsAdminWorkspace.MANAGE_QUESTIONS;
   
   // Nav management
   navStatus = 0;
@@ -22,7 +23,10 @@ export class AdminworkspacePage implements OnInit {
     console.log(this.router.url);
     if(this.router.url === "/admin/manage/qcms"){
       this.navStatus = 1;
-    }else{
+    }else if(this.router.url === "/admin/manage/questions"){
+      this.navStatus = 2;
+    }
+    else{
       this.navStatus = 0;
     }
   }
