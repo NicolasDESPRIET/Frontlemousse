@@ -48,7 +48,24 @@
             }
         }
     }
+    
     .card-body {
+        .description-container{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            input {
+                margin-top: 10px;
+                border-radius: 5px;
+                height: 40px;
+                border: solid $window-color 1px;
+                padding: 5px;
+            }
+            input:focus{
+                border: solid $general-purpose-black 2px;
+                box-shadow: none;
+            }
+        }
         .questions-container {
             .question {
                 border: solid 3px $window-color;
@@ -69,36 +86,41 @@
                         em {
                             color: $window-color;
                             font-size: 1.3rem;
-                            margin-bottom: 1.3rem;
+                            margin-bottom: 15px;
                         }
-                        .question-enonce-input {
+                        .question-enonce-h3 {
                             width: 95%;
+                            font-size: x-large;
+                            margin-left: 15px;
+                            margin-bottom: 15px;
                         }
                     }
+                    h4 {
+                        font-size: large;
+                    }
                     .responses-container {
-                            border-radius: 15px;
-                            border: solid $general-purpose-black 1px;
-                            padding: 15px;
-                        legend { float: none; width: fit-content;padding: 0 10px 0 10px;}
+                        .card-body {
+                            padding: 0;
+                        }
                         .single-response-container {
                             display: flex;
                             flex-direction: row;
                             justify-content: space-between;
                             align-items: center;
-                            .reponse-input {
-                                width: 80%;
-                            }
-                            .reponse-value-input{
-                                
-                            }
                             .delete-response-button {
                                 color: $window-color;
                                 cursor: pointer;
                                 margin-bottom: 1.3rem;
                                 font-size: 1.2rem;
                             }
-                            .delete-response-button:hover {
-                                transform: scale(110%);
+                        }
+                        .right-answer {
+                            background-color: $success-color;
+                        }
+                        .wrong-answer {
+                            background-color: $danger-color;
+                            span {
+                                color: $todo-red;
                             }
                         }
                         .div-button-add-response {
@@ -200,6 +222,60 @@
                     height: 40px;
                 }
             }
+        }
+    }
+}
+
+// Select questions popup
+ng-template {
+    z-index: 1000000;
+}
+.select-q-popup-header {
+
+}
+
+.select-q-popup-q-mat-dialog-content {
+    .questions-container{
+        width: 100%;
+        overflow-y: scroll;
+        
+        .question-item {
+            border-radius: 10px;
+            border-color: $white-letter-color; 
+            .label-select-question {
+                cursor: pointer;
+                border: solid $window-color 3px;
+                border-radius: 10px;
+            }
+            cursor: pointer;
+            transition: all ease .3s;
+            margin-top: 25px;
+            .select-question-checkbox {
+                display: none;
+            }
+            .square-question {
+
+            }
+            .responses-container {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                .response-item {
+                    .response-checkbox {
+                        margin-right: 10px;
+                    }
+                    margin-right: 25px;
+                }
+            }
+        }
+        .question-item:hover {
+            transform: scale(98%);
+        }
+        .select-question-checkbox:checked ~ .label-select-question {
+            border: solid $validation-green 3px;
+            border-radius: 10px;
         }
     }
 }
