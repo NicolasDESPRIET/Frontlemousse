@@ -1,0 +1,201 @@
+.section-adminQuestionpanel {
+    margin-top: 50px;
+    padding: 0 100px 0 100px;
+
+    #adminQuestionPanelSearchbar {
+        display: flex;
+        input {
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 40px;
+            border: solid $window-color 1px;
+            padding: 5px;
+        }
+        input:focus{
+            border: solid $general-purpose-black 2px;
+            box-shadow: none;
+        }
+    }
+
+    #adminQuestionPanelFilterAndSort {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    #adminQcmPanelSort {
+        min-width: 250px;
+        width: 30%;
+        margin: 0.5rem 0 0.5rem 0;
+        margin-top: 10px;
+        border-radius: 5px;
+        height: 40px;
+        border: solid $window-color 1px;
+        padding: 5px;
+    }
+    #adminQcmPanelSort:focus{
+        border: solid $general-purpose-black 2px;
+        box-shadow: none;
+    }
+
+    #adminQcmPanelSearchButton {
+        margin: 0;
+    }
+
+    #adminQcmPanelFilterAndSort > #adminQcmPanelFilter,
+    #adminQcmPanelFilterAndSort > #adminQcmPanelSort,
+    #adminQcmPanelSearchbar > #adminQcmPanelSearchInput,
+    #adminQcmPanelSearchbar > #adminQcmPanelSearchButton 
+    {
+        max-height: 40px;
+    }
+
+    // ---------
+    // CARDS
+    // ---------
+
+    #adminQuestionPanelCardPane {
+
+        
+
+        #adminQuestionCardsContainer {
+            
+            padding: 0 50px 0 50px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: wrap;
+
+            margin-top: 50px;
+            // Zoom on card on hover
+            .adminQuestionCard:hover{
+                transform: scale(102%);
+            }
+            #addQuestionCard{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $general-purpose-grey;
+                cursor: pointer;
+                .fa-plus {
+                    font-size: 3rem;
+                    color: $general-purpose-black;
+                }
+            }
+            .adminQuestionCard {
+                transition: all ease .3s;
+                border-radius: 20px 20px 20px 20px;
+                width: 350px;
+                min-width: 350px;
+                height: 270px;
+                margin: 15px;
+
+                // Add space on icon's right
+                .fas, .far {margin-right: 15px;}
+
+                .card-body {
+                    .card-text {
+                        display: inline-block;
+                        margin: 0 15px 0 15px;
+                        
+                        .fas {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin: auto;
+                            height: 40px;
+                            width: 40px;
+                            border: solid 1px $window-color;
+                            color: $window-color;
+                            border-radius: 50%;
+                        }
+                    }
+                } 
+                #adminQuestionCardTitle {
+                    border-radius: 20px 20px 0px 0px;
+                    background-color: $window-color;
+                    color: $white-letter-color;
+                    font-weight: 400;
+                    min-height: 65px;
+                }
+                #adminQuestionCardFooter{
+                    
+                    border-radius: 0px 0px 20px 20px;
+                    display: flex;
+                    justify-content: center;
+                    background-color: $white-letter-color;
+                    border: none;
+                    color: $white-letter-color;
+                    padding: 0 15px 15px 15px;
+                    
+                    // Button styling
+                    .adminQuestionCardButton {
+                        margin: 0 15px 0 15px;
+                        border-radius: 30px 30px 30px 30px;
+                        transition: all ease .3s;
+                        background-color: $window-color; 
+                        color: $white-letter-color;
+                        border: none;
+                        width: 80%; 
+                        height: 40px;
+                    }
+                    // Style repass button specifically
+                    #adminQuestionDelete{
+                        border: solid 1px $window-color;
+                        background-color: $white-letter-color;
+                        color: $general-purpose-black;
+                    }
+                    // Size My result and Repass buttons
+                    #adminQuestionDelete, #adminQuestionModif{
+                        width: 60%;
+                    }
+
+                    // Hover QCM card button action
+                    .adminQuestionCardButton:hover, .adminQuestionCardButton:hover>p{
+                        transition: all ease .3s;
+                        border: solid 1px $window-color;
+                        background-color: $white-letter-color;
+                        color: $general-purpose-black;
+                    }
+    
+                }
+            }
+        }
+
+    }
+}
+
+// On mobile
+@media (max-width: 768px) {
+    .section-adminQuestionpanel {
+            padding: 0px;
+        #adminQuestionPanelFilterAndSort {
+                padding: 0px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+        }
+         #adminQcmPanelSort {
+                width: 100%;
+                margin: 0.5rem 0 0.5rem 0;
+        }
+        #adminQuestionPanelCardPane {
+            padding: 0px;
+            #adminQuestionCardsContainer {
+                padding: 0px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                margin-top: 50px;
+                    
+                .adminQuestionCard {
+                    width: 100%;
+                    height: 300px;                    
+                    margin: 15px 0 15px 0;
+                }
+            }
+        }
+    }
+        
+}
