@@ -30,76 +30,69 @@
         </div>
     </div>
     <div class="card-body">
-
+        <div class="description-container">
+            <label for="qcm-description">Description</label> 
+            <input 
+                maxlength="50"
+                aria-label="Description du QCM"
+                title="Description du QCM"
+                id="qcm-description" 
+                type="text" 
+                [(ngModel)]="qcmEditData.description"
+                [ngModelOptions]="{standalone: true}"
+                >
+        </div>
         <div class="questions-container">
             <div 
                 class="question"
-                *ngFor="let question of qcmEditData.qcmQuestion">
-                <fieldset class="question-container">
+                *ngFor="let question of qcmEditData.qcmQuestion"
+                >
+                <div class="question-container">
                     <div 
                         class="question-enonce-container"
                         >
                         <em title="Enoncé de la question" aria-label="Enoncé de la question" class="far fa-question-circle"></em>
-                        <input 
-                            name="qcm-question-enonce-{{question.enonce}}"
-                            title="Saisissez un énoncé"
-                            aria-label="Saisissez un énoncé"
+                        <h3 
+                            title="Enoncé"
+                            aria-label="Enoncé"
                             maxlength="120"
-                            class="question-enonce-input"
-                            type="text"
-                            [(ngModel)]="question.enonce"
-                        >
+                            class="question-enonce-h3"
+                        >{{question.enonce}}
+                        </h3>
                     </div>
-                    <fieldset class="responses-container">
-                        <legend>Réponses</legend>
-                        <div 
-                        class="single-response-container"
-                        *ngFor="let response of question.responses | keyvalue">
-                            <input type="checkbox">
-                            <input 
-                                name="qcm-answer-{{response.key}}"
-                                title="Saisissez une réponse possible"
-                                placeholder="Saisissez une réponse possible"
-                                aria-label="Saisissez une réponse possible"
-                                maxlength="120"
-                                class="reponse-input"
-                                type="text"
-                                [(ngModel)]="response.key"
-                            >
-                            <!--<input 
-                                name="qcm-answer-value-{{response.value}}"
-                                class="reponse-value-input"
-                                type="number"
-                                max="1"
-                                min="0"
-                                [(ngModel)]="response.value"
-                            >-->
-                            <em 
-                                title="Supprimer la réponse '{{response.key}}'" 
-                                attr.aria-label="Supprimer la réponse '{{response.key}}'" 
-                                class="fas fa-trash-alt delete-response-button"
-                                (click)="deleteResponse(question.id, response.key)"
-                                >
-                            </em>
+                    <div class="responses-container card">
+                        <div class="card-header">Réponses</div>
+                        <div class="card-body list-group list-group-flush">
+                            <div 
+                            class="single-response-container list-group-item" 
+                            [ngClass]="response.value === 1 ? 'right-answer' : 'wrong-answer'"
+                            title="{{ response.value === 1 ? 'Réponse juste' : 'Réponse fausse'}}"
+                            *ngFor="let response of question.responses | keyvalue">
+                                <span
+                                    
+                                    class="reponse-class" 
+                                    [ngClass]="response.value === 1 ? 'text-success' : 'text-danger'" 
+                                >{{response.key}}</span>
+                            </div>
                         </div>
-                        <div class="div-button-add-response">
-                            <button 
-                                title="Ajouter une réponse" 
-                                aria-label="Ajouter une réponse" 
-                                class="button-add-response" 
-                                (click)="addResponse(question.id)">
-                                <em class="fas fa-plus-circle"></em>
-                            </button> 
-                        </div> 
-                    </fieldset>
-                </fieldset>
-                <button title="Supprimer la question" aria-label="Supprimer la question" class="button-delete-question" (click)="openDeleteQuestionPopup(deleteQuestionPopup, question)">
+                        
+                    </div>
+                </div>
+                <button 
+                    title="Supprimer la question" 
+                    aria-label="Supprimer la question" 
+                    class="button-delete-question" 
+                    (click)="openDeleteQuestionPopup(deleteQuestionPopup, question)">
                     <em class="fas fa-trash-alt"></em>
                     Supprimer la question
                 </button>    
             </div>
             <div class="div-button-add-question">
-                <button title="Ajouter une question" aria-label="Ajouter une question" class="button-add-question" (click)="addQuestion()">
+                <button 
+                    title="Ajouter une question" 
+                    aria-label="Ajouter une question" 
+                    class="button-add-question" 
+                    (click)="addQuestion(selectQuestionPopup)">
                     <em class="fas fa-plus-circle" ></em>
                     Ajouter une question
                 </button> 
@@ -107,7 +100,7 @@
         </div>
     </div>
     <div class="card-footer">
-        <button class="btn btn-primary" aria-label="Valider" title="Valider">Valider</button>
+        <button (click)="submitQcm()" type="button" class="btn btn-primary" aria-label="Valider" title="Valider">Valider</button>
     </div>
 </form>
 
@@ -121,8 +114,8 @@
       </h6>
     </header>
     <div mat-dialog-content id="adminInternDelInternContent">
-      <i class="fas fa-exclamation-triangle"></i>
-      <span>Voulez-vous supprimer la question : <strong>{{selectedCardForDelete.enonce}}</strong> ?</span> 
+      <em class="fas fa-exclamation-triangle"></em>
+      <span>Voulez-vous supprimer la question : <strong>{{selectedCardForDelete.enonce}}</strong> ? La question ne sera pas supprimée de votre base de données.</span> 
     </div>
     <mat-dialog-actions id="adminInternDelInternFooter" >
       <button 
@@ -139,6 +132,72 @@
         (click)="deleteQuestion(selectedCardForDelete.id)"
         >
         Oui
+      </button>
+    </mat-dialog-actions>
+  </ng-template>
+
+<!-- SELECT QUESTION POPUP -->
+<ng-template #selectQuestionPopup>
+    <header mat-dialog-title class="select-q-popup-header" id="adminInternDelInternsHeader" >
+      
+      <div id="adminInternDelInternLogo"><i class="fas fa-question"></i><h5>QCMPlus</h5></div>
+      <h6 id="adminInternDelInternTitle">
+        Ajoutez des question ? 
+      </h6>
+    </header>
+    <div mat-dialog-content id="adminInternDelInternContent" class="select-q-popup-q-mat-dialog-content">
+      
+        <div class="questions-container">
+            
+            <div 
+                *ngFor="let question of questionList" 
+                class="question-item card" 
+                
+                >
+                <input 
+                    [checked]="qcmQuestionsIds.includes(question.id)" 
+                    id="select-question-checkbox-id-{{question.id}}" 
+                    type="checkbox" class="select-question-checkbox" 
+                    aria-label="Sélectionner une ou plusieurs questions" 
+                    title="Sélectionner une ou plusieurs questions"
+                    (click)="addQuestionToList(question.id)"
+                    >
+                    
+                <label 
+                    aria-label="Sélectionner une ou plusieurs questions" 
+                    title="Sélectionner une ou plusieurs questions" 
+                    class="label-select-question" 
+                    for="select-question-checkbox-id-{{question.id}}">
+                    
+                    <h5 class="card-header">
+                        {{question.enonce}}
+                    </h5>
+                    <div class="card-body responses-container">
+                        <div *ngFor="let response of question.responses | keyvalue" class="response-item"> 
+                            <input [checked]="response.value == 1" class="response-checkbox" type="checkbox" aria-label="Une case cochée correspond à une bonne réponse" disabled value="response.value">
+                            <span class="response-text">{{response.key}}</span>
+                        </div>
+                    </div>
+                </label> 
+            </div>
+        </div>
+
+    </div>
+    <mat-dialog-actions id="adminInternDelInternFooter" >
+      <button 
+        id="adminInternDelReturnButton" 
+        aria-label="fermer" 
+        mat-button 
+        [mat-dialog-close]>
+        Retour
+      </button>
+      <button 
+        id="adminInternDelYesButton" 
+        aria-label="fermer" 
+        mat-button [mat-dialog-close]
+        (click)="validateQuestionChoice()"
+        >
+        Valider
       </button>
     </mat-dialog-actions>
   </ng-template>

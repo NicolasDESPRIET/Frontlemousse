@@ -6,11 +6,11 @@
 import { QuestionNoResponseDto, Question } from './questions'
 
 /**
- * @interface Qcms
+ * @interface Qcm
  * @brief basique Qcm object.
  */
 export interface Qcm {
-  id: number
+  id: number | undefined
   name: string
   description: string
   author: string
