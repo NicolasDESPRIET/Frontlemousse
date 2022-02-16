@@ -1,4 +1,5 @@
 import { Qcm } from "src/shared/interfaces/qcms"
+import { Question } from "src/shared/interfaces/questions"
 import { User } from "src/shared/interfaces/users"
 
 export const data: any = {
@@ -257,34 +258,7 @@ export const doQcmData: Qcm[] = [
         "name": "Quelle est la différence entre une poule en Patagonie",
         "description": "un qcm de test 2",
         "author": "Verov NABAKO",
-        "qcmQuestion": [{
-            "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
-            "responses": {
-                "Un animal": 1,
-                "Une vache": 0,
-                "Un cheval" : 1,
-                "Une tortue" : 0,
-                "JE NE SAIS PAS" : 1,
-                "Laissez moi tranquille" : 0
-            }
-        },
-        {
-            "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
-            "responses": {
-                "Oui": 1,
-                "C'est pax faux": 0
-            }
-        },
-        {
-            "id": 1,
-            "enonce": "Êtes vous débile ?",
-            "responses": {
-                "Très certainement": 1,
-                "Bien entendu": 0
-            }
-        }]
+        "qcmQuestion": []
     },
     {
         "id": 3,
@@ -321,30 +295,7 @@ export const doQcmData: Qcm[] = [
         "name": "JavaScript : async et promises",
         "description": "un qcm de test 2",
         "author": "Théo FIL",
-        "qcmQuestion": [{
-            "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
-            "responses": {
-                "Un animal": 1,
-                "Une vache": 0
-            }
-        },
-        {
-            "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
-            "responses": {
-                "Oui": 1,
-                "C'est pax faux": 0
-            }
-        },
-        {
-            "id": 1,
-            "enonce": "Êtes vous débile ?",
-            "responses": {
-                "Très certainement": 1,
-                "Bien entendu": 0
-            }
-        }]
+        "qcmQuestion": []
     },
     {
         "id": 5,
@@ -352,23 +303,23 @@ export const doQcmData: Qcm[] = [
         "description": "un qcm de test 2",
         "author": "Jacques LONDRES",
         "qcmQuestion": [{
-            "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
+            "id": 23,
+            "enonce": "Qu'est-ce qu'une girafe chauve ?",
             "responses": {
                 "Un animal": 1,
                 "Une vache": 0
             }
         },
         {
-            "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
+            "id": 22,
+            "enonce": "Qu'est-ce qu'une différence de temps ?",
             "responses": {
                 "Oui": 1,
                 "C'est pax faux": 0
             }
         },
         {
-            "id": 1,
+            "id": 21,
             "enonce": "Êtes vous débile ?",
             "responses": {
                 "Très certainement": 1,
@@ -381,60 +332,14 @@ export const doQcmData: Qcm[] = [
         "name": "Savoir se servir d'un clavier",
         "description": "un qcm de test 2",
         "author": "Alex ANDROBARICAULT-JELAIDANLOS",
-        "qcmQuestion": [{
-            "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
-            "responses": {
-                "Un animal": 1,
-                "Une vache": 0
-            }
-        },
-        {
-            "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
-            "responses": {
-                "Oui": 1,
-                "C'est pax faux": 0
-            }
-        },
-        {
-            "id": 1,
-            "enonce": "Êtes vous débile ?",
-            "responses": {
-                "Très certainement": 1,
-                "Bien entendu": 0
-            }
-        }]
+        "qcmQuestion": []
     },
     {
         "id": 7,
         "name": "JavaScript : les bases",
         "description": "un qcm de test 2",
         "author": "jean michel 2",
-        "qcmQuestion": [{
-            "id": 3,
-            "enonce": "Qu'est-ce qu'une girafe ?",
-            "responses": {
-                "Un animal": 1,
-                "Une vache": 0
-            }
-        },
-        {
-            "id": 2,
-            "enonce": "Qu'est-ce qu'une différence ?",
-            "responses": {
-                "Oui": 1,
-                "C'est pax faux": 0
-            }
-        },
-        {
-            "id": 1,
-            "enonce": "Êtes vous débile ?",
-            "responses": {
-                "Très certainement": 1,
-                "Bien entendu": 0
-            }
-        }]
+        "qcmQuestion": []
     }
 ]
 
@@ -479,4 +384,86 @@ export const userList: User[] = [
         },
         societe: "Thales"
     },
+]
+
+export const questionList: Question[] = [
+    {
+        "id": 119,
+        "enonce": "Qu'est-ce qu'un tiramisu ?",
+        "responses": {
+            "Un animal": 1,
+            "Une vache": 0
+        }
+    },
+    {
+        "id": 118,
+        "enonce": "Qu'est-ce qu'une jument ?",
+        "responses": {
+            "Un animal": 1,
+            "Une chèvre": 0
+        }
+    },
+    {
+        "id": 117,
+        "enonce": "La blanquette est-elle bonne ?",
+        "responses": {
+            "Oui": 1,
+            "Non": 0
+        }
+    },
+    {
+        "id": 116,
+        "enonce": "Miaou ?",
+        "responses": {
+            "Warf": 1,
+            "Cocorico": 0
+        }
+    },
+    {
+        "id": 115,
+        "enonce": "Hello ?",
+        "responses": {
+            "Nonjfdddddddddddddddddddddd": 1,
+            "Cocorico": 0,
+            "zzzzzzzzzzzzzzzzzzzzzzz" : 1,
+            "Boarf" : 0,
+            "aaaaaaaaaaaaaaaaaaaaaa" : 1,
+            "hello la compagnie je suis débile" : 0
+        }
+    },
+    {
+        "id": 146,
+        "enonce": "Devenez votre propre smartphone !",
+        "responses": {
+            "Meuuuh": 1,
+            "Ok frr": 0
+        }
+    },
+    {
+        "id": 157,
+        "enonce": "Qu'est-ce qu'une mobilette ?",
+        "responses": {
+            "Oui": 1,
+            "C'est pax faux": 0,
+            "C'est évident" : 1
+        }
+    },
+    {
+        "id": 114,
+        "enonce": "Êtes vous débile ?",
+        "responses": {
+            "Très certainement": 1,
+            "Bien entendu": 0
+        }
+    },
+    {
+        "id": 122,
+        "enonce": "Avez-vous déjà envisagé une reconversion en caisse automatique ?",
+        "responses": {
+            "Oui": 1,
+            "Pourquoi faire ?": 0,
+            "C'est indiscret comme question" : 0,
+            "Je suis déjà en formation pour devenir chaise de jardin" : 1
+        }
+    }
 ]
