@@ -1,4 +1,5 @@
 import { Component, ElementRef, Input, OnInit, QueryList, TemplateRef, ViewChildren } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { questionList } from 'assets/fakedata';
@@ -12,7 +13,7 @@ import { Question } from 'src/shared/interfaces/questions';
 })
 export class QcmformSmart implements OnInit {
 
-  @Input() cardId: number = 0;
+  @Input() cardId: number | any;
   @ViewChildren('question') selectedAnswerInputs: QueryList<ElementRef> | any;
   // Object that will be sent to the back
   qcmEditData: any;
@@ -22,11 +23,15 @@ export class QcmformSmart implements OnInit {
   qcmQuestionsIds: number[] = [];
   // Question that is about to be deleted from the form
   selectedCardForDelete: Question | any;
+  // String to search 
+  searchtitle: FormControl;
 
   // Ng Switches
   titleEditMode: boolean = false;
 
-  constructor(private router: Router, private route: ActivatedRoute, private dialog: MatDialog) { }
+  constructor(private router: Router, private route: ActivatedRoute, private dialog: MatDialog) { 
+    this.searchtitle = new FormControl('');
+  }
 
   ngOnInit(): void {
     // When editing
@@ -36,8 +41,7 @@ export class QcmformSmart implements OnInit {
     }else{
       // In the case of a new QCM
       this.qcmEditData = new QcmModel(undefined, "", "", "Toto TOTO", []);
-      this.questionList = this.qcmEditData.questionList;
-      
+      this.questionList = this.route.snapshot.data.questionList;
     }
     console.log(this.qcmEditData);
     console.log(this.questionList);
@@ -104,7 +108,8 @@ export class QcmformSmart implements OnInit {
     console.log(this.qcmEditData);
     this.qcmQuestionsIds.forEach((item: any) => {
       let newQuestion = questionList.find((element: any) => element.id === item);
-      if(!this.qcmEditData.qcmQuestion.includes(newQuestion)){
+      if(!this.qcmEditData.qcmQuestion.includes(newQuestion) && newQuestion != undefined){
+        console.log(newQuestion);
         this.qcmEditData.qcmQuestion.push(newQuestion);
       }
       

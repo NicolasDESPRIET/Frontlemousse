@@ -235,6 +235,21 @@ ng-template {
 }
 
 .select-q-popup-q-mat-dialog-content {
+    #questionSearchSearchbar{
+        width: 100%;
+        input {
+            
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 40px;
+            border: solid $window-color 1px;
+            padding: 5px;
+        }
+        input:focus{
+            border: solid $general-purpose-black 2px;
+            box-shadow: none;
+        }
+    }
     .questions-container{
         width: 100%;
         overflow-y: scroll;
