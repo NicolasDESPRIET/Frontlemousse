@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from 'src/home/components/pages/homepage/homepage.component';
-import { QuitQcmBeforeFinishGuard } from 'src/shared/guards/quit-qcm-before-finish.guard';
+import { RedirectHomeToWorkspaceWhenConnectedGuard } from 'src/shared/guards/redirect-home-to-workspace-when-connected.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomepageComponent
+    component: HomepageComponent,
+    canActivate: [RedirectHomeToWorkspaceWhenConnectedGuard]
   },
   // Those routes use lazy loading for improved performance. 
   { 
@@ -16,7 +17,7 @@ const routes: Routes = [
   {
     path: 'intern',
     loadChildren: () => import('../internworkspace/internworkspace.module').then(m => m.InternworkspaceModule),
-
+    
   
   }
 
