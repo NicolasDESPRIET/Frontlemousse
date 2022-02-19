@@ -35,6 +35,7 @@ const routes: Routes = [
   {
     path: 'manage/qcms/new',
     component: CreateqcmPage,
+    resolve: {questionList: QuestionlistResolver}
   },
   {
     path: 'manage/qcms/edit/:id',
