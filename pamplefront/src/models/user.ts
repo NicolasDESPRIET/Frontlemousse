@@ -1,12 +1,19 @@
-export class User {
+import { Type } from "src/shared/interfaces/types";
+import { User } from "src/shared/interfaces/users";
 
-    constructor(){
-        // This is an empty constructor
-    }
+export class UserModel implements User {
 
-    id: number | undefined;
-    status: string | undefined;
-    username: string | undefined;
-    password: string | undefined;
+    id: number;
+    type: Type;
+    name: string;
+    password: string;
+    societe: string;
 
+    constructor(id: number, type: Type, name: string, password: string, societe: string){
+        this.id = id;
+        this.type = type;
+        this.name = name;
+        this.password = password;
+        this.societe = societe;
+    } 
 }
