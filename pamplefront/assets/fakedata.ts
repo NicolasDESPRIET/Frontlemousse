@@ -1,3 +1,7 @@
+import { UserModel } from "src/models/user"
+import { Type } from "src/shared/interfaces/types"
+import { User } from "src/shared/interfaces/users"
+
 export const data: any = {
     qcms : [
         {
@@ -432,5 +436,31 @@ export const doQcmData: any = [
                 "Bien entendu": 0
             }
         }]
+    }
+]
+export const intern: Type = {
+    id: 1,
+    name: "intern"
+}
+
+export const admin: Type = {
+    id: 2,
+    name: "admin"
+}
+
+export const userList: UserModel[] = [
+    {
+        id: 1,
+        name: "William FINZY",
+        password: "Azerty&",
+        type: intern,
+        societe: "Capgemini"
+    },
+    {
+        id: 2,
+        name: "Toto ADMIN",
+        password: "Azerty123",
+        type: admin,
+        societe: "Capgemini"
     }
 ]
