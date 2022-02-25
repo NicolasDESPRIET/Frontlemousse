@@ -23,7 +23,7 @@
         justify-content: flex-end;
     }
 
-    #adminQcmPanelSort {
+    #adminQuestionPanelSort {
         min-width: 250px;
         width: 30%;
         margin: 0.5rem 0 0.5rem 0;
@@ -33,7 +33,7 @@
         border: solid $window-color 1px;
         padding: 5px;
     }
-    #adminQcmPanelSort:focus{
+    #adminQuestionPanelSort:focus{
         border: solid $general-purpose-black 2px;
         box-shadow: none;
     }
@@ -174,11 +174,18 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+            #adminQuestionPanelFilterAndSort {
+                padding: 0px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+             #adminQuestionPanelSort {
+                    width: 100%;
+                    margin: 0.5rem 0 0.5rem 0;
+            }
         }
-         #adminQcmPanelSort {
-                width: 100%;
-                margin: 0.5rem 0 0.5rem 0;
-        }
+         
         #adminQuestionPanelCardPane {
             padding: 0px;
             #adminQuestionCardsContainer {
