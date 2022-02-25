@@ -1,0 +1,33 @@
+.div-manage-question-form {
+    .manage-question-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 80%;
+        label {
+            display: flex;
+            flex-direction: column;
+            .span-manage-question-form-field {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-bottom: 0;
+                .form-field-icon {
+                    color: $window-color;
+                    margin-right: 10px;
+                }
+   
+            }
+            input {
+                margin-top: 10px;
+                border-radius: 5px;
+                height: 40px;
+                border: solid $window-color 1px;
+                padding: 5px;
+            }
+            input:focus{
+                border: solid $general-purpose-black 2px;
+            }
+        }
+    }
+}
