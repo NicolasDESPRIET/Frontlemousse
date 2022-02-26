@@ -1,6 +1,6 @@
 <section id="adminInternPanelTitle" class="section-adminQuestionpanel">
     <h2 >
-        Rechercher un stagiaire
+        Rechercher une question
     </h2>
 
     <form id="adminQuestionPanelSearchbar">
@@ -19,7 +19,7 @@
     
         <select 
             [formControl]="sortby" 
-            id="adminInternPanelSort" 
+            id="adminQuestionPanelSort" 
             class="form-select" 
             aria-label="Trier par"
             title="Trier par"
@@ -83,61 +83,92 @@
     </div>
 </div>
 </section>
-<!-- CREATE or UPDATE Intern POPUP -->
+<!-- CREATE or UPDATE question POPUP -->
 <ng-template #createOrAddQuestionPopup>
   <header mat-dialog-title id="adminInternDelInternsHeader" >
     <div id="adminInternDelInternLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
-    <h6 *ngIf="isQuestionNew==true" id="adminInternDelInternTitle">Ajouter un stagiaire</h6>
-    <h6 *ngIf="isQuestionNew==false" id="adminInternDelInternTitle">Modifier un stagiaire</h6>
+    <h6 *ngIf="isQuestionNew==true" id="adminInternDelInternTitle">Créer une question</h6>
+    <h6 *ngIf="isQuestionNew==false" id="adminInternDelInternTitle">Modifier une question</h6>
   </header>
-  <div class="div-manage-intern-form" mat-dialog-content>
-    <form [formGroup]="manageQuestionsForm" class="manage-intern-form" (ngSubmit)="onSubmitQuestionForm()">
-      <label for="family-name">
-        <span class="span-manage-intern-form-field">
-          <em class="form-field-icon fa fa-user"></em>
-          <span class="span-field-label">Nom</span>
+  <mat-dialog-content class="div-manage-question-form" >
+    <form 
+      [formGroup]="manageQuestionsForm" 
+      class="manage-question-form" 
+      (ngSubmit)="onSubmitQuestionForm()">
+
+      
+
+      <label class="label-enonce" for="enonce">
+        <span class="span-manage-question-form-field">
+          <em class="form-field-icon fa-solid fa-file-lines"></em>
+          <span class="span-field-label">Enoncé</span>
         </span>
-        <input onkeyup="this.value = this.value.toUpperCase();" formControlName="familyName" type="text" name="family-name" id="family-name" aria-label="Saisissez un nom de famille" placeholder="Saisissez un nom de famille" title="Saisissez un nom de famille">
+        <input 
+          formControlName="enonce" 
+          type="text" 
+          name="enonce" 
+          id="enonce" 
+          aria-label="Saisissez un énoncé" 
+          placeholder="Saisissez un énoncé" 
+          title="Saisissez un énoncé">
       </label>
-      <label for="name">
-        <span class="span-manage-intern-form-field">
-          <em class="form-field-icon fa fa-user"></em>
-          <span class="span-field-label">Prénom</span>
-        </span>
-        <input formControlName="name" type="text" name="name" id="name" aria-label="Saisissez un prénom" title="Saisissez un prénom" placeholder="Saisissez un prénom">
-      </label>
-      <label for="password">
-        <span class="span-manage-intern-form-field">
-          <em class="form-field-icon fa fa-lock"></em>
-          <span class="span-field-label">Mot de passe</span>
-        </span>
-        <input formControlName="password" type="text" name="password" id="password" aria-label="Saisissez un mot de passe" title="Saisissez un mot de passe" placeholder="Saisissez un mot de passe">
-      </label>
-      <label for="societe">
-        <span class="span-manage-intern-form-field">
-          <em class="form-field-icon fas fa-building"></em>
-          <span class="span-field-label">Entreprise</span>
-        </span>
-        <input formControlName="societe" type="text" name="societe" id="societe" aria-label="Saisissez un nom d'entreprise" title="Saisissez un nom d'entreprise" placeholder="Saisissez un nom d'entreprise">
-      </label>
+      <ng-container formArrayName="responses">
+        <ng-container *ngFor="let response of responses.controls">
+          <span class="span-field-label">Réponses</span>
+          <div class="form-array-container">
+            <div 
+              class="responses-controls-container" 
+              *ngFor="let response of responses.controls; let i=index">
+                <label  for="response-{{i}}">
+                  <input 
+                    class="input-response-text"
+                    [formControlName]="i" 
+                    type="text" 
+                    name="response-{{i}}" 
+                    id="response-{{i}}" 
+                    aria-label="Saisissez une réponse possible" 
+                    title="Saisissez une réponse possible" 
+                    placeholder="Saisissez une réponse possible">
+                </label>
+                <label  for="response-value-{{i}}">
+                  <input 
+                    [formControlName]="i" 
+                    type="number"
+                    min="0"
+                    max="1" 
+                    name="response-value{{i}}" 
+                    id="response-value-{{i}}" 
+                    aria-label="Saisissez 1 ou 0" 
+                    title="Saisissez 1 ou 0" >
+                </label>
+            </div>
+            
+          </div>
+        </ng-container>
+      </ng-container>
+      <button type="button" (click)="addResponse()">Add</button>
+      
+      
+      
+      
       <mat-dialog-actions>
         <button aria-label="Valider" title="Valider" class="btn btn-primary" type="submit">Valider</button>
       </mat-dialog-actions>
     </form>
-  </div>
+  </mat-dialog-content>
 </ng-template>
-<!-- DELETE Intern POPUP -->
+<!-- DELETE question POPUP -->
 <ng-template #deleteQuestionPopup>
     <header mat-dialog-title id="adminInternDelInternsHeader" >
       
       <div id="adminInternDelInternLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
       <h6 id="adminInternDelInternTitle">
-        Supprimer le stagiaire ? 
+        Supprimer la question ? 
       </h6>
     </header>
     <div mat-dialog-content id="adminInternDelInternContent">
       <em class="fas fa-exclamation-triangle"></em>
-      <span>Voulez-vous supprimer le stagiaire : <strong>{{selectedCardForDelete.name}}</strong> ?</span> 
+      <span>Voulez-vous supprimer la question : <strong>{{selectedCard.enonce}}</strong> ?</span> 
     </div>
     <mat-dialog-actions id="adminInternDelInternFooter" >
       <button 

@@ -164,6 +164,32 @@
 
     }
 }
+.cdk-global-overlay-wrapper {
+
+    overflow: auto;
+
+  }
+// ADD QUESTION POPUP
+
+.div-manage-question-form{
+    .manage-question-form{
+        .label-enonce{
+
+        }
+        .form-array-container{
+            .responses-controls-container{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                label {
+                    .input-response-text{
+                        width: 100%
+                    }
+                }
+            }
+        }
+    }
+}
 
 // On mobile
 @media (max-width: 768px) {
