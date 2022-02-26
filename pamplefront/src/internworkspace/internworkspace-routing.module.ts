@@ -9,7 +9,8 @@ import { DoqcmComponent } from './components/smart/doqcm/doqcm.component';
 const routes: Routes = [
   {
     path: '',
-    component: InternworkspacepageComponent
+    component: InternworkspacepageComponent,
+    resolve: {qcmList : DoqcmresolveService}
   },
 
   {

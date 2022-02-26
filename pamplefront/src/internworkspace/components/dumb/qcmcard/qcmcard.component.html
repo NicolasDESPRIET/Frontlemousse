@@ -6,7 +6,7 @@
       class="card internQcmCard" 
       *ngFor="let card of cards | searchtitlepipe:searchtitle | filterbypipe:filterby | sortbypipe:sortby" 
       >
-        <h5 class="card-header" id="internQcmCardTitle" >{{card.title}}</h5>
+        <h5 class="card-header" id="internQcmCardTitle" >{{card.qcm.name}}</h5>
         <h6 
           class="card-header" 
           id="internQcmCardLastTitle" 

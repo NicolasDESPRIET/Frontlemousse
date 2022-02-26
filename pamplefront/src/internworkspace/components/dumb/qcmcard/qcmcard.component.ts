@@ -1,6 +1,7 @@
 import { Component, Inject, Input, OnInit, TemplateRef } from '@angular/core';
-import {data} from "../../../../../assets/fakedata";
+import { data } from "../../../../../assets/fakedata";
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-qcmcard',
@@ -16,23 +17,26 @@ export class QcmcardComponent implements OnInit {
   selectedCardForResults: any | undefined;
   selectedCardForDo: any | undefined;
 
-  cards = data.qcms;
+  cards: any;
 
-  filteredData = ""; 
+  filteredData = "";
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, route: ActivatedRoute) {
+    this.cards = route.snapshot.data.qcmList;
+    console.log(this.cards);
+  }
 
   ngOnInit(): void {
   }
 
-  openPopupSeeAllResults(templateRef: TemplateRef<any>, card: any){
+  openPopupSeeAllResults(templateRef: TemplateRef<any>, card: any) {
     this.dialog.open(templateRef, {
       minWidth: '50vw'
     });
     this.selectedCardForResults = card;
   }
 
-  openPopupDoQcm(templateRef: TemplateRef<any>, card: any){
+  openPopupDoQcm(templateRef: TemplateRef<any>, card: any) {
     this.dialog.open(templateRef, {
       minWidth: '50vw'
     });
