@@ -20,6 +20,9 @@ export class RedirectHomeToWorkspaceWhenConnectedGuard implements CanActivate {
     if(sessionInfo.isConnected && sessionInfo.userData.type=="admin"){      
       this.router.navigate(["/admin"]);
     }
+    if(!sessionInfo.isConnected){
+      return true;
+    }
     return sessionInfo;
   }
   
