@@ -52,60 +52,17 @@ export class AuthformComponent implements OnInit {
 
   onSubmit(){
     
+
     // Format username
     let name: string = this.loginForm.value.firstname.toString() + " " + this.loginForm.value.lastname.toString().toUpperCase();
     let password: string = this.loginForm.value.password;
     let type: UserTypeModel = new UserTypeModel('');
-
     if(this.workSpace === "Espace administrateur"){
       type.name = "admin";
     }else{
-      type.name = "intern";
+      type.name = "stagiaire";
     }
-    const data = {
-      'name': name,
-      'password' : password,
-      'type' : type 
-    }
-    console.log("Data:\n");
-    console.log(data);
-    // Send request to back for authentication 
-    // then I want a key or something and return an event that will
-    // trigger a switch in the top component (app)
-    // i need a method like 
-    // this.serviceAuth.login(type, username, password)
-    // The method will check if there is a user in the corresponding type
-    // then return something 
-    // if it is OK i will navigate to the right place
-    // if no it will display something
-    
-    // TEST USER
-
-    // filter by type
-    const filteredUserList = userList.filter(item => item.type.name == data.type.name);
-    console.log(filteredUserList);
-    if(filteredUserList.some(element => element.name == data.name && element.password == data.password)){
-      let connectedUser = filteredUserList.find(element => element.name == data.name && element.password == data.password);
-      console.log("Connected !");
-      console.log(connectedUser);
-      this.sessionWorker._setUserSession(connectedUser!);
-      this.sessionWorker._setIsConnected(true);
-      switch(connectedUser?.type.name){
-        case "admin":
-          this.router.navigate(["/admin"]);
-          break;
-        case "intern":
-          this.router.navigate(["/intern"]);
-          break;
-        default:
-          console.log("ERROR");
-      }      
-    }else{
-      console.log("FAILED !");
-      this.invalidAuth = true;
-    }
-
-
+    this.sessionWorker.testConnect(name, type.name, password);
   }
 
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { UserModel } from 'src/models/user';
+import { UsersService } from '../http/users.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,22 +10,45 @@ import { UserModel } from 'src/models/user';
 export class SessionManagementService {
 
 
-  // Subjects that will receive data
-  //private readonly _userSession = new BehaviorSubject<UserModel | null>(null);
-  //private readonly _isConnected = new BehaviorSubject<boolean>(false);
+  constructor(private router: Router, private userService: UsersService) { }
 
-  // Make them as observable
-  //readonly userSession$ = this._userSession.asObservable();
-  //readonly isConnected$ = this._isConnected.asObservable();
-
-  constructor(private router: Router) { }
+  testConnect(name: string, typeName: string, password: string){
+    this.userService.getOneUserBByName(name).subscribe(
+      (data) => {
+        console.log(data);
+        let type = data.type.name;
+        console.log(type)
+        console.log(typeName);
+        console.log(data.password);
+        console.log(password);
+        if(type == typeName){
+          console.log("first cond")
+          if(data.password == password){
+            this._setUserSession(data);
+            this._setIsConnected(true);
+            switch(type){
+              case "stagiaire":
+                this.router.navigate(["/intern"]);
+                break;
+              case "admin":
+                this.router.navigate(["/admin"]);
+                break;
+            }
+          }else{
+            console.log("not logged");
+          }
+          
+        }
+      }
+    );
+    
+  }
 
   // Setters
-  _setUserSession(user: UserModel): void {
-    //this._userSession.next(user);
-    sessionStorage.setItem("id", user.id.toString());
-    sessionStorage.setItem("name", user.name);
-    sessionStorage.setItem("type", user.type.name);    
+  _setUserSession(data: any): void {
+    sessionStorage.setItem("id", data.id.toString());
+    sessionStorage.setItem("name", data.name);
+    sessionStorage.setItem("type", data.type.name);    
   }
 
   _setIsConnected(value: boolean): void {
