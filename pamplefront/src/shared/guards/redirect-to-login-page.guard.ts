@@ -19,7 +19,7 @@ export class RedirectToLoginPageGuard implements CanActivate {
     const urlBeginning = state.url.match(regexUrlBeginning);
     switch(urlBeginning![0]){
       case "/intern":
-        if(sessionInfo.isConnected && sessionInfo.userData.type=="intern"){
+        if(sessionInfo.isConnected && sessionInfo.userData.type=="stagiaire"){
           return true;
         }
         else{
