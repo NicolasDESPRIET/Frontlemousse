@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from 'src/shared/interfaces/questions';
@@ -47,10 +47,10 @@ export class ManagequestionsPanel implements OnInit {
     })
   }
 
-  addResponse(){
+  addResponse(possibleResponse: string, value: number){
     const responseForm = this.formBuilder.group({
-      possibleResponse: ["", Validators.required],
-      value: [0, Validators.required]
+      possibleResponse: [possibleResponse, Validators.required],
+      value: [value, Validators.required]
     });
     this.responses.push(responseForm);
   }
@@ -74,8 +74,10 @@ export class ManagequestionsPanel implements OnInit {
     this.isQuestionNew = false;
     let arrayResponse = [];
     for(const [key, value] of Object.entries(question.responses)){
+      this.addResponse(key, value);
       arrayResponse.push({possibleResponse: key, value: value});
     }
+    console.log("Array esponse");
     console.log(arrayResponse);
     console.log(this.manageQuestionsForm.controls.enonce.value);
     console.log(this.manageQuestionsForm.controls.responses.value);
@@ -84,10 +86,12 @@ export class ManagequestionsPanel implements OnInit {
     
     this.manageQuestionsForm.patchValue(
       {
-        enonce: question.enonce
-
+        enonce: question.enonce,
       }
     )
+    
+    console.log(this.manageQuestionsForm.controls.enonce.value);
+    console.log(this.manageQuestionsForm.controls.responses.value);
     this.dialog.open(templateRef, {
       minWidth: '50vw'
     });
