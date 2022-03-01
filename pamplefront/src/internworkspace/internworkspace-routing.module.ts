@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: '',
     component: InternworkspacepageComponent,
+    resolve: {qcmList : DoqcmresolveService},
     canActivate: [RedirectToLoginPageGuard]
   },
 
