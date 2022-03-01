@@ -60,6 +60,50 @@ form {
     input {
         margin-bottom: 1.3rem;
     }
+
+    .form-input-group {
+        input {
+            margin-top: 10px;
+            border-radius: 5px;
+            height: 40px;
+            border: solid $window-color 1px;
+            padding: 5px;
+        }
+        input:focus{
+            border: solid $general-purpose-black 2px;
+            box-shadow: none;
+        }
+    }
+    .firstname-lastname {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: space-around;
+        .form-input-group {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            width: 100%;
+        }
+    }
+    #password-input-group{
+        display: flex;
+        flex-direction: row;
+        .lock-icon {
+            width: 10%;
+            margin-top: 10px;
+            height: 40px;
+        }
+        input {
+            width: 90%;
+            height: 40px;
+            margin-top: 10px;
+            border: solid $window-color 1px;
+            border-radius: 5px;
+        }
+    }
     
     // Format connexion button
     #connexion-button{
@@ -68,5 +112,20 @@ form {
             width: 80%;
             margin-top: 10px;
         }
+    }
+
+    
+}
+.alert-dismissible {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button.close {
+        border: none;
+        background: none;
+        font-weight: 700;
+        color: $general-purpose-black;
     }
 }
