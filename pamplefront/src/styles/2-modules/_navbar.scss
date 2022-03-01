@@ -20,6 +20,7 @@ NAVBAR STYLES
             color: $white-letter-color;
             font-weight: 600;
             transition: ease-in-out all .3s;
+            cursor: pointer;
         }
         .navbar-brand:hover {
             transform: scale(115%);
@@ -87,35 +88,14 @@ NAVBAR STYLES
 
 }
 
-/*
-
-<ng-template #decoPopup>
-    <header mat-dialog-title id="decoPopupQcmsHeader" >
-      <div id="decoPopupQcmLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
-      <h6 id="decoPopupTitle">
-        Voulez-vous vous déconnecter ? 
-      </h6>
-    </header>
-    <div mat-dialog-content id="decoPopupContent">
-      <em class="fas fa-exclamation-triangle"></em>
-      <span>Voulez-vous vraiment vous déconnecter ?</span> 
-    </div>
-    <mat-dialog-actions id="decoPopupFooter" >
-      <button 
-        id="decoPopupReturnButton" 
-        aria-label="Retour" 
-        mat-button 
-        [mat-dialog-close]>
-        Retour
-      </button>
-      <button 
-        id="decoPopupYesButton" 
-        aria-label="Oui" 
-        mat-button [mat-dialog-close]
-        >
-        Oui
-      </button>
-    </mat-dialog-actions>
-  </ng-template>
-*/
+@media (max-width: 768px) {
+    #quickcm-navbar {
+        div.container-fluid {
+            .dropdown-menu {
+                left: -150px;
+            }
+        }
+    
+    }
+}
 

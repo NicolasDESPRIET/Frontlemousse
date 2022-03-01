@@ -1,10 +1,10 @@
 <nav id="quickcm-navbar" class="navbar navbar-expand-sm navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand" routerLink="/">{{titleNav}}</a>
+        <a class="navbar-brand" (click)="onGoHome()">{{titleNav}}</a>
         <!--
         <button class="btn btn-outline-light" type="button" routerLink="/">{{navBackHomeText}}</button>
         -->
-        <div class="btn-group dropstart" *ngIf="isUserLoggedIn == true">
+        <div class="btn-group dropstart" *ngIf="getSessionInfo().isConnected===true">
             <button 
                 class="a-initials-dropdown-btn" 
                 id="navbarDropdown" 
@@ -14,12 +14,12 @@
                 data-toggle="dropdown" 
                 aria-haspopup="true" 
                 aria-expanded="false">
-                {{initials}}
+                {{getInitials()}}
             </button>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" (click)="navigateToWorkspace()">Retour espace {{sessionName}}</a>
+                <a class="dropdown-item" (click)="navigateToWorkspace()">Retour espace {{getSessionInfo().userData.type}}</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" (click)="openDecoPopup(decoPopup)">Se déconnecter</a>
+                <a class="dropdown-item" (click)="openDecoPopup(decoPopup, decoPopupWhenInQcm)">Se déconnecter</a>
             </div>
         </div>
         
@@ -56,3 +56,18 @@
       </button>
     </mat-dialog-actions>
   </ng-template>
+
+
+  <!-- POPUP DECONNEXION QCM -->
+<ng-template #decoPopupWhenInQcm>
+  <header mat-dialog-title id="decoPopupQcmsHeader" >
+    <div id="decoPopupQcmLogo"><em class="fas fa-question"></em><h5>QCMPlus</h5></div>
+    <h6 id="decoPopupTitle">
+      Action impossible 
+    </h6>
+  </header>
+  <div mat-dialog-content id="decoPopupContent">
+    <em class="fas fa-exclamation-triangle"></em>
+    <span>Vous ne pouvez pas vous déconnecter quand vous effectuez un questionnaire.</span> 
+  </div>
+</ng-template>

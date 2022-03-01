@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { UserModel } from 'src/models/user';
+import { Subject } from 'rxjs';
 import { UsersService } from '../http/users.service';
 
 @Injectable({
@@ -9,19 +8,16 @@ import { UsersService } from '../http/users.service';
 })
 export class SessionManagementService {
 
+  sessionInfoSubject: Subject<any> = new Subject<any>();
 
-  constructor(private router: Router, private userService: UsersService) { }
+  constructor(private router: Router, private userService: UsersService) {}
 
   onConnect(name: string, typeName: string, password: string): boolean{
     let invalidAuth: boolean = true;
     this.userService.getOneUserBByName(name).subscribe(
       (data) => {
         let type = data.type.name;
-        console.log(type);
-        console.log(typeName);
         if(type == typeName){
-          console.log(password);
-          console.log(data.password);
           if(data.password == password){
             this._setUserSession(data);
             this._setIsConnected(true);
@@ -35,18 +31,16 @@ export class SessionManagementService {
                 invalidAuth = false;
                 break;
             }
-            console.log("hello");
-            console.log(invalidAuth);
           }
         }
       }
     );
-    console.log(invalidAuth);
+    this.sessionInfoSubject.next(this._getSessionInfo());
     return invalidAuth;
   }
 
   onLogout(){
-    this._setDeconnect()
+    this._setDeconnect();
   }
 
   // Setters
@@ -57,13 +51,12 @@ export class SessionManagementService {
   }
 
   _setIsConnected(value: boolean): void {
-    //this._isConnected.next(value);
     sessionStorage.setItem("isConnected", "true");  
   }
 
   _getSessionInfo(): Object {
     return { 
-      isConnected: sessionStorage.getItem("isConnected"), 
+      isConnected: sessionStorage.getItem("isConnected")==="true"?true:false, 
       userData: {
         id: sessionStorage.getItem("id"),
         name : sessionStorage.getItem("name"),
@@ -76,8 +69,7 @@ export class SessionManagementService {
     sessionStorage.setItem("id", "");
     sessionStorage.setItem("name", "");
     sessionStorage.setItem("type", "");
-    sessionStorage.setItem("isConnected", "false");
-    this.router.navigate(["/"]);    
+    sessionStorage.setItem("isConnected", "false");  
   }
 
 

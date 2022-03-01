@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { SessionManagementService } from 'src/shared/services/session-management.service';
 import { constantsSharedTexts, constantsSharedButtons } from 'src/shared/shared-text';
 
 @Component({
@@ -20,29 +21,47 @@ export class NavbarComponent implements OnInit {
    * Session variable
    * @Value can be 'intern' or 'admin'
    */
-  session = "intern";
   sessionName = "";
+  isUserLoggedIn = false;
 
-  userName: string = "Maurice HELLOWORLD";
-  isUserLoggedIn = true;
-  
-  nameInitial = this.userName.match(this.regexName)![0][0];
-  familyNameInitial = this.userName.match(this.regexFamilyname)![0][1];
-  initials: string =  this.nameInitial + this.familyNameInitial;
+  constructor(private router: Router, private dialog: MatDialog, private sessionWorker: SessionManagementService) {}
 
-  constructor(private router: Router, private dialog: MatDialog) {
-    // Empty
+  getSessionInfo() : any{
+    return this.sessionWorker._getSessionInfo();
+  }
+
+  getInitials(): any {
+    let session: any = this.sessionWorker._getSessionInfo();
+    let nameInitial = session.userData.name.match(this.regexName)![0][0];
+    let familyNameInitial = session.userData.name.match(this.regexFamilyname)![0][1];
+    return nameInitial + familyNameInitial;
   }
 
   ngOnInit(): void {
-    if(this.session === "intern") 
-    {this.sessionName = "stagiaire"}
+    console.log("session info");
+    console.log(this.getSessionInfo());
+  }
+
+
+  onGoHome(){
+    let session: any = this.sessionWorker._getSessionInfo();
+    if(session.userData.type === "stagiaire") 
+    {
+      this.router.navigate(["/intern"]);
+    }
+    else if(session.userData.type === "admin") 
+    {
+      this.router.navigate(["/admin"]);
+    }
     else
-    {this.sessionName = "administrateur"}
+    {
+      this.router.navigate(["/"]);
+    }
   }
 
   navigateToWorkspace(){
-    if(this.session === "intern") 
+    let session: any = this.sessionWorker._getSessionInfo();
+    if(session.userData.type === "stagiaire") 
     {
       this.router.navigate(["/intern"]);
     }
@@ -52,17 +71,22 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  openDecoPopup(templateRef: TemplateRef<any>){
-    this.dialog.open(templateRef, {
-      minWidth: '50vw'
-    });
+  openDecoPopup(templateRefDeco: TemplateRef<any>, templateRefDecoInQcm: TemplateRef<any>){
+    if(this.router.url.match("/qcm/play/")){
+      this.dialog.open(templateRefDecoInQcm, {
+        minWidth: '50vw'
+      });
+    }else{
+      this.dialog.open(templateRefDeco, {
+        minWidth: '50vw'
+      });
+    }
   }
 
   logout(){
-    this.router.navigate(["/auth"])
-    // When auth is done it will be needed to uncomment the code below
-    //this.isUserLoggedIn = false;
-
+      this.sessionWorker.onLogout();
+      this.isUserLoggedIn=false;
+      this.router.navigate(["/"]);
   }
 
 }
