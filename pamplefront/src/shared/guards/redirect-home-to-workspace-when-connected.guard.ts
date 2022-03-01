@@ -14,7 +14,7 @@ export class RedirectHomeToWorkspaceWhenConnectedGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
     let sessionInfo: any = this.sessionWorker._getSessionInfo();
-    if(sessionInfo.isConnected && sessionInfo.userData.type=="intern"){      
+    if(sessionInfo.isConnected && sessionInfo.userData.type=="stagiaire"){      
       this.router.navigate(["/intern"]);
     }
     if(sessionInfo.isConnected && sessionInfo.userData.type=="admin"){      
