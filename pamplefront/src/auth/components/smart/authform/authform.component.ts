@@ -51,18 +51,19 @@ export class AuthformComponent implements OnInit {
   }
 
   onSubmit(){
-    
-
     // Format username
     let name: string = this.loginForm.value.firstname.toString() + " " + this.loginForm.value.lastname.toString().toUpperCase();
+    // Get password from app
     let password: string = this.loginForm.value.password;
+    // Get type from app
     let type: UserTypeModel = new UserTypeModel('');
     if(this.workSpace === "Espace administrateur"){
       type.name = "admin";
     }else{
       type.name = "stagiaire";
     }
-    this.sessionWorker.testConnect(name, type.name, password);
+    // Check if connexion is possible 
+    this.invalidAuth = this.sessionWorker.onConnect(name, type.name, password);
   }
 
 }

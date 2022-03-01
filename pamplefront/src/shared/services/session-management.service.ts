@@ -12,36 +12,41 @@ export class SessionManagementService {
 
   constructor(private router: Router, private userService: UsersService) { }
 
-  testConnect(name: string, typeName: string, password: string){
+  onConnect(name: string, typeName: string, password: string): boolean{
+    let invalidAuth: boolean = true;
     this.userService.getOneUserBByName(name).subscribe(
       (data) => {
-        console.log(data);
         let type = data.type.name;
-        console.log(type)
+        console.log(type);
         console.log(typeName);
-        console.log(data.password);
-        console.log(password);
         if(type == typeName){
-          console.log("first cond")
+          console.log(password);
+          console.log(data.password);
           if(data.password == password){
             this._setUserSession(data);
             this._setIsConnected(true);
             switch(type){
               case "stagiaire":
                 this.router.navigate(["/intern"]);
+                invalidAuth = false;
                 break;
               case "admin":
                 this.router.navigate(["/admin"]);
+                invalidAuth = false;
                 break;
             }
-          }else{
-            console.log("not logged");
+            console.log("hello");
+            console.log(invalidAuth);
           }
-          
         }
       }
     );
-    
+    console.log(invalidAuth);
+    return invalidAuth;
+  }
+
+  onLogout(){
+    this._setDeconnect()
   }
 
   // Setters
