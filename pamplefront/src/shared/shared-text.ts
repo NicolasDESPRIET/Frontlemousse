@@ -48,5 +48,5 @@ export enum constantsInternWorkspace {
     SEE_RESULTS = 'Mes résultats',
     DO_QCM = 'Faire un questionnaire',
     SEE_QCMS_TEXT = "Voir mes QCMs",
-    DESCRIPTION_TEXT = "Lorem ipsum dolor sit amet. Ab quisquam necessitatibus est minima expedita cum expedita nemo in quibusdam assumenda eos atque animi sit facere atque ea error officia. Eos voluptates quia et aliquam nihil eos sunt voluptatum aut sint eius in aliquam iste sed corporis maxime! Est reprehenderit molestias in enim necessitatibus aut ipsam quae est eaque quam."
+    DESCRIPTION_TEXT = "QCMplus est une application qui vous permet de réaliser des questionnaires dans le cadre de votre stage. Les questionnaires sont rédigés par les maîtres d'apprentissage de la promotion et vous pouvez librement répondre à ceux qui vous intéressent, ou suivre les recommandations de votre hiérarchie."
 }
