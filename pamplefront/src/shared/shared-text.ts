@@ -26,9 +26,11 @@ AUTH PAGE
 export enum constantsAuthText {
     INTERN_WORKSPACE_FLAG = 'Espace stagiaire',
     ADMIN_WORKSPACE_FLAG = 'Espace administrateur',
-    USERNAME_PLACEHOLDER = 'Entrez votre adresse e-mail',
+    FIRSTNAME_PLACEHOLDER = 'Saisissez votre prénom',
+    LASTNAME_PLACEHOLDER = 'Saisissez votre nom de famille',
     PASSWORD_PLACEHOLDER = 'Saisissez votre mot de passe',
-    USERNAME_LABEL = 'Nom d\'utilisateur',
+    FIRSTNAME_LABEL = 'Prénom',
+    LASTNAME_LABEL = "Nom",
     PASSWORD_LABEL = 'Mot de passe'
 }
 
