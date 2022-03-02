@@ -9,47 +9,68 @@
         <div *ngIf="workSpace=='intern'" id="label-workspace" class="alert alert-danger">{{stagiaireWorkSpace}}</div>
         <div *ngIf="workSpace=='admin'" id="label-workspace" class="alert alert-danger">{{adminWorkSpace}}</div>
         <form 
-            #authForm="ngForm" 
             class="form-group" 
             (ngSubmit)="onSubmit()">
-            <label for="username">{{usernameLabel}}</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
+            
+            <div class="firstname-lastname">
+                
+                <div class="form-input-group">
+                    <label for="username">{{firstnameLabel}}</label>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        placeholder={{firstnamePlaceHolder}} 
+                        required
+                        [formControl]="loginForm.controls.firstname"
+                        name = "username"
+                    >
                 </div>
-                <input 
-                    type="text" 
-                    class="form-control" 
-                    id="username" 
-                    placeholder={{usernamePlaceHolder}} 
-                    aria-describedby="inputGroupPrepend3" 
-                    required
-                    name = "username"
-                >
+                
+                <div class="form-input-group">
+                    <label for="lastname">{{lastnameLabel}}</label>
+                    <input 
+                        onkeyup="this.value = this.value.toUpperCase();"
+                        type="text" 
+                        id="lastname" 
+                        placeholder={{lastnamePlaceHolder}}  
+                        required
+                        [formControl]="loginForm.controls.lastname"
+                        name = "lastname"
+                    >
+                </div>
             </div>
-            <label for="username">{{passwordLabel}}</label>
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            
+            <label for="password">{{passwordLabel}}</label>
+            <div class="form-input-group" id="password-input-group">
+                <div class="lock-icon">
+                    <span class="input-group-text"><em class="fas fa-lock"></em></span>
                 </div>
                 <input 
-                    type="text" 
+                    type="password" 
                     class="form-control" 
                     id="password" 
                     placeholder={{passwordPlaceHolder}} 
                     aria-describedby="inputGroupPrepend3" 
                     required
+                    [formControl]="loginForm.controls.password"
                     name = "password"
                 >
             </div>
             <div id="connexion-button">
-                <button *ngIf="workSpace=='intern'" id="connexionButton" type="submit" class="btn btn-primary" routerLink="/intern">
-                    {{connexionText}}
-                </button>
-                <button *ngIf="workSpace=='admin'" id="connexionButton" type="submit" class="btn btn-primary" routerLink="/admin/manage/interns">
+                <button 
+                    [disabled]="!loginForm.valid" 
+                    id="connexionButton" 
+                    type="submit" 
+                    class="btn btn-primary">
                     {{connexionText}}
                 </button>
             </div>
         </form>
+        <div *ngIf="invalidAuth" class="alert-danger alert-dismissible fade show" role="alert">
+            Identifiants ou mot de passe incorrects !
+            <button (click)="invalidAuth=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
     </div>
 </section>

@@ -5,6 +5,7 @@ import { constantsHomeButtons,
   constantsInternWorkspace,
  } from 'src/shared/shared-text';
  import { ViewportScroller } from '@angular/common';
+import { SessionManagementService } from 'src/shared/services/session-management.service';
 
 @Component({
   selector: 'app-internchoice',
@@ -19,14 +20,19 @@ export class InternchoiceComponent implements OnInit {
   seeQcmsText = constantsInternWorkspace.SEE_QCMS_TEXT;
   workSpace = constantsAuthText.INTERN_WORKSPACE_FLAG;
 
-  name = "Jean-Théodule";
+  regexName: RegExp = /[A-Za-z]+/i;
 
-  constructor() { }
+  constructor(private sessionWorker: SessionManagementService) { }
 
   ngOnInit(): void {
   }
   encode(url: string){
     return encodeURI(url);
+  }
+
+  getStagiaireName() :any {
+    let session: any = this.sessionWorker._getSessionInfo()
+    return session.userData.name.match(this.regexName)![0]
   }
 
 

@@ -43,4 +43,23 @@
 |  Back:documentation init| 1 |Sprint Backlog
 |  Front:service request| 3 |Sprint Backlog
 |  Front:Authentication| 3 |Sprint Backlog
-|  **Total**| 21 |Sprint Backlog
+|  **Total**| 21 |/
+
+
+## Sprint 4 : 01/31/22 - 02/06/22
+
+> Team velocity : 12
+
+### User Stories
+
+
+| Name   | Complexity  | Status
+|---|---|---|
+|  Back:Authentication | 3 |In progress|
+|  Back:Security - configuration| 2 |In progress|
+|  Back:documentation init| 1 |Sprint Backlog
+|  Front:service request| 3 |Sprint Backlog
+|  Front:Authentication| 3 |Sprint Backlog
+| Front: Fetch data in resolvers | 5 | Sprint Backlog
+| Front: Admin Workspace Screens | 6 | Sprint Backlog
+|  **Total**| 21 |/

@@ -71,14 +71,15 @@
                 color: $window-color;
                 border-radius: 50%;
                 font-weight: bold;
-                height: 2rem;
-                width: 2rem;
-                text-align: center;
-                transform: rotate(25deg);
+                //height: 2rem;
+                //width: 2rem;
+                //text-align: center;
+                //transform: rotate(25deg);
+                display: none;
             }
             #doqcmQuestionName{
-                margin-left: 20px;
-                font-size: 1.5rem;
+                //margin-left: 20px;
+                font-size: .5em;
             }
             #doqcmResultsTitle{
                 text-align: center;
@@ -187,7 +188,7 @@
         #doqcmQuestionNameBox{
             #doqcmQuestionMarkAndNameBox{
                 #doqcmQuestionName{
-                    margin-left: 20px;
+                    //margin-left: 20px;
                     font-size: 1.05rem;
                 }
             }
@@ -205,7 +206,7 @@
     }
 
     #doqcmQuestionName{
-        margin-left: 20px;
+        //margin-left: 20px;
         font-size: 1.2rem !important;
     }
 }

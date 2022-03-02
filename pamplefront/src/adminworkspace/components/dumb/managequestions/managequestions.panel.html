@@ -95,9 +95,6 @@
       [formGroup]="manageQuestionsForm" 
       class="manage-question-form" 
       (ngSubmit)="onSubmitQuestionForm()">
-
-      
-
       <label class="label-enonce" for="enonce">
         <span class="span-manage-question-form-field">
           <em class="form-field-icon fa-solid fa-file-lines"></em>
@@ -112,44 +109,47 @@
           placeholder="Saisissez un énoncé" 
           title="Saisissez un énoncé">
       </label>
-      <ng-container formArrayName="responses">
-        <ng-container *ngFor="let response of responses.controls">
-          <span class="span-field-label">Réponses</span>
-          <div class="form-array-container">
-            <div 
-              class="responses-controls-container" 
-              *ngFor="let response of responses.controls; let i=index">
-                <label  for="response-{{i}}">
-                  <input 
-                    class="input-response-text"
-                    [formControlName]="i" 
-                    type="text" 
-                    name="response-{{i}}" 
-                    id="response-{{i}}" 
-                    aria-label="Saisissez une réponse possible" 
-                    title="Saisissez une réponse possible" 
-                    placeholder="Saisissez une réponse possible">
-                </label>
-                <label  for="response-value-{{i}}">
-                  <input 
-                    [formControlName]="i" 
-                    type="number"
-                    min="0"
-                    max="1" 
-                    name="response-value{{i}}" 
-                    id="response-value-{{i}}" 
-                    aria-label="Saisissez 1 ou 0" 
-                    title="Saisissez 1 ou 0" >
-                </label>
-            </div>
-            
-          </div>
-        </ng-container>
-      </ng-container>
-      <button type="button" (click)="addResponse('', 0)">Add</button>
-      
-      
-      
+      <span class="span-field-label">Réponses</span>
+      <div class="response_div">
+        <label for="response_1">
+          <input formControlName="response_1" type="text" name="response_1" id="response_1" aria-label="Saisissez une réponse" title="Saisissez une réponse" placeholder="Saisissez une réponse">
+        </label>
+        <label class="label_answer" for="answer_1">
+          <input formControlName="answer_1" name="answer_1" id="answer_1" type="number" min="0" max="1" name="response_1" id="response_1" aria-label="Saisissez une valeur" title="Saisissez une valeur">
+        </label>
+      </div>
+      <div class="response_div">
+        <label for="response_2">
+          <input formControlName="response_2" type="text" name="response_2" id="response_2" aria-label="Saisissez une réponse" title="Saisissez une réponse" placeholder="Saisissez une réponse">
+        </label>
+        <label class="label_answer" for="answer_2">
+          <input formControlName="answer_2" name="answer_2" id="answer_2" type="number" min="0" max="1" name="response_2" id="response_2" aria-label="Saisissez une valeur" title="Saisissez une valeur">
+        </label>
+      </div>
+      <div class="response_div">
+        <label for="response_3">
+          <input formControlName="response_3" type="text" name="response_3" id="response_3" aria-label="Saisissez une réponse" title="Saisissez une réponse" placeholder="Saisissez une réponse">
+        </label>
+        <label class="label_answer" for="answer_1">
+          <input formControlName="answer_3" name="answer_3" id="answer_3" type="number" min="0" max="1" name="response_3" id="response_3" aria-label="Saisissez une valeur" title="Saisissez une valeur">
+        </label>
+      </div>
+      <div class="response_div">
+        <label for="response_4">
+          <input formControlName="response_4" type="text" name="response_4" id="response_4" aria-label="Saisissez une réponse" title="Saisissez une réponse" placeholder="Saisissez une réponse">
+        </label>
+        <label class="label_answer" for="answer_4">
+          <input formControlName="answer_4" name="answer_4" id="answer_4" type="number" min="0" max="1" name="response_4" id="response_4" aria-label="Saisissez une valeur" title="Saisissez une valeur">
+        </label>
+      </div>
+      <div class="response_div">
+        <label for="response_5">
+          <input formControlName="response_5" type="text" name="response_5" id="response_5" aria-label="Saisissez une réponse" title="Saisissez une réponse" placeholder="Saisissez une réponse">
+        </label>
+        <label class="label_answer" for="answer_5">
+          <input formControlName="answer_5" name="answer_5" id="answer_5" type="number" min="0" max="1" name="response_5" id="response_5" aria-label="Saisissez une valeur" title="Saisissez une valeur">
+        </label>
+      </div>
       
       <mat-dialog-actions>
         <button aria-label="Valider" title="Valider" class="btn btn-primary" type="submit">Valider</button>

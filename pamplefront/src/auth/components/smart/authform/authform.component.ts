@@ -1,7 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { constantsAuthText, constantsSharedTexts, constantsAuthButtons } from '../../../../shared/shared-text';
 import { UserModel } from 'src/models/user.model';
 import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {UserTypeModel} from "../../../../models/type.model";
+import { userList } from 'assets/fakedata';
+import { Router } from '@angular/router';
+import { SessionManagementService } from 'src/shared/services/session-management.service';
 
 
 @Component({
@@ -11,32 +16,63 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AuthformComponent implements OnInit {
 
+  // Retrieve workspace name from authpage component
+  // Values can be "Espace administrateur" or "Espace stagiaire"
   @Input() workSpace: string = "";
 
+  // Text
   title = constantsSharedTexts.BRAND_NAME;
   subtitle = constantsSharedTexts.BRAND_SLOGAN;
-  usernameLabel = constantsAuthText.USERNAME_LABEL;
+  firstnameLabel = constantsAuthText.FIRSTNAME_LABEL;
+  lastnameLabel = constantsAuthText.LASTNAME_LABEL;
   passwordLabel = constantsAuthText.PASSWORD_LABEL;
-  usernamePlaceHolder = constantsAuthText.USERNAME_PLACEHOLDER;
+  firstnamePlaceHolder = constantsAuthText.FIRSTNAME_PLACEHOLDER;
+  lastnamePlaceHolder = constantsAuthText.LASTNAME_PLACEHOLDER;
   passwordPlaceHolder = constantsAuthText.PASSWORD_PLACEHOLDER;
   connexionText = constantsAuthButtons.AUTH_CONNEXION_BUTTON_TEXT;
   stagiaireWorkSpace = constantsAuthText.INTERN_WORKSPACE_FLAG;
   adminWorkSpace = constantsAuthText.ADMIN_WORKSPACE_FLAG;
 
   submitted = false;
-  // When working on auth it will be needed to use a FormGroup instead of ngModel
-  //model = new UserModel(id: undefined, name: "", societe: "", ); 
 
-  constructor(private route: ActivatedRoute) { 
-    // For now it is empty 
+  invalidAuth = false;
+  
+  loginForm = new FormGroup({
+    firstname: new FormControl('',[Validators.required]),
+    lastname: new FormControl('',[Validators.required]),
+    password: new FormControl('',[Validators.required]),
+  });
+
+
+  @Output() connectedUserEvent = new EventEmitter();
+
+  constructor(private route: ActivatedRoute, private router: Router, private sessionWorker: SessionManagementService) { 
+
   }
-
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       this.workSpace = params.workspace;
     })
   }
+  
+  
 
-  onSubmit(){this.submitted = true}
+  onSubmit(){
+    // Format username
+    let name: string = this.loginForm.value.firstname.toString() + " " + this.loginForm.value.lastname.toString().toUpperCase();
+    // Get password from app
+    let password: string = this.loginForm.value.password;
+    // Get type from app
+    let type: UserTypeModel = new UserTypeModel('', 0);
+    if(this.workSpace === "admin"){
+      type.name = "admin";
+    }else{
+      type.name = "stagiaire";
+    }
+    console.log(this.workSpace);
+    console.log(type.name);
+    // Check if connexion is possible 
+    this.invalidAuth = this.sessionWorker.onConnect(name, type.name, password);
+  }
 
 }

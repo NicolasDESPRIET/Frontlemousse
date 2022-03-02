@@ -1,17 +1,15 @@
 import { Type } from "src/shared/interfaces/types";
-import { User } from "src/shared/interfaces/users";
+import { User, UserFromClientDto } from "src/shared/interfaces/users";
 
-export class UserModel implements User {
+export class UserModel implements UserFromClientDto {
 
-    id: number;
-    type: Type;
+    typeId: number;
     name: string;
     password: string;
     societe: string;
 
-    constructor(id: number, type: Type, name: string, password: string, societe: string){
-        this.id = id;
-        this.type = type;
+    constructor(name: string, password: string, typeId: number, societe: string){
+        this.typeId = typeId;
         this.name = name;
         this.password = password;
         this.societe = societe;

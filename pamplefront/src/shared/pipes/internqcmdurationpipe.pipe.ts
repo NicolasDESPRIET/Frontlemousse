@@ -11,7 +11,7 @@ export class InternqcmdurationpipePipe implements PipeTransform {
 
     let minutes: number = Math.trunc(duration/60);
     let hours: number = 0;
-    let seconds: number = duration - (minutes*60);
+    let seconds: number = Math.trunc(duration - (minutes*60));
     let returnedTime: string = "";
     
     if (minutes >= 60) {

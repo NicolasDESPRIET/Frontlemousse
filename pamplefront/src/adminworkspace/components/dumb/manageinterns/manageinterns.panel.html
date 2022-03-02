@@ -119,6 +119,12 @@
         </span>
         <input formControlName="societe" type="text" name="societe" id="societe" aria-label="Saisissez un nom d'entreprise" title="Saisissez un nom d'entreprise" placeholder="Saisissez un nom d'entreprise">
       </label>
+      <div *ngIf="invalidAdd" class="alert-danger alert-dismissible fade show" role="alert">
+        Cet utilisateur existe déjà.
+        <button (click)="invalidAdd=false" type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
       <mat-dialog-actions>
         <button aria-label="Valider" title="Valider" class="btn btn-primary" type="submit">Valider</button>
       </mat-dialog-actions>
@@ -147,6 +153,7 @@
         Retour
       </button>
       <button 
+        (click)="onDeleteIntern(selectedCardForDelete)"
         id="adminInternDelYesButton" 
         aria-label="fermer" 
         mat-button [mat-dialog-close]

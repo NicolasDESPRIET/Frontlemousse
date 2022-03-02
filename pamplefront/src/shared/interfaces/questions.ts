@@ -42,6 +42,6 @@ export interface QuestionNoResponseDto {
 export interface QuestionFromClientDto {
   id?: number;
   enonce: string
-  responses: object
+  responses: Object
 }
 

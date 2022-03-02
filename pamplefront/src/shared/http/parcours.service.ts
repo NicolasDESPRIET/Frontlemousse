@@ -10,7 +10,7 @@ import {
 /**
  * backurl for types entities, need to be secured.
  */
-const backUrl = 'http://localhost:8091/parcour/'
+const backUrl = 'http://localhost:8091/parcours/'
 
 @Injectable({
   providedIn: 'root'

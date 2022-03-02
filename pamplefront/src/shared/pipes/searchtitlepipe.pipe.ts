@@ -9,7 +9,7 @@ export class SearchtitlepipePipe implements PipeTransform {
   transform(items: any[], filter: string): any {
     if (!items || !filter){return items}
     return items.filter(item => 
-      item.nameg!=undefined 
+      item.name!=undefined 
       ? item.name.toLowerCase().indexOf(filter.toLowerCase()) !==-1 
       : item.enonce.toLowerCase().indexOf(filter.toLowerCase()) !==-1
     )

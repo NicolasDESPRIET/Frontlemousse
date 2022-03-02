@@ -5,6 +5,9 @@ import { KeyValue } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ICanComponentDeactivate } from 'src/shared/guards/quit-qcm-before-finish.guard';
 import { Observable } from 'rxjs';
+import { ParcoursService } from 'src/shared/http/parcours.service';
+import { ParcoursFromClientDto } from 'src/shared/interfaces/parcours';
+import { SessionManagementService } from 'src/shared/services/session-management.service';
 
 @Component({
   selector: 'app-doqcm',
@@ -45,7 +48,8 @@ export class DoqcmComponent implements OnInit {
   private subscriber: any;
   // used to know if user wants to leave when quitting QCM dialog is open
   isUserQuitting: boolean = false;
-
+  // blank answer array
+  blankAnswers: any[] = [];
 
 
   /**
@@ -67,7 +71,12 @@ export class DoqcmComponent implements OnInit {
   /**
    * Class Methods
    */
-  constructor(private route: ActivatedRoute, private dialog: MatDialog, private progressBar: MatProgressBarModule) { }
+  constructor(
+    private sessionWorker: SessionManagementService,
+    private parcoursService: ParcoursService, 
+    private route: ActivatedRoute, 
+    private dialog: MatDialog, 
+    private progressBar: MatProgressBarModule) { }
 
   ngOnInit(): void {
     // Select the right qcm 
@@ -75,7 +84,8 @@ export class DoqcmComponent implements OnInit {
     this.subscriber = this.route.params.subscribe(params => {
       this.routeId = +params['id'];
     })
-    this.qcmData = this.route.snapshot.data.qcmList.find((element:any) => element.id == this.routeId);
+    this.qcmData = this.route.snapshot.data.qcmList[1].find((element:any) => element.id == this.routeId);
+    console.log("test\n", this.qcmData);
     // Init the question list with a shuffle 
     this.questionList = this.qcmData.qcmQuestion.sort(this.shuffleArray);
     console.log("RESPONSES");
@@ -143,6 +153,24 @@ export class DoqcmComponent implements OnInit {
     // Send info to parent component when test is finished
     this.isQcmFinished=true;
     console.log(this.resultsObject);
+
+    // Get user id
+    let sessionInfo:any = this.sessionWorker._getSessionInfo();
+
+    // record results in parcours in backend
+    let parcoursData: ParcoursFromClientDto = {
+      time: this.resultsObject["duration"],
+      note: this.resultsObject["mark"],
+      qcmId: this.routeId,
+      nbSucces: this.resultsObject["right"],
+      nbBlank: this.blankAnswers,
+      nbFailed: this.resultsObject["wrong"],
+      stagiaireId: sessionInfo.userData.id
+    }
+
+    console.log("parcours object\n", parcoursData);
+
+    this.parcoursService.createParcour(parcoursData).toPromise().then(result => {console.log(result)});
     
   }
 
@@ -233,6 +261,8 @@ export class DoqcmComponent implements OnInit {
   // Used to access the next question from the popup when user sends a blank answer. 
   onClickNextQuestion(){
     this.scoreObject[this.questionList[this.currentQuestion-1].id] = 0;
+    // populate blank answers array
+    this.blankAnswers.push(this.questionList[this.currentQuestion-1].id);
     this.goToNextQuestion();
   }
 

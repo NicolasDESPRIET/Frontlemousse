@@ -1,5 +1,7 @@
 import { Qcm } from "src/shared/interfaces/qcms"
 import { Question } from "src/shared/interfaces/questions"
+import { UserModel } from "src/models/user"
+import { Type } from "src/shared/interfaces/types"
 import { User } from "src/shared/interfaces/users"
 
 export const data: any = {
@@ -467,3 +469,12 @@ export const questionList: Question[] = [
         }
     }
 ]
+export const intern: Type = {
+    id: 1,
+    name: "intern"
+}
+
+export const admin: Type = {
+    id: 2,
+    name: "admin"
+}
